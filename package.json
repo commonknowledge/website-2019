@@ -1,16 +1,25 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "common-knowledge-website",
+  "description": "Common Knowledge website",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Jan Baykara <jan@commonknowledge.coop>",
   "dependencies": {
-    "gatsby": "^2.0.0",
+    "@types/react-helmet": "^5.0.7",
+    "@types/styled-components": "^4.0.1",
+    "@types/typography": "^0.16.0",
+    "gatsby": "^2.0.31",
     "gatsby-plugin-manifest": "^2.0.2",
     "gatsby-plugin-offline": "^2.0.5",
     "gatsby-plugin-react-helmet": "^3.0.0",
+    "gatsby-plugin-typescript": "^2.0.0",
+    "gatsby-plugin-typography": "^2.2.0",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "react-typography": "^0.16.13",
+    "rebass": "^2.3.4",
+    "styled-components": "^4.0.2",
+    "typography": "^0.16.17"
   },
   "keywords": [
     "gatsby"
