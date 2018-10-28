@@ -1,6 +1,6 @@
 import React from 'react'
 import { Heading } from 'rebass'
-import DefaultLayout from '../components/DefaultLayout'
+import DefaultLayout from '../components/defaultLayout'
 
 const ErrorPage: React.SFC<{}> = () => (
   <DefaultLayout>
