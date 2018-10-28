@@ -40,10 +40,10 @@ const TextBlock: React.SFC<TextBlockProps> = ({ icon, text, alternate }) => {
   return (
     <Flex
       mb={[2, 3, 5]}
-      flexDirection={['column', 'column', alternate ? 'row-reverse' : 'row']}
+      flexDirection={['column', 'column', alternate ? 'row' : 'row-reverse']}
     >
-      {_text}
       {_image}
+      {_text}
     </Flex>
   )
 }
@@ -89,8 +89,8 @@ const IndexPage: React.SFC = () => (
       </Wrapper>
     </Box>
     <Wrapper>
-      <Container maxWidth={textWidth} mt={[3, 5]} mb={[3, 5, 7]}>
-        <Heading mb={[1, 2]} fontSize={4}>
+      <Container maxWidth={textWidth} mt={[4, 5]} mb={[3, 5, 7]}>
+        <Heading mb={[3, 4, 5]} fontSize={[3, 3, 4]}>
           What we're about
         </Heading>
         <TextBlock
@@ -105,8 +105,8 @@ const IndexPage: React.SFC = () => (
                 realised through grassroots political activity at scale.
               </p>
               <p>
-                In hindsight, it seems naive to think that such a movement would
-                naturally arise out of the existing institutions of the left.
+                In hindsight, it was naïve to believe that such a movement would
+                naturally arise out of the traditional institutions of the left.
               </p>
             </>
           }
@@ -117,15 +117,24 @@ const IndexPage: React.SFC = () => (
           text={
             <>
               <p>
-                But modern technology has demonstrated a route to the kind of
-                popular engagement we all seek, albeit a route that has not been
-                explored adequately.
+                Modern technology has shown us a route to the kind of popular
+                political engagement we'd need to make radical change.
               </p>
               <p>
                 From #Occupy to the Arab Spring to the Corbyn ascendancy,
-                popular social media platforms and tools critical to challenging
-                the ruling class were built for and by private companies, for
-                private profit. Their political utility has been coincidental.
+                popular social media platforms and technology was critical to
+                organising challenges to ruling class power.
+              </p>
+              <p>
+                But these tools were built by and for private profit; their
+                political utility has been coincidental. We've only scraped the
+                surface of what could be done by and for those who fight to
+                change society.
+              </p>
+              <p>
+                And the rapid rise of the hyper-exploitative gig economy, global
+                logistics and big data companies show us what happens when a
+                technology like the internet is monopolised by business.
               </p>
             </>
           }
@@ -135,15 +144,14 @@ const IndexPage: React.SFC = () => (
           text={
             <>
               <p>
-                We believe that, through the application of technical and design
-                expertise, guided by political principles and solidarity, we can
-                together develop a technical infrastructure that is
-                strategically beneficial to the movement.
+                We believe the skills, methodologies and technologies of the
+                tech industry can be re-appropriated for the intersectional
+                socialist movement.
               </p>
               <p>
-                Right now, we're developing a toolkit to link up established
-                organisers, activists and those newly politicised, and lower the
-                barriers to wide-scale political activity.
+                Grounded in the principles of collaborative research, design,
+                implementation, ownership and control, a democratic technical
+                infrastructure that is strategically useful can be built out.
               </p>
             </>
           }
@@ -153,6 +161,11 @@ const IndexPage: React.SFC = () => (
           icon={<FaEye />}
           text={
             <>
+              <p>
+                Right now, we're developing a toolkit to link up established
+                organisers, activists and those newly politicised, and lower the
+                barriers to wide-scale political activity.
+              </p>
               <p>
                 But we have broader ambitions to develop a working concept of
                 how pervasive technology can be used by the many, to their
