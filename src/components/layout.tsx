@@ -24,13 +24,7 @@ const Layout: React.SFC = ({ children }) => (
       <html lang="en" />
     </Helmet>
     <ThemeProvider theme={theme}>
-      <div
-        style={{
-          paddingTop: 0,
-        }}
-      >
-        {children}
-      </div>
+      <div>{children}</div>
     </ThemeProvider>
   </>
 )
