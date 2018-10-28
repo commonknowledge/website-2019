@@ -48,22 +48,29 @@ const TextBlock: React.SFC<TextBlockProps> = ({ icon, text, alternate }) => {
 
 const IndexPage: React.SFC = () => (
   <Layout>
-    <Wrapper>
-      <Container pt={[4, 5, 6]} pb={[4, 4, 5]} maxWidth={[500, 800]}>
+    <Wrapper pt={[4, 5, 6]} pb={[4, 4, 5]}>
+      <Container pb={[3, 3, 4]} maxWidth={[500, 800]}>
         <Heading fontSize={[3, 4, 6]} textAlign="center">
           <InternalLink to="/" css={{ 'text-transform': 'uppercase' }}>
             Common Knowledge
           </InternalLink>
         </Heading>
       </Container>
-      <Container pb={[4, 4, 5]} maxWidth={[500, 800]}>
+      <Text
+        pb={[3, 3, 4]}
+        fontSize={[2, 2, 3]}
+        textAlign="center"
+        css={{ opacity: 0.5 }}
+      >
+        (A tech coop)
+      </Text>
+      <Container maxWidth={[500, 800]}>
         <Text fontSize={[3, 3, 4]} textAlign="center">
-          A tech cooperative dedicated to building tools + infrastructure for
-          the grassroots left
+          Designing tools + infrastructure to build out the grassroots left
         </Text>
       </Container>
     </Wrapper>
-    <Box py={[4, 5, 6]} bg="primary" color="white">
+    {/* <Box py={[4, 5, 6]} bg="black" color="white">
       <Wrapper>
         <Container maxWidth={textWidth}>
           <Flex
@@ -85,13 +92,13 @@ const IndexPage: React.SFC = () => (
           </Flex>
         </Container>
       </Wrapper>
-    </Box>
+    </Box> */}
     <Wrapper>
-      <Container maxWidth={textWidth} mt={[4, 5]} mb={[3, 5, 7]}>
-        <Heading mb={[3, 4, 5]} fontSize={[3, 3, 4]}>
+      <Container maxWidth={textWidth} mt={[4, 5]} mb={[3, 5, 6]}>
+        {/* <Heading mb={[3, 4, 5]} fontSize={[3, 3, 4]}>
           What we're about
-        </Heading>
-        <TextBlock
+        </Heading> */}
+        {/* <TextBlock
           text={
             <>
               <p>
@@ -153,7 +160,7 @@ const IndexPage: React.SFC = () => (
               </p>
             </>
           }
-        />
+        /> */}
         <TextBlock
           alternate
           icon={<FaEye />}

@@ -1,16 +1,24 @@
-const red = '#db0047ff'
-const lightgray = '#f6f6ff'
 import { util } from 'styled-system'
+
+const red = '#db0047ff'
+const green = '#00e8adff'
+const background = '#FBFBFB'
+const lightgray = '#f6f6ff'
+const primary = green
 
 const theme = {
   breakpoints: util.defaultBreakpoints,
   fontSizes: [12, 14, 16, 24, 32, 48, 64],
   colors: {
+    background,
+    primary,
+    green,
     red,
     lightgray,
   },
-  link: {
-    color: red,
+  Link: {
+    color: primary,
+    'color:active': primary,
   },
   buttons: {
     primary: {

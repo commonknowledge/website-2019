@@ -1,8 +1,14 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { ThemeProvider } from 'styled-components'
-
+import { createGlobalStyle } from 'styled-components'
 import theme from './theme'
+
+const GlobalStyle = createGlobalStyle`
+  html {
+    background: ${props => props.theme.colors.background};
+  }
+`
 
 const Layout: React.SFC = ({ children }) => (
   <>
@@ -24,7 +30,10 @@ const Layout: React.SFC = ({ children }) => (
       <html lang="en" />
     </Helmet>
     <ThemeProvider theme={theme}>
-      <div>{children}</div>
+      <>
+        <GlobalStyle />
+        <div>{children}</div>
+      </>
     </ThemeProvider>
   </>
 )
