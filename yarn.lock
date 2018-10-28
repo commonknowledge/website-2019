@@ -828,6 +828,10 @@
     "@types/node" "*"
     "@types/react" "*"
 
+"@types/styled-system@^3.0.5":
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/@types/styled-system/-/styled-system-3.0.5.tgz#527ba5242697b00ad87efa249412cc0e873d835c"
+
 "@types/tmp@^0.0.32":
   version "0.0.32"
   resolved "https://registry.yarnpkg.com/@types/tmp/-/tmp-0.0.32.tgz#0d3cb31022f8427ea58c008af32b80da126ca4e3"

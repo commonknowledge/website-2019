@@ -6,6 +6,7 @@
   "dependencies": {
     "@types/react-helmet": "^5.0.7",
     "@types/styled-components": "^4.0.1",
+    "@types/styled-system": "^3.0.5",
     "@types/typography": "^0.16.0",
     "gatsby": "^2.0.31",
     "gatsby-plugin-manifest": "^2.0.2",

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Heading, Flex, Text, Box } from 'rebass'
+import { Heading } from 'rebass'
 import DefaultLayout from '../components/DefaultLayout'
 
 const ErrorPage: React.SFC<{}> = () => (

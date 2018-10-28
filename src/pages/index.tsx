@@ -1,21 +1,31 @@
 import React from 'react'
-import { Link, Box, Flex, Text } from 'rebass'
-import Layout from '../components/Layout'
+import { Link, Box, Container, Flex, Text } from 'rebass'
+import Layout from '../components/layout'
 import { Heading } from 'rebass'
+import styled from 'styled-components'
+import * as sys from 'styled-system'
+
+const Columns = styled(Text)`
+  @media (min-width: ${props => {
+      console.log(props)
+      return props.theme.breakpoints[2]
+    }}) {
+    column-count: 2;
+    column-gap: 30px;
+  }
+`
 
 const IndexPage: React.SFC = () => (
   <Layout>
-    <Box style={{ 'max-width': 500 }} mb={[3, 5, 7]} mx="auto">
-      <Box pt={[3, 5, 6]} pb={[3, 4, 5]}>
-        <Flex>
-          <Heading fontSize={[3, 4, 5]}>
-            <Link to="/" style={{ 'text-transform': 'uppercase' }}>
-              Common Knowledge
-            </Link>
-          </Heading>
-        </Flex>
-      </Box>
-      <Text fontSize={[3, 3, 4]} mb={4}>
+    <Container pt={[3, 5, 6]} pb={[3, 4, 5]} maxWidth={[500, 800]}>
+      <Heading fontSize={[3, 4, 6]} textAlign="center">
+        <Link to="/" style={{ textTransform: 'uppercase' }}>
+          Common Knowledge
+        </Link>
+      </Heading>
+    </Container>
+    <Container pb={[3, 4, 5]} maxWidth={[500, 800]}>
+      <Text fontSize={[3, 3, 4]} textAlign="center">
         A tech{' '}
         <Link
           href="https://www.ica.coop/en/cooperatives/what-is-a-cooperative"
@@ -25,7 +35,9 @@ const IndexPage: React.SFC = () => (
         </Link>{' '}
         dedicated to building tools and infrastructure for the grassroots left
       </Text>
-      <Text fontSize={2} textAlign="justify">
+    </Container>
+    <Container maxWidth={[500, 400, 1000]} mb={[3, 5, 7]}>
+      <Columns fontSize={2} textAlign="justify">
         <p>
           Despite the revival of the popular Left in formal politics, the
           prospect of a supportive 'mass movement' has yet to be realised
@@ -74,8 +86,8 @@ const IndexPage: React.SFC = () => (
             hello @ commonknowledge.coop
           </a>
         </p>
-      </Text>
-    </Box>
+      </Columns>
+    </Container>
   </Layout>
 )
 
