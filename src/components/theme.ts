@@ -1,7 +1,7 @@
 import { util } from 'styled-system'
 
 const red = '#db0047ff'
-const green = '#00e8adff'
+const green = '#00dca4ff'
 const background = '#FBFBFB'
 const lightgray = '#f6f6ff'
 const primary = green
