@@ -1,21 +1,43 @@
 import * as React from 'react'
-import G, { Link as GatsbyLink } from 'gatsby'
-import { Link as LinkStyle } from 'rebass'
+import { Link as _GatsbyLink } from 'gatsby'
+import { Text } from 'rebass'
 import styled from 'styled-components'
-import theme from './theme'
+import { style } from 'styled-system'
 
-const RebassLink = styled(LinkStyle)`
-  color: ${theme.colors.red};
-`
+const textDecoration = style({
+  prop: 'textDecoration',
+  cssProperty: 'textDecoration',
+})
 
-type IProps = { to: string; [key: string]: any }
+const StyledLink = (component: any) => {
+  const c = styled(component)`
+    color: ${props => props.theme.colors.primary};
+    ${textDecoration};
+  `
 
-const Link: React.SFC<IProps> = ({ children, to, ...styleProps }) => (
-  <GatsbyLink to={to} style={{ textDecoration: 'none' }}>
-    <RebassLink {...styleProps} css={{ textDecoration: 'none' }}>
-      {children}
-    </RebassLink>
-  </GatsbyLink>
+  c.propTypes = {
+    ...textDecoration.propTypes,
+  }
+
+  c.defaultProps = {
+    textDecoration: 'none',
+  }
+
+  return c
+}
+
+const InternalLink = StyledLink(_GatsbyLink)
+const Link = StyledLink('a')
+const ExternalLink: React.SFC<any> = ({
+  children,
+  href,
+  target,
+  title,
+  ...props
+}) => (
+  <Text {...props} css={{ display: 'inline' }}>
+    <Link {...{ href, target, title }}>{children}</Link>
+  </Text>
 )
 
-export default Link
+export { InternalLink, ExternalLink }

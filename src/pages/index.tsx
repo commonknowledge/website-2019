@@ -1,8 +1,8 @@
 import React from 'react'
-import { Link, Box, Container, Flex, Text } from 'rebass'
+import { Heading, Box, Container, Flex, Text } from 'rebass'
+import { InternalLink, ExternalLink } from '../components/link'
 import Wrapper from '../components/wrapper'
 import Layout from '../components/layout'
-import { Heading } from 'rebass'
 
 import { FaWrench, FaEye, FaTwitter } from 'react-icons/fa'
 
@@ -15,10 +15,6 @@ interface TextBlockProps {
 }
 
 const TextBlock: React.SFC<TextBlockProps> = ({ icon, text, alternate }) => {
-  const padding = {
-    [alternate ? 'pr' : 'pl']: [0, 0, 5],
-  }
-
   const _text = (
     <Container width={[1, 1, 0.6]} maxWidth={500} px={0} mx={0} fontSize={2}>
       <Text textAlign="justify">{text}</Text>
@@ -30,7 +26,9 @@ const TextBlock: React.SFC<TextBlockProps> = ({ icon, text, alternate }) => {
       <Text
         fontSize={[3, 4]}
         textAlign={alternate && ['left', 'left', 'right']}
-        {...padding}
+        {...{
+          [alternate ? 'pr' : 'pl']: [0, 0, 5],
+        }}
       >
         {icon}
       </Text>
@@ -53,9 +51,9 @@ const IndexPage: React.SFC = () => (
     <Wrapper>
       <Container pt={[4, 5, 6]} pb={[4, 4, 5]} maxWidth={[500, 800]}>
         <Heading fontSize={[3, 4, 6]} textAlign="center">
-          <Link to="/" style={{ textTransform: 'uppercase' }}>
+          <InternalLink to="/" css={{ 'text-transform': 'uppercase' }}>
             Common Knowledge
-          </Link>
+          </InternalLink>
         </Heading>
       </Container>
       <Container pb={[4, 4, 5]} maxWidth={[500, 800]}>
@@ -65,7 +63,7 @@ const IndexPage: React.SFC = () => (
         </Text>
       </Container>
     </Wrapper>
-    <Box py={[4, 5, 6]} bg="blue" color="white">
+    <Box py={[4, 5, 6]} bg="primary" color="white">
       <Wrapper>
         <Container maxWidth={textWidth}>
           <Flex
@@ -179,9 +177,9 @@ const IndexPage: React.SFC = () => (
               <p>We'll report back soon.</p>
               <p>
                 Say{' '}
-                <a href="mailto:hello@commonknowledge.coop">
+                <ExternalLink href="mailto:hello@commonknowledge.coop">
                   hello @ commonknowledge.coop
-                </a>
+                </ExternalLink>
               </p>
             </>
           }

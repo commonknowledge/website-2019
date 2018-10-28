@@ -1,15 +1,10 @@
 import * as React from 'react'
+import { Container } from 'rebass'
 
 const Wrapper: React.SFC = ({ children }) => (
-  <div
-    style={{
-      margin: '0 auto',
-      maxWidth: 960,
-      padding: '0 1.0875rem',
-    }}
-  >
+  <Container maxWidth={960} px={1}>
     {children}
-  </div>
+  </Container>
 )
 
 export default Wrapper
