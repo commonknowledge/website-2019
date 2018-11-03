@@ -66,7 +66,7 @@ const IndexPage: React.SFC = () => (
       </Text>
       <Container maxWidth={[500, 800]}>
         <Text fontSize={[3, 3, 4]} textAlign="center">
-          Designing tools + infrastructure to build out the grassroots left
+          Designing tools + infrastructure to grow the grassroots left
         </Text>
       </Container>
     </Wrapper>
