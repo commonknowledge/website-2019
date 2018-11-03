@@ -23,6 +23,7 @@ module.exports = {
         pathToConfigModule: `src/styles/typography`,
       },
     },
+    'gatsby-plugin-styled-components',
     'gatsby-plugin-offline',
   ],
 }
