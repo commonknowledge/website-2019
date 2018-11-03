@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "Jan Baykara <jan@commonknowledge.coop>",
   "engines": {
-    "node": 8.12
+    "node": ">= 8.12"
   },
   "dependencies": {
     "@types/react-helmet": "^5.0.7",
