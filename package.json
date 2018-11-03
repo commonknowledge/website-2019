@@ -3,6 +3,9 @@
   "description": "Common Knowledge website",
   "version": "1.0.0",
   "author": "Jan Baykara <jan@commonknowledge.coop>",
+  "engines": {
+    "node": 11
+  },
   "dependencies": {
     "@types/react-helmet": "^5.0.7",
     "@types/styled-components": "^4.0.1",
