@@ -1,4 +1,5 @@
 import Typography from 'typography'
+import theme from './theme'
 
 const baseFontStack = [
   'Helvetica Neue',
@@ -9,6 +10,8 @@ const baseFontStack = [
 ]
 
 const typography = new Typography({
+  bodyColor: theme.Text.color,
+  headerColor: theme.Heading.color,
   googleFonts: [
     {
       name: 'Overpass',
