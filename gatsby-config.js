@@ -1,6 +1,9 @@
 module.exports = {
   siteMetadata: {
     title: 'Common Knowledge',
+    description:
+      'Common Knowledge is a tech cooperative building tools and infrastructure to encourage grassroots political organising on the left.',
+    siteURL: 'https://commonknowledge.coop',
   },
   plugins: [
     'gatsby-plugin-typescript',
