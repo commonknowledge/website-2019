@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Container } from 'rebass'
+import Container from './container'
 
 const Wrapper: React.SFC<any> = ({ children, ...props }) => (
   <Container {...props} maxWidth={960}>
