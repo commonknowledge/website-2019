@@ -5,7 +5,7 @@ import Layout from '../../components/layout'
 import logo from '../../images/logo-transparent.png'
 
 const Invite: React.SFC = () => {
-  const { code } = queryString.parse(location.search)
+  const { code } = queryString.parse(document.location.search)
   const formURL = `https://commonknowledge.coop/movement`
   const message = encodeURIComponent(
     `Hey! You should check this out. Sign up with Movement App and they'll personally get you involved in local community activism ASAP. ${formURL}?code=${code}`
