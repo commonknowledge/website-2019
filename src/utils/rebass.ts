@@ -38,6 +38,7 @@ type Props = { theme: any }
 const themed = (key: string) => (props: Props) => props.theme[key]
 
 export const Box = styled('div')(
+  themed('Box'),
   {
     boxSizing: 'border-box',
   },
@@ -50,8 +51,7 @@ export const Box = styled('div')(
   color,
   flex,
   order,
-  alignSelf,
-  themed('Box')
+  alignSelf
 )
 
 Box.propTypes = {
@@ -67,14 +67,14 @@ Box.propTypes = {
 }
 
 export const Flex = styled(Box)(
+  themed('Flex'),
   {
     display: 'flex',
   },
   flexWrap,
   flexDirection,
   alignItems,
-  justifyContent,
-  themed('Flex')
+  justifyContent
 )
 
 Flex.propTypes = {
@@ -85,13 +85,13 @@ Flex.propTypes = {
 }
 
 export const Text = styled(Box)(
+  themed('Text'),
   fontFamily,
   fontWeight,
   textAlign,
   textTransform,
   lineHeight,
-  letterSpacing,
-  themed('Text')
+  letterSpacing
 )
 
 Text.propTypes = {
@@ -120,6 +120,7 @@ Link.defaultProps = {
 }
 
 export const Button = styled(Box)(
+  themed('Button'),
   {
     appearance: 'none',
     display: 'inline-block',
@@ -131,8 +132,7 @@ export const Button = styled(Box)(
   borders,
   borderColor,
   borderRadius,
-  buttonStyle,
-  themed('Button')
+  buttonStyle
 )
 
 Button.propTypes = {
@@ -157,13 +157,13 @@ Button.defaultProps = {
 }
 
 export const Image = styled(Box)(
+  themed('Image'),
   {
     maxWidth: '100%',
     height: 'auto',
   },
   height,
-  borderRadius,
-  themed('Image')
+  borderRadius
 )
 
 Image.propTypes = {
@@ -179,6 +179,7 @@ Image.defaultProps = {
 const cards = variant({ key: 'cards' })
 
 export const Card = styled(Box)(
+  themed('Card'),
   borders,
   borderColor,
   borderRadius,
@@ -187,8 +188,7 @@ export const Card = styled(Box)(
   backgroundSize,
   backgroundPosition,
   backgroundRepeat,
-  cards,
-  themed('Card')
+  cards
 )
 
 Card.propTypes = {
