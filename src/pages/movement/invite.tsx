@@ -5,16 +5,18 @@ import Layout from '../../components/layout'
 import logo from '../../images/logo-transparent.png'
 
 const Invite: React.SFC = () => {
-  const { code } = queryString.parse(document.location.search)
-  const formURL = `https://commonknowledge.coop/movement`
-  const message = encodeURIComponent(
-    `Hey! You should check this out. Sign up with Movement App and they'll personally get you involved in local community activism ASAP. ${formURL}?code=${code}`
-  )
-  const whatsappURL = `whatsapp://send?abid=BROADCAST_ID&text=${message}`
+  if (document && document.location) {
+    const { code } = queryString.parse(document.location.search)
+    const formURL = `https://commonknowledge.coop/movement`
+    const message = encodeURIComponent(
+      `Hey! You should check this out. Sign up with Movement App and they'll personally get you involved in local community activism ASAP. ${formURL}?code=${code}`
+    )
+    const whatsappURL = `whatsapp://send?abid=BROADCAST_ID&text=${message}`
 
-  useEffect(() => {
-    document.location.replace(whatsappURL)
-  })
+    useEffect(() => {
+      document.location.replace(whatsappURL)
+    })
+  }
 
   return (
     <Layout>
