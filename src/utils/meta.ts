@@ -1,3 +1,5 @@
+import 'url-polyfill'
+
 export const absoluteURL = (baseURL: string, url: string) => {
   const currentURL = new URL(url)
   const host = new URL(baseURL)

@@ -26,7 +26,8 @@
     "react-typography": "^0.16.13",
     "rebass": "^2.3.4",
     "styled-components": "^4.0.3",
-    "typography": "^0.16.17"
+    "typography": "^0.16.17",
+    "url-polyfill": "^1.1.3"
   },
   "keywords": [
     "gatsby"
