@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import { ThemeProvider } from 'styled-components'
 import { createGlobalStyle } from 'styled-components'
 import theme from '../styles/theme'
-import { Box } from 'rebass'
+import { Box } from '../utils/rebass'
 
 const GlobalStyle = createGlobalStyle`
   html {

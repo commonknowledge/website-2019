@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { Link as _GatsbyLink } from 'gatsby'
-import { Text } from 'rebass'
 import styled from 'styled-components'
-import { style } from 'styled-system'
+import { Text } from '../utils/rebass'
+import { style } from '../utils/styled-system'
 
 const textDecoration = style({
   prop: 'textDecoration',

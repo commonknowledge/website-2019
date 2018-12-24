@@ -1,5 +1,5 @@
 import React from 'react'
-import { Heading, Box, Flex, Text } from 'rebass'
+import { Heading, Box, Flex, Text } from '../utils/rebass'
 import { InternalLink, ExternalLink } from '../components/link'
 import Wrapper from '../components/wrapper'
 import Layout from '../components/layout'
