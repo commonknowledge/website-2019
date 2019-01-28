@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/janbaykara
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://commonknowledge.coop
+  * I am janbaykara (https://keybase.io/janbaykara) on keybase.
+  * I have a public key ASAEEjeLxsryXSDQ1n1bRHiAQOaXX3TttDrjk9_a1MJU4wo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120a7c55a84e6b0e15efc6d1b11226bfa981c1c8180318fcbb038b459ac67fdff360a",
+      "host": "keybase.io",
+      "kid": "01200412378bc6caf25d20d0d67d5b44788040e6975f74edb43ae393dfdad4c254e30a",
+      "uid": "86968e66b1c7a3e60cfc6e8eca356419",
+      "username": "janbaykara"
+    },
+    "merkle_root": {
+      "ctime": 1548665822,
+      "hash": "23353911a7a4bb3009fe00ef2cab8e93223556a18d3d65c2e27e5d42fed8927348bbe78fd2be564afd5a478514400f56efdc5c00d78eac49707dcfd3693701db",
+      "hash_meta": "539f3493561e0ae8a54052c954bb8d22b76fe607f47086a4964afcb5f4feec43",
+      "seqno": 4634492
+    },
+    "service": {
+      "entropy": "Gk0t+NSmGxq3cyyrWk3Kfg4W",
+      "hostname": "commonknowledge.coop",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "2.13.2"
+  },
+  "ctime": 1548665838,
+  "expire_in": 504576000,
+  "prev": "050dabbe3ad1b6520dbf9e2ae87fb2ff4b29a08dabf3ff3fbff178df6625ffdc",
+  "seqno": 21,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgBBI3i8bK8l0g0NZ9W0R4gEDml1907bQ645Pf2tTCVOMKp3BheWxvYWTESpcCFcQgBQ2rvjrRtlINv54q6H+y/0spoI2r8/8/v/F432Yl/9zEICHtZXvZVk/BURHmx6rqCkoA5sNhIMsJU8RMYdKztL/PAgHCo3NpZ8RA97UF26WkgvzcikwKjnhxx+VxUYgYp8mvw1a4kHd1D5M0hydSpshSuOfmlyfxWOz8V6+iP1hS7EL/Tj32uXNJD6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIJhnqocELKBK31cD/zbHLR/DqHVvrUyGzILNV5fKQNJro3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/janbaykara
+
+==================================================================
