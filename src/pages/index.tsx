@@ -4,7 +4,7 @@ import { InternalLink, ExternalLink } from '../components/link'
 import Wrapper from '../components/wrapper'
 import Layout from '../components/layout'
 
-import { FaWrench, FaEye, FaTwitter } from 'react-icons/fa'
+import { FaEye } from 'react-icons/fa'
 
 const textWidth = [500, 500, 700]
 
