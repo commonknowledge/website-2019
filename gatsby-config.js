@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'Common Knowledge',
     description:
-      'Common Knowledge is a tech cooperative building tools and infrastructure to encourage grassroots political organising on the left.',
+      'Common Knowledge is a workers cooperative designing tools and infrastructure to grow the grassroots political left.',
     siteURL: 'https://commonknowledge.coop',
   },
   plugins: [

@@ -62,7 +62,7 @@ const IndexPage: React.SFC = () => (
         textAlign="center"
         css={{ opacity: 0.5 }}
       >
-        (A tech coop)
+        A workers cooperative
       </Text>
       <Container maxWidth={[500, 800]}>
         <Text fontSize={[3, 3, 4]} textAlign="center">
