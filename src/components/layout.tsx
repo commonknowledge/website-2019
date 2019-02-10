@@ -3,6 +3,7 @@ import Helmet from 'react-helmet'
 import { ThemeProvider } from 'styled-components'
 import { createGlobalStyle } from 'styled-components'
 import theme from '../styles/theme'
+import { Box } from '../utils/rebass'
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -10,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const Layout: React.SFC = ({ children }) => (
+const Layout: React.SFC<any> = ({ children, ...props }) => (
   <>
     <Helmet
       title="Common Knowledge"
@@ -32,7 +33,7 @@ const Layout: React.SFC = ({ children }) => (
     <ThemeProvider theme={theme}>
       <>
         <GlobalStyle />
-        <div>{children}</div>
+        <Box {...props}>{children}</Box>
       </>
     </ThemeProvider>
   </>

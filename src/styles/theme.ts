@@ -1,4 +1,4 @@
-import { util } from 'styled-system'
+import { util } from '../utils/styled-system'
 
 // Primitive colours
 // TODO: use

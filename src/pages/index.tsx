@@ -1,8 +1,9 @@
 import React from 'react'
-import { Heading, Box, Container, Flex, Text } from 'rebass'
+import { Heading, Box, Flex, Text } from '../utils/rebass'
 import { InternalLink, ExternalLink } from '../components/link'
 import Wrapper from '../components/wrapper'
 import Layout from '../components/layout'
+import Container from '../components/container'
 
 import { FaWrench, FaEye, FaTwitter } from 'react-icons/fa'
 
@@ -47,7 +48,7 @@ const TextBlock: React.SFC<TextBlockProps> = ({ icon, text, alternate }) => {
 }
 
 const IndexPage: React.SFC = () => (
-  <Layout>
+  <Layout px={[3, 4, 5]}>
     <Wrapper pt={[4, 5, 6]} pb={[4, 4, 5]}>
       <Container pb={[3, 3, 4]} maxWidth={[500, 800]}>
         <Heading fontSize={[3, 4, 6]} textAlign="center">
