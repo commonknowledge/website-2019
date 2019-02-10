@@ -5,7 +5,7 @@ import Metric from '../components/Metric'
 import Layout from '../components/layout'
 import DefaultLayout from '../components/defaultLayout'
 import Wrapper from '../components/wrapper'
-import { useTrail, animated } from 'react-spring/hooks'
+import { useTrail, animated } from 'react-spring'
 
 const Metrics: React.SFC<GetComponentProps<typeof Box>> = props => {
   const data = useGoogleSheet({
