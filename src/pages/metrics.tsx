@@ -5,7 +5,7 @@ import Metric from '../components/Metric'
 import Layout from '../components/layout'
 import DefaultLayout from '../components/defaultLayout'
 import Wrapper from '../components/wrapper'
-import { useTrail, animated } from 'react-spring/hooks'
+import { useTrail, animated } from 'react-spring'
 
 const Metrics: React.SFC<GetComponentProps<typeof Box>> = props => {
   const data = useGoogleSheet({
@@ -14,16 +14,14 @@ const Metrics: React.SFC<GetComponentProps<typeof Box>> = props => {
     query: 'select *',
   })
 
-  const trail =
-    data &&
-    useTrail(data.length, {
-      opacity: 1,
-      marginLeft: `0px`,
-      from: {
-        opacity: 0,
-        marginLeft: `-10px`,
-      },
-    })
+  const trail = useTrail(data ? data.length : [], {
+    opacity: 1,
+    marginLeft: `0px`,
+    from: {
+      opacity: 0,
+      marginLeft: `-10px`,
+    },
+  })
 
   return (
     <Flex {...props} flexWrap="wrap">
@@ -32,7 +30,6 @@ const Metrics: React.SFC<GetComponentProps<typeof Box>> = props => {
           ⏳
         </Text>
       ) : (
-        trail &&
         trail.map(({ opacity, marginLeft }, i) => {
           const {
             cellsArray: [name, value, type],
