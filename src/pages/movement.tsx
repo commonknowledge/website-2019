@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import Helmet from 'react-helmet';
+import Helmet from 'react-helmet'
 
 const StyledContainer = styled.div`
   html {
@@ -20,34 +20,35 @@ const StyledContainer = styled.div`
   }
 `
 
-const title = "Say hello to Movement"
-const description = "Politics is doing things, together."
+const title = 'Say hello to Movement'
+const description = 'Politics is doing things, together.'
 
 const Typeform: React.SFC = () => (
   <StyledContainer>
-      <Helmet
-        title={'title'}
-        meta={[
-          { name: 'description', content: description },
-          {
-            name: 'keywords',
-            content:
-              'politics, grassroots, socialism, left, technology, activism, organising',
-          },
-          { name: 'twitter:description', content: description },
-          { name: 'twitter:card', content: 'summary_large_image' },
-          { name: 'twitter:site', content: '@coopknowledge' },
-          { name: 'twitter:creator', content: '@coopknowledge' },
-          { property: 'og:title', content: title },
-          { property: 'og:description', content: description },
-          {
-            property: 'og:image',
-            content: "https://images.typeform.com/images/5Yh35SJjCfF7/image/default",
-          },
-        ]}
-      >
-        <html lang="en" />
-      </Helmet>
+    <Helmet
+      title={'title'}
+      meta={[
+        { name: 'description', content: description },
+        {
+          name: 'keywords',
+          content:
+            'politics, grassroots, socialism, left, technology, activism, organising',
+        },
+        { name: 'twitter:description', content: description },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:site', content: '@coopknowledge' },
+        { name: 'twitter:creator', content: '@coopknowledge' },
+        { property: 'og:title', content: title },
+        { property: 'og:description', content: description },
+        {
+          property: 'og:image',
+          content:
+            'https://raw.githubusercontent.com/commonknowledge/movement-app/master/graphics/logo.png',
+        },
+      ]}
+    >
+      <html lang="en" />
+    </Helmet>
     <script type="text/javascript" src="https://embed.typeform.com/embed.js" />
     <iframe
       id="typeform-full"
