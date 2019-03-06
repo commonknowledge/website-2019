@@ -47,9 +47,12 @@ const Typeform: React.SFC = () => (
         },
       ]}
     >
-      <html lang="en" />
+      <html lang="en-GB" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+      />
     </Helmet>
-    <script type="text/javascript" src="https://embed.typeform.com/embed.js" />
     <iframe
       id="typeform-full"
       width="100%"
@@ -57,6 +60,7 @@ const Typeform: React.SFC = () => (
       frameBorder="0"
       src="https://movementapp.typeform.com/to/NZGPd4"
     />
+    <script type="text/javascript" src="https://embed.typeform.com/embed.js" />
   </StyledContainer>
 )
 
