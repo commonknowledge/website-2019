@@ -43,7 +43,7 @@ const Typeform: React.SFC = () => (
         {
           property: 'og:image',
           content:
-            'https://raw.githubusercontent.com/commonknowledge/movement-app/master/graphics/logo.png',
+            'https://raw.githubusercontent.com/commonknowledge/website/master/src/images/movement-app-thumbnail.jpg',
         },
       ]}
     >
