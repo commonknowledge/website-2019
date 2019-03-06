@@ -26,7 +26,7 @@ const description = 'Politics is doing things, together.'
 const Typeform: React.SFC = () => (
   <StyledContainer>
     <Helmet
-      title={'title'}
+      title={title}
       meta={[
         { name: 'description', content: description },
         {
