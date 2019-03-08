@@ -19,6 +19,7 @@ const StyledContainer = styled.div`
     margin-bottom: 0;
   }
 `
+
 const title = 'Say hello to Movement'
 const description = 'Politics is doing things, together.'
 
@@ -59,7 +60,7 @@ const Typeform: React.SFC = () => (
       frameBorder="0"
       src={`https://movementapp.typeform.com/to/NZGPd4${
         // Pass through the hidden values to the typeform
-        window.location.search
+        (window as any).location.search
       }`}
     />
     <script type="text/javascript" src="https://embed.typeform.com/embed.js" />
