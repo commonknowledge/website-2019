@@ -58,7 +58,10 @@ const Typeform: React.SFC = () => (
       width="100%"
       height="100%"
       frameBorder="0"
-      src="https://movementapp.typeform.com/to/NZGPd4"
+      src={`https://movementapp.typeform.com/to/NZGPd4${
+        // Pass through the hidden values to the typeform
+        window.location.search
+      }`}
     />
     <script type="text/javascript" src="https://embed.typeform.com/embed.js" />
   </StyledContainer>
