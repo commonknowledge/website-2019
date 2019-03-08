@@ -25,28 +25,27 @@ const description = 'Politics is doing things, together.'
 
 const Typeform: React.SFC = () => (
   <StyledContainer>
-    <Helmet
-      title={title}
-      meta={[
-        { name: 'description', content: description },
-        {
-          name: 'keywords',
-          content:
-            'politics, grassroots, socialism, left, technology, activism, organising',
-        },
-        { name: 'twitter:description', content: description },
-        { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:site', content: '@coopknowledge' },
-        { name: 'twitter:creator', content: '@coopknowledge' },
-        { property: 'og:title', content: title },
-        { property: 'og:description', content: description },
-        {
-          property: 'og:image',
-          content:
-            'https://raw.githubusercontent.com/commonknowledge/website/master/src/images/movement-app-thumbnail.jpg',
-        },
-      ]}
-    >
+    <Helmet>
+      <title>{title}</title>
+      <meta name="description" content={description} />,
+      <meta
+        name="keywords"
+        content={
+          'politics, grassroots, socialism, left, technology, activism, organising'
+        }
+      />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:card" content={'summary_large_image'} />
+      <meta name="twitter:site" content={'@coopknowledge'} />
+      <meta name="twitter:creator" content={'@coopknowledge'} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta
+        property="og:image"
+        content={
+          'https://raw.githubusercontent.com/commonknowledge/website/master/src/images/movement-app-thumbnail.jpg'
+        }
+      />
       <html lang="en-GB" />
       <meta
         name="viewport"
