@@ -60,7 +60,7 @@ const Typeform: React.SFC = () => (
       frameBorder="0"
       src={`https://movementapp.typeform.com/to/NZGPd4${
         // Pass through the hidden values to the typeform
-        window ? window.location.search : ''
+        typeof window !== 'undefined' ? window.location.search : ''
       }`}
     />
     <script type="text/javascript" src="https://embed.typeform.com/embed.js" />
