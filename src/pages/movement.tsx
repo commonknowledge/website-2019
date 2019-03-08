@@ -19,7 +19,6 @@ const StyledContainer = styled.div`
     margin-bottom: 0;
   }
 `
-
 const title = 'Say hello to Movement'
 const description = 'Politics is doing things, together.'
 
