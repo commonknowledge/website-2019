@@ -1,7 +1,6 @@
 import * as React from 'react'
 import Card from './Card'
 // @ts-ignore
-import logo from '../../images/movement-logo.svg'
 import * as css from './styles'
 
 const Section: React.SFC<
@@ -68,11 +67,9 @@ const InstructionsCard: React.SFC<
           <div style={{ ...css.subtitle }}>When you get there...</div>
           <ol style={{ fontSize: 36, ...css.padded, textAlign: 'left' }}>
             {instructions.map((step, i) => (
-              <>
-                <li key={i} style={{ ...css.bold }}>
-                  {step}
-                </li>
-              </>
+              <li key={i} style={{ ...css.bold }}>
+                {step}
+              </li>
             ))}
           </ol>
         </Section>

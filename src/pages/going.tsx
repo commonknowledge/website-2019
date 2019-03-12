@@ -2,6 +2,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import queryString from 'query-string'
+import { useTrail, animated } from 'react-spring'
 import TicketCard from '../components/going/TicketCard'
 import InstructionsCard from '../components/going/InstructionCard'
 import * as css from '../components/going/styles'
@@ -45,6 +46,48 @@ const Typeform: React.SFC = () => {
     instructions = []
   }
 
+  let cards: JSX.Element[] = []
+
+  cards.push(
+    <>
+      <Caption style={{ marginTop: 20 }}>
+        Show this to the event organiser, when you arrive
+      </Caption>
+      <TicketCard name={name} style={{ marginTop: 8 }} />
+    </>
+  )
+
+  if (event && time && address) {
+    cards.push(
+      <>
+        <Caption>Quick reference for you</Caption>
+        <InstructionsCard
+          style={{ marginTop: 8 }}
+          event={event}
+          time={time}
+          address={address}
+          instructions={instructions}
+          emergencyContact={emergencyContact}
+        />
+      </>
+    )
+  }
+
+  if (code) {
+    cards.push(
+      <>
+        <Caption>Someone asking about Movement?</Caption>
+        <ReferralCard code={code} style={{ marginTop: 8 }} />
+      </>
+    )
+  }
+
+  const trail = useTrail(cards.length, {
+    config: { mass: 10, tension: 2000, friction: 170 },
+    from: { opacity: 0, x: 50 },
+    to: { opacity: 1, x: 0 },
+  })
+
   return (
     <StyledContainer>
       <Helmet>
@@ -64,34 +107,17 @@ const Typeform: React.SFC = () => {
           ...css.sansSerif,
         }}
       >
-        {/* Caption */}
-        <Caption style={{ marginTop: 20 }}>
-          Show this to the event organiser, when you arrive
-        </Caption>
-        <TicketCard name={name} style={{ marginTop: 8 }} />
-        {/* Instructions */}
-        {event &&
-          time &&
-          address && (
-            <>
-              <Caption>Quick reference for you</Caption>
-              <InstructionsCard
-                style={{ marginTop: 8 }}
-                event={event}
-                time={time}
-                address={address}
-                instructions={instructions}
-                emergencyContact={emergencyContact}
-              />
-            </>
-          )}
-        {/* QR code */}
-        {code && (
-          <>
-            <Caption>Someone asking about Movement?</Caption>
-            <ReferralCard code={code} style={{ marginTop: 8 }} />
-          </>
-        )}
+        {(trail as any[]).map(({ opacity, x }, i) => (
+          <animated.div
+            key={i}
+            style={{
+              opacity,
+              transform: x.interpolate(x => `translate3d(0,${x}px,0)`),
+            }}
+          >
+            {cards[i]}
+          </animated.div>
+        ))}
       </div>
     </StyledContainer>
   )
