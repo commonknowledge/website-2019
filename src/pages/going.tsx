@@ -2,7 +2,8 @@ import * as React from 'react'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import queryString from 'query-string'
-const logo = require('../images/movement-logo.svg')
+// @ts-ignore
+import logo from '../images/movement-logo.svg'
 
 const StyledContainer = styled.div`
   @import url('https://fonts.googleapis.com/css?family=Patrick+Hand');
