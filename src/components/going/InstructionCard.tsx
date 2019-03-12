@@ -67,9 +67,11 @@ const InstructionsCard: React.SFC<
         <Section>
           <div style={{ ...css.subtitle }}>When you get there...</div>
           <ol style={{ fontSize: 36, ...css.padded, textAlign: 'left' }}>
-            {instructions.map(step => (
+            {instructions.map((step, i) => (
               <>
-                <li style={{ ...css.bold }}>{step}</li>
+                <li key={i} style={{ ...css.bold }}>
+                  {step}
+                </li>
               </>
             ))}
           </ol>

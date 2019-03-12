@@ -22,6 +22,7 @@ const Card: React.SFC<
         color: 'white',
         textAlign: 'center',
         padding: '20px 0',
+        overflow: 'hidden',
         ...(props.style || {}),
       }}
     />
