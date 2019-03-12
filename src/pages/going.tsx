@@ -45,9 +45,21 @@ const section = {
 }
 
 const Typeform: React.SFC = () => {
-  const { name, event, time, address, instructions } = queryString.parse(
+  let {
+    name = '',
+    event = '',
+    time = '',
+    address = '',
+    instructions = [],
+  } = queryString.parse(
     typeof window !== 'undefined' ? window.location.search : 'randomstring'
   )
+
+  try {
+    instructions = JSON.parse(instructions)
+  } catch (e) {
+    instructions = []
+  }
 
   return (
     <StyledContainer>
@@ -147,7 +159,7 @@ const Typeform: React.SFC = () => {
           >
             <div style={{ ...subtitle }}>Where you get there...</div>
             <ol style={{ fontSize: 35, ...padded, textAlign: 'left' }}>
-              {JSON.parse(instructions).map(step => (
+              {instructions.map(step => (
                 <>
                   <li style={{ ...bold }}>{step}</li>
                 </>
