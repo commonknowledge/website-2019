@@ -46,7 +46,7 @@ const section = {
 
 const Typeform: React.SFC = () => {
   const { name, event, time, address, instructions } = queryString.parse(
-    window.location.search
+    typeof window !== 'undefined' ? window.location.search : 'randomstring'
   )
 
   return (
