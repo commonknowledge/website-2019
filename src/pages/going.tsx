@@ -2,10 +2,10 @@ import * as React from 'react'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import queryString from 'query-string'
-import TicketCard from './going/TicketCard'
-import InstructionsCard from './going/InstructionCard'
-import * as css from './going/styles'
-import ReferralCard from './going/ReferralCard'
+import TicketCard from '../components/going/TicketCard'
+import InstructionsCard from '../components/going/InstructionCard'
+import * as css from '../components/going/styles'
+import ReferralCard from '../components/going/ReferralCard'
 
 const StyledContainer = styled.div`
   html {
