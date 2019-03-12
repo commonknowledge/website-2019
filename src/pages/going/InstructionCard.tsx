@@ -27,16 +27,16 @@ const InstructionsCard: React.SFC<
     event: string
     address: string
     time: string
-    emergencyContact: string
-    instructions: string[]
+    emergencyContact?: string
+    instructions?: string[]
   }
 > = ({ event, address, time, emergencyContact, instructions, ...props }) => {
   return (
     <Card {...props}>
-      <div style={{ padding: '20px 20px', textAlign: 'center' }}>
+      {/* <div style={{ padding: '20px 20px', textAlign: 'center' }}>
         <img src={logo} style={{ width: '20%', margin: 0 }} />
-      </div>
-      <div style={{ ...css.padded, paddingTop: 40, paddingBottom: 20 }}>
+      </div> */}
+      <div style={{ ...css.padded, paddingBottom: 20 }}>
         <div style={{ ...css.subtitle }}>I'm here for</div>
         <div style={{ ...css.bold }}>{event}</div>
       </div>
@@ -47,7 +47,9 @@ const InstructionsCard: React.SFC<
       <Section>
         <div style={{ ...css.subtitle }}>Where?</div>
         <a
-          href={`https://www.google.co.uk/maps?q=${address}`}
+          href={`https://www.google.co.uk/maps?q=${encodeURIComponent(
+            address
+          )}`}
           style={{
             lineHeight: '1em',
             fontSize: 32,
@@ -61,20 +63,24 @@ const InstructionsCard: React.SFC<
           Click for Google Maps
         </div>
       </Section>
-      <Section>
-        <div style={{ ...css.subtitle }}>When you get there...</div>
-        <ol style={{ fontSize: 36, ...css.padded, textAlign: 'left' }}>
-          {instructions.map(step => (
-            <>
-              <li style={{ ...css.bold }}>{step}</li>
-            </>
-          ))}
-        </ol>
-      </Section>
-      <Section>
-        <div style={{ ...css.subtitle }}>Any problems?</div>
-        <div style={{ fontSize: 24, ...css.bold }}>{emergencyContact}</div>
-      </Section>
+      {instructions && (
+        <Section>
+          <div style={{ ...css.subtitle }}>When you get there...</div>
+          <ol style={{ fontSize: 36, ...css.padded, textAlign: 'left' }}>
+            {instructions.map(step => (
+              <>
+                <li style={{ ...css.bold }}>{step}</li>
+              </>
+            ))}
+          </ol>
+        </Section>
+      )}
+      {emergencyContact && (
+        <Section>
+          <div style={{ ...css.subtitle }}>Any problems?</div>
+          <div style={{ fontSize: 24, ...css.bold }}>{emergencyContact}</div>
+        </Section>
+      )}
     </Card>
   )
 }

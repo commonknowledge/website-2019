@@ -11,8 +11,8 @@ module.exports = {
         name: 'gatsby-starter-default',
         short_name: 'starter',
         start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
+        background_color: '#FF4419',
+        theme_color: '#FF4419',
         display: 'minimal-ui',
         icon: 'src/images/icon.png',
       },
@@ -27,7 +27,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "UA-135673372-1",
+        trackingId: 'UA-135673372-1',
         // Puts tracking script in the head instead of the body
         head: false,
         // Setting this parameter is optional
@@ -45,7 +45,15 @@ module.exports = {
         // Any additional create only fields (optional)
         sampleRate: 5,
         siteSpeedSampleRate: 10,
-        cookieDomain: "commonknowledge.coop",
+        cookieDomain: 'commonknowledge.coop',
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Patrick Hand`, // you can also specify font weights and styles
+        ],
       },
     },
     'gatsby-plugin-offline',

@@ -12,6 +12,7 @@ const Card: React.SFC<
       style={{
         ...css.sansSerif,
         maxWidth: 380,
+        width: '100%',
         margin: '18px auto',
         borderRadius: 10,
         boxShadow: '0 2px 12px 0 rgba(0,0,0,0.25)',

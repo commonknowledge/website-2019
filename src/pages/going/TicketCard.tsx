@@ -1,5 +1,6 @@
 import * as React from 'react'
 import Card from './Card'
+import { Textfit } from 'react-textfit'
 // @ts-ignore
 import logo from '../../images/movement-logo.svg'
 import * as css from './styles'
@@ -31,7 +32,9 @@ const TicketCard: React.SFC<
           ...css.handwritten,
         }}
       >
-        {name}
+        <Textfit mode="single" max={140}>
+          {name}
+        </Textfit>
       </div>
     </Card>
   )

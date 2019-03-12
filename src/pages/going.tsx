@@ -5,10 +5,9 @@ import queryString from 'query-string'
 import TicketCard from './going/TicketCard'
 import InstructionsCard from './going/InstructionCard'
 import * as css from './going/styles'
+import ReferralCard from './going/ReferralCard'
 
 const StyledContainer = styled.div`
-  @import url('https://fonts.googleapis.com/css?family=Patrick+Hand');
-
   html {
     margin: 0;
     height: 100%;
@@ -29,11 +28,12 @@ const Caption = styled.div({
 
 const Typeform: React.SFC = () => {
   let {
-    name = '',
-    event = '',
-    time = '',
-    address = '',
-    emergencyContact = '',
+    name = undefined,
+    event = undefined,
+    time = undefined,
+    address = undefined,
+    emergencyContact = undefined,
+    code = undefined,
     instructions = [],
   } = queryString.parse(
     typeof window !== 'undefined' ? window.location.search : 'randomstring'
@@ -64,19 +64,34 @@ const Typeform: React.SFC = () => {
           ...css.sansSerif,
         }}
       >
+        {/* Caption */}
         <Caption style={{ marginTop: 20 }}>
           Show this to the event organiser, when you arrive
         </Caption>
         <TicketCard name={name} style={{ marginTop: 8 }} />
-        <Caption>Quick reference for you</Caption>
-        <InstructionsCard
-          style={{ marginTop: 8 }}
-          event={event}
-          time={time}
-          address={address}
-          instructions={instructions}
-          emergencyContact={emergencyContact}
-        />
+        {/* Instructions */}
+        {event &&
+          time &&
+          address && (
+            <>
+              <Caption>Quick reference for you</Caption>
+              <InstructionsCard
+                style={{ marginTop: 8 }}
+                event={event}
+                time={time}
+                address={address}
+                instructions={instructions}
+                emergencyContact={emergencyContact}
+              />
+            </>
+          )}
+        {/* QR code */}
+        {code && (
+          <>
+            <Caption>Someone asking about Movement?</Caption>
+            <ReferralCard code={code} style={{ marginTop: 8 }} />
+          </>
+        )}
       </div>
     </StyledContainer>
   )

@@ -5,3 +5,16 @@
  */
 
 // You can delete this file if you're not using it
+exports.onCreateWebpackConfig = ({
+  stage,
+  rules,
+  loaders,
+  plugins,
+  actions,
+}) => {
+  actions.setWebpackConfig({
+    node: {
+      fs: 'empty',
+    },
+  })
+}
