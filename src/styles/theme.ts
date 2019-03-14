@@ -30,7 +30,8 @@ const textColor = black
 
 const theme = {
   breakpoints: util.defaultBreakpoints,
-  fontSizes: [12, 14, 16, 24, 32, 48, 64],
+  // fontSizes: [12, 14, 16, 24, 32, 48, 64],
+  fontSizes: [20, 22, 24, 28, 36, 52, 68],
   colors: {
     background,
     primary,

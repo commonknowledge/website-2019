@@ -17,25 +17,40 @@ import {
 import FundingPanel from '../components/FundingPanel'
 import { Link } from 'gatsby'
 import theme from '../styles/theme'
-import { textColor, textAlign } from '../utils/styled-system'
-
-const textWidth = [500, 500, 700]
+import { subtitleFontFamily } from '../styles/typography'
 
 interface TextBlockProps {
   icon?: any
   text: any
+  title: string
   alternate?: boolean
 }
 
-const TextBlock: React.SFC<TextBlockProps> = ({ icon, text, alternate }) => {
+const TextBlock: React.SFC<TextBlockProps> = ({
+  icon,
+  title,
+  text,
+  alternate,
+}) => {
   const _text = (
-    <Container width={[1, 1, 0.6]} maxWidth={500} px={0} mx={0} fontSize={2}>
-      <Text textAlign="justify">{text}</Text>
+    <Container width={[1, 1, 0.5]} px={0} mx={0}>
+      <Text fontSize={0}>{text}</Text>
     </Container>
   )
 
   const _image = (
-    <Box width={[1, 1, 0.4]}>
+    <Box width={[1, 1, 0.5]}>
+      <Heading
+        width={[1, 1, 0.75]}
+        ml="auto"
+        fontSize={[5, 5, 5]}
+        textAlign={alternate && ['left', 'left', 'right']}
+        {...{
+          [alternate ? 'pr' : 'pl']: [0, 0, 5],
+        }}
+      >
+        {title}
+      </Heading>
       <Text
         fontSize={[3, 4]}
         textAlign={alternate && ['left', 'left', 'right']}
@@ -61,16 +76,21 @@ const TextBlock: React.SFC<TextBlockProps> = ({ icon, text, alternate }) => {
 
 const IndexPage: React.SFC = () => (
   <Layout>
-    <Wrapper pt={[4, 5, 6]} pb={[4, 4, 4]} px={[3, 4, 5]}>
-      <Heading fontSize={[3, 4, 6]}>
-        <InternalLink to="/" css={{ 'text-transform': 'uppercase' }}>
+    <Wrapper pt={[4, 5, 6]} pb={[4, 4, 4]}>
+      <Heading fontSize={[5, 6, 6]}>
+        <InternalLink to="/" style={{ textTransform: 'uppercase' }}>
           Common Knowledge
         </InternalLink>
       </Heading>
-      <Text pb={[3, 3, 4]} fontSize={[2, 2, 3]} css={{ opacity: 0.25 }}>
+      <Text
+        fontSize={[2, 2, 3]}
+        lineHeight={'2em'}
+        css={{ opacity: 0.25 }}
+        fontFamily={subtitleFontFamily.name}
+      >
         (a workers cooperative)
       </Text>
-      <Text fontSize={[3, 3, 4]}>
+      <Text fontSize={[3, 3, 4]} fontFamily={subtitleFontFamily.name}>
         Activists software developers, building platform-level tools, to grow
         the grassroots left
       </Text>
@@ -111,29 +131,30 @@ const IndexPage: React.SFC = () => (
     </Wrapper>
     <Container py={[4, 5, 6]} css={{ background: theme.colors.red }}>
       <Wrapper>
-        <Flex flexDirection={['column', 'column', 'row']}>
+        <Flex flexDirection={['column-reverse', 'column-reverse', 'row']}>
           <Box width={[1, 1, 0.5]}>
-            <Text
+            <Heading
               css={{ color: 'white' }}
-              fontSize={[3, 3, 5]}
+              fontSize={[5, 5, 5]}
               fontWeight={900}
               lineHeight={1}
             >
               Test <i>Movement</i>, the prototype platform for activism
-            </Text>
-            <Text css={{ color: 'white' }} mt={3}>
+            </Heading>
+            <Text fontSize={0} css={{ color: 'white' }} mt={3}>
               We're building a platform for people who are new to politics get
               involved in grassroots activism, when they aren't sure where to
               start. Movement helps you put your principles into practice, learn
               new skills + spend valuable time with locals who share your
               concerns 🙌.
             </Text>
-            <Text css={{ color: 'white' }} mt={3}>
+            <Text fontSize={0} css={{ color: 'white' }} mt={3}>
               By signing up for the prototype you'll be helping us learn how to
               make the service better, so even more people can get involved.
             </Text>
           </Box>
           <Flex
+            mb={[4, 4, 0]}
             width={[1, 1, 0.5]}
             flexDirection="column"
             justifyContent="center"
@@ -169,11 +190,12 @@ const IndexPage: React.SFC = () => (
         </Flex>
       </Wrapper>
     </Container>
-    <Wrapper px={[3, 4, 5]}>
-      <Container maxWidth={textWidth} mt={[4, 5]}>
+    <Wrapper>
+      <Container mt={[4, 5]}>
         <TextBlock
           alternate
           icon={<FaEye />}
+          title="What we're about"
           text={
             <>
               <p>
@@ -205,11 +227,11 @@ const IndexPage: React.SFC = () => (
     </Wrapper>
     <Container
       mt={[4, 5]}
-      pt={[2, 3, 5]}
+      pt={[4, 3, 5]}
       pb={[5, 6, 7]}
       css={{ background: theme.colors.primary, color: 'white' }}
     >
-      <Wrapper>
+      <Wrapper width={[1, 1, 0.5]}>
         <FundingPanel />
       </Wrapper>
     </Container>

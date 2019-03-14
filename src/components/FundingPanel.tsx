@@ -1,13 +1,45 @@
 import * as React from 'react'
-
-const description =
-  "Help us out. We're a workers coop designing platform-level tools to support grassroots activists and grow the left, and we rely on donations and grants to keep going. We'll use the money to collaborate with campaigning activists to multiply their effect, and minimise the barriers to everyday activism for everyone."
+import { Text, Heading, Box } from '../utils/rebass'
 
 export default () => (
   <>
     <div>
-      <div style={{ fontSize: 32, fontWeight: 900 }}>Help sustain us</div>
-      <div>{description}</div>
+      <Heading fontSize={[5, 5, 5]} css={{ color: 'white' }}>
+        Help sustain this
+      </Heading>
+      <Text fontSize={0} css={{ color: 'white', marginTop: 10 }}>
+        We rely on donations and grants to keep going. We use the money to
+        conduct user research, collaborate with campaigning activists, bring
+        together existing digital solutions and build new tools.
+      </Text>
+      <Text fontSize={0} css={{ color: 'white', marginTop: 10 }}>
+        Our overarching goal is to accelerate the growth of the grassroots left,
+        and minimise the barriers that people face to building power for
+        themselves.
+      </Text>
+      <Text fontSize={0} css={{ color: 'white', marginTop: 10 }}>
+        Your donation fuels all of this.
+      </Text>
+      <Box my={[3, 3, 4]}>
+        <Text textAlign="center">
+          <a
+            style={{
+              display: 'inline-block',
+              fontSize: 32,
+              borderRadius: 100,
+              background: 'black',
+              color: 'white',
+              padding: '10px 20px',
+              fontWeight: 900,
+              textDecoration: 'none',
+            }}
+            href="https://commerce.coinbase.com/checkout/bcda7a9f-01a8-4835-b586-13558aa2cb2d"
+          >
+            <span>Donate Crypto</span>
+          </a>
+          <Text css={{ color: 'white', opacity: 0.4 }}>(Bitcoin etc.)</Text>
+        </Text>
+      </Box>
     </div>
     <div
       style={{
@@ -35,24 +67,6 @@ export default () => (
               </a>
               <div style={{ opacity: 0.4 }}>(in any currency)</div>
             </div> */}
-      <div style={{ textAlign: 'center' }}>
-        <a
-          style={{
-            display: 'inline-block',
-            fontSize: 32,
-            borderRadius: 100,
-            background: 'black',
-            color: 'white',
-            padding: '10px 20px',
-            fontWeight: 900,
-            textDecoration: 'none',
-          }}
-          href="https://commerce.coinbase.com/checkout/bcda7a9f-01a8-4835-b586-13558aa2cb2d"
-        >
-          <span>Donate Crypto</span>
-        </a>
-        <div style={{ opacity: 0.4 }}>(Bitcoin etc.)</div>
-      </div>
     </div>
   </>
 )
