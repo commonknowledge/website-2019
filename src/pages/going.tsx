@@ -2,11 +2,8 @@ import * as React from 'react'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import queryString from 'query-string'
-import { useTrail, animated } from 'react-spring'
-import TicketCard from '../components/going/TicketCard'
-import InstructionsCard from '../components/going/InstructionCard'
 import * as css from '../components/going/styles'
-import ReferralCard from '../components/going/ReferralCard'
+import MovementToolkit from '../components/MovementToolkit'
 
 const StyledContainer = styled.div`
   html {
@@ -18,75 +15,10 @@ const StyledContainer = styled.div`
 
 const title = "I'm from Movement"
 
-const Caption = styled.div({
-  textAlign: 'center',
-  margin: '0 auto',
-  fontSize: 14,
-  color: '#AFAFAF',
-  lineHeight: '1em',
-  ...css.padded,
-})
-
-const Typeform: React.SFC = () => {
-  let {
-    name = undefined,
-    event = undefined,
-    time = undefined,
-    address = undefined,
-    emergencyContact = undefined,
-    code = undefined,
-    instructions = [],
-  } = queryString.parse(
+const GoingPage: React.SFC = () => {
+  let { cid = undefined, uid = undefined } = queryString.parse(
     typeof window !== 'undefined' ? window.location.search : 'randomstring'
   )
-
-  try {
-    instructions = JSON.parse(instructions)
-  } catch (e) {
-    instructions = []
-  }
-
-  let cards: JSX.Element[] = []
-
-  cards.push(
-    <>
-      <Caption style={{ marginTop: 20 }}>
-        Show this to the event organiser, when you arrive
-      </Caption>
-      <TicketCard name={name} style={{ marginTop: 8 }} />
-    </>
-  )
-
-  if (event && time && address) {
-    cards.push(
-      <>
-        <Caption>Quick reference for you</Caption>
-        <InstructionsCard
-          style={{ marginTop: 8 }}
-          event={event}
-          time={time}
-          address={address}
-          instructions={instructions}
-          emergencyContact={emergencyContact}
-        />
-      </>
-    )
-  }
-
-  if (code) {
-    cards.push(
-      <>
-        <Caption>Someone asking about Movement?</Caption>
-        <ReferralCard code={code} style={{ marginTop: 8 }} />
-      </>
-    )
-  }
-
-  const trail = useTrail(cards.length, {
-    config: { mass: 10, tension: 2000, friction: 170 },
-    from: { opacity: 0, x: 50 },
-    to: { opacity: 1, x: 0 },
-  })
 
   return (
     <StyledContainer>
@@ -104,23 +36,16 @@ const Typeform: React.SFC = () => {
           display: 'flex',
           flexDirection: 'column',
           minHeight: '100vh',
+          justifyContent: 'center',
           ...css.sansSerif,
         }}
       >
-        {(trail as any[]).map(({ opacity, x }, i) => (
-          <animated.div
-            key={i}
-            style={{
-              opacity,
-              transform: x.interpolate(x => `translate3d(0,${x}px,0)`),
-            }}
-          >
-            {cards[i]}
-          </animated.div>
-        ))}
+        <React.Suspense fallback={<span />}>
+          <MovementToolkit cid={cid} uid={uid} />
+        </React.Suspense>
       </div>
     </StyledContainer>
   )
 }
 
-export default Typeform
+export default GoingPage

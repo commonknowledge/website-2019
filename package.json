@@ -7,6 +7,8 @@
     "node": ">= 8.12"
   },
   "dependencies": {
+    "@types/react": "^16.8.8",
+    "@types/react-dom": "^16.8.2",
     "@types/react-helmet": "^5.0",
     "@types/styled-components": "^4.1",
     "@types/typography": "^0.16",
@@ -23,8 +25,8 @@
     "gatsby-transformer-remark": "2.2",
     "qrcode-svg": "^1.0.0",
     "query-string": "^6.2",
-    "react": "16.8",
-    "react-dom": "16.8",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
     "react-helmet": "^5.2",
     "react-icons": "^3.3",
     "react-spring": "^8.0",
