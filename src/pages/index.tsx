@@ -91,8 +91,8 @@ const IndexPage: React.SFC = () => (
         (a workers cooperative)
       </Text>
       <Text fontSize={[3, 3, 4]} fontFamily={subtitleFontFamily.name}>
-        Activists software developers, building platform-level tools, to grow
-        the grassroots left
+        Activists and software developers, designing platform-level tools, to
+        grow the grassroots left
       </Text>
       <Box mt={[3, 4, 4]}>
         <Text fontSize={[3, 3, 4]} css={{ opacity: 0.25 }}>
