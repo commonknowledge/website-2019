@@ -52,7 +52,7 @@ const InstructionsCard: React.SFC<
       <Section>
         <div style={{ ...css.subtitle }}>When?</div>
         <div style={{ fontSize: 35, ...css.bold }}>
-          {isSameDay(new Date(), date) ? date : 'Today'}
+          {isSameDay(new Date(), new Date(date)) ? 'Today' : date}
         </div>
         <div style={{ fontSize: 35, ...css.bold }}>{time}</div>
       </Section>
