@@ -7,7 +7,7 @@ import { Box } from '../utils/rebass'
 
 const GlobalStyle = createGlobalStyle`
   html {
-    background: ${props => props.theme.colors.background};
+    /* background: ${props => props.theme.colors.white}; */
   }
 `
 

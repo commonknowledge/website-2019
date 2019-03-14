@@ -24,7 +24,7 @@ const gray = '#AAAAAA'
 const silver = '#DDDDDD'
 
 // Applied colours
-const primary = mintGreen
+const primary = black
 const background = offwhite
 const textColor = black
 

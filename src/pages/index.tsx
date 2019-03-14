@@ -4,8 +4,13 @@ import { InternalLink, ExternalLink } from '../components/link'
 import Wrapper from '../components/wrapper'
 import Layout from '../components/layout'
 import Container from '../components/container'
-
+// @ts-ignore
+import logo from '../images/movement-logo.svg'
 import { FaWrench, FaEye, FaTwitter } from 'react-icons/fa'
+import FundingPanel from '../components/FundingPanel'
+import { Link } from 'gatsby'
+import theme from '../styles/theme'
+import { textColor } from '../utils/styled-system'
 
 const textWidth = [500, 500, 700]
 
@@ -48,8 +53,8 @@ const TextBlock: React.SFC<TextBlockProps> = ({ icon, text, alternate }) => {
 }
 
 const IndexPage: React.SFC = () => (
-  <Layout px={[3, 4, 5]}>
-    <Wrapper pt={[4, 5, 6]} pb={[4, 4, 5]}>
+  <Layout>
+    <Wrapper pt={[4, 5, 6]} pb={[4, 4, 5]} px={[3, 4, 5]}>
       <Container pb={[3, 3, 4]} maxWidth={[500, 800]}>
         <Heading fontSize={[3, 4, 6]} textAlign="center">
           <InternalLink to="/" css={{ 'text-transform': 'uppercase' }}>
@@ -63,14 +68,75 @@ const IndexPage: React.SFC = () => (
         textAlign="center"
         css={{ opacity: 0.5 }}
       >
-        (A tech coop)
+        A workers cooperative
       </Text>
       <Container maxWidth={[500, 800]}>
         <Text fontSize={[3, 3, 4]} textAlign="center">
-          Designing tools + infrastructure to grow the grassroots left
+          Activists software developers, building platform-level tools, to grow
+          the grassroots left
         </Text>
       </Container>
     </Wrapper>
+    <Container py={[4, 5, 6]} css={{ background: theme.colors.red }}>
+      <Wrapper>
+        <Flex flexDirection={['column', 'column', 'row']}>
+          <Box width={[1, 1, 0.5]}>
+            <Text
+              css={{ color: 'white' }}
+              fontSize={[3, 3, 5]}
+              fontWeight={900}
+              lineHeight={1}
+            >
+              Test <i>Movement</i>, the prototype platform for activism
+            </Text>
+            <Text css={{ color: 'white' }} mt={3}>
+              We're building a platform for people who are new to politics get
+              involved in grassroots activism, when they aren't sure where to
+              start. Movement helps you put your principles into practice, learn
+              new skills + spend valuable time with locals who share your
+              concerns 🙌.
+            </Text>
+            <Text css={{ color: 'white' }} mt={3}>
+              By signing up for the prototype you'll be helping us learn how to
+              make the service better, so even more people can get involved.
+            </Text>
+          </Box>
+          <Flex
+            width={[1, 1, 0.5]}
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="middle"
+          >
+            <div style={{ padding: '20px 20px', textAlign: 'center' }}>
+              <img src={logo} style={{ width: '30%', margin: 0 }} />
+            </div>
+            <div
+              style={{
+                marginTop: 15,
+                textAlign: 'center',
+              }}
+            >
+              <Link
+                style={{
+                  textAlign: 'center',
+                  display: 'inline-block',
+                  fontSize: 32,
+                  borderRadius: 100,
+                  background: 'white',
+                  color: theme.colors.red,
+                  padding: '10px 30px',
+                  fontWeight: 900,
+                  textDecoration: 'none',
+                }}
+                to="movement"
+              >
+                <span>Sign up</span>
+              </Link>
+            </div>
+          </Flex>
+        </Flex>
+      </Wrapper>
+    </Container>
     {/* <Box py={[4, 5, 6]} bg="black" color="white">
       <Wrapper>
         <Container maxWidth={textWidth}>
@@ -94,8 +160,8 @@ const IndexPage: React.SFC = () => (
         </Container>
       </Wrapper>
     </Box> */}
-    <Wrapper>
-      <Container maxWidth={textWidth} mt={[4, 5]} mb={[3, 5, 6]}>
+    <Wrapper px={[3, 4, 5]}>
+      <Container maxWidth={textWidth} mt={[4, 5]}>
         {/* <Heading mb={[3, 4, 5]} fontSize={[3, 3, 4]}>
           What we're about
         </Heading> */}
@@ -194,6 +260,16 @@ const IndexPage: React.SFC = () => (
         />
       </Container>
     </Wrapper>
+    <Container
+      mt={[4, 5]}
+      pt={[2, 3, 5]}
+      pb={[5, 6, 7]}
+      css={{ background: theme.colors.primary, color: 'white' }}
+    >
+      <Wrapper>
+        <FundingPanel />
+      </Wrapper>
+    </Container>
   </Layout>
 )
 
