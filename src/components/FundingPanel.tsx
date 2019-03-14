@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Text, Heading, Box } from '../utils/rebass'
+import { Text, Heading, Box, Flex } from '../utils/rebass'
 
 export default () => (
   <>
@@ -20,6 +20,33 @@ export default () => (
       <Text fontSize={0} css={{ color: 'white', marginTop: 10 }}>
         Your donation fuels all of this.
       </Text>
+    </div>
+    <Flex
+      mt={[3, 3, 4]}
+      flexDirection={['column', 'row']}
+      justifyContent={'space-around'}
+    >
+      <Box my={[3, 3, 4]}>
+        <Text textAlign="center">
+          <a
+            style={{
+              display: 'inline-block',
+              fontSize: 32,
+              borderRadius: 100,
+              background: 'white',
+              color: 'black',
+              padding: '10px 20px',
+              fontWeight: 900,
+              textDecoration: 'none',
+            }}
+            href="https://opencollective.com/commonknowledge/donate"
+            target="_blank"
+          >
+            <span>Donate</span>
+          </a>
+        </Text>
+      </Box>
+
       <Box my={[3, 3, 4]}>
         <Text textAlign="center">
           <a
@@ -34,39 +61,15 @@ export default () => (
               textDecoration: 'none',
             }}
             href="https://commerce.coinbase.com/checkout/bcda7a9f-01a8-4835-b586-13558aa2cb2d"
+            target="_blank"
           >
             <span>Donate Crypto</span>
           </a>
-          <Text css={{ color: 'white', opacity: 0.4 }}>(Bitcoin etc.)</Text>
+          <Text mt={2} css={{ color: 'white', opacity: 0.4 }}>
+            (Bitcoin etc.)
+          </Text>
         </Text>
       </Box>
-    </div>
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-        marginTop: 30,
-        justifyContent: 'space-around',
-      }}
-    >
-      {/* <div style={{ textAlign: 'center' }}>
-              <a
-                style={{
-                  display: 'inline-block',
-                  fontSize: 32,
-                  borderRadius: 100,
-                  background: '#00D87EFF',
-                  color: 'white',
-                  padding: '10px 20px',
-                  fontWeight: 900,
-                  textDecoration: 'none',
-                }}
-                href="https://commerce.coinbase.com/checkout/bcda7a9f-01a8-4835-b586-13558aa2cb2d"
-              >
-                <span>Donate</span>
-              </a>
-              <div style={{ opacity: 0.4 }}>(in any currency)</div>
-            </div> */}
-    </div>
+    </Flex>
   </>
 )
