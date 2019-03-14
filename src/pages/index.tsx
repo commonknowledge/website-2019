@@ -6,11 +6,18 @@ import Layout from '../components/layout'
 import Container from '../components/container'
 // @ts-ignore
 import logo from '../images/movement-logo.svg'
-import { FaWrench, FaEye, FaTwitter } from 'react-icons/fa'
+import {
+  FaEye,
+  FaTwitter,
+  FaGithub,
+  FaFacebook,
+  FaGitlab,
+  FaEnvelope,
+} from 'react-icons/fa'
 import FundingPanel from '../components/FundingPanel'
 import { Link } from 'gatsby'
 import theme from '../styles/theme'
-import { textColor } from '../utils/styled-system'
+import { textColor, textAlign } from '../utils/styled-system'
 
 const textWidth = [500, 500, 700]
 
@@ -54,28 +61,53 @@ const TextBlock: React.SFC<TextBlockProps> = ({ icon, text, alternate }) => {
 
 const IndexPage: React.SFC = () => (
   <Layout>
-    <Wrapper pt={[4, 5, 6]} pb={[4, 4, 5]} px={[3, 4, 5]}>
-      <Container pb={[3, 3, 4]} maxWidth={[500, 800]}>
-        <Heading fontSize={[3, 4, 6]} textAlign="center">
-          <InternalLink to="/" css={{ 'text-transform': 'uppercase' }}>
-            Common Knowledge
-          </InternalLink>
-        </Heading>
-      </Container>
-      <Text
-        pb={[3, 3, 4]}
-        fontSize={[2, 2, 3]}
-        textAlign="center"
-        css={{ opacity: 0.5 }}
-      >
-        A workers cooperative
+    <Wrapper pt={[4, 5, 6]} pb={[4, 4, 4]} px={[3, 4, 5]}>
+      <Heading fontSize={[3, 4, 6]}>
+        <InternalLink to="/" css={{ 'text-transform': 'uppercase' }}>
+          Common Knowledge
+        </InternalLink>
+      </Heading>
+      <Text pb={[3, 3, 4]} fontSize={[2, 2, 3]} css={{ opacity: 0.25 }}>
+        (a workers cooperative)
       </Text>
-      <Container maxWidth={[500, 800]}>
-        <Text fontSize={[3, 3, 4]} textAlign="center">
-          Activists software developers, building platform-level tools, to grow
-          the grassroots left
+      <Text fontSize={[3, 3, 4]}>
+        Activists software developers, building platform-level tools, to grow
+        the grassroots left
+      </Text>
+      <Box mt={[3, 4, 4]}>
+        <Text fontSize={[3, 3, 4]} css={{ opacity: 0.25 }}>
+          <a
+            style={{ color: theme.colors.primary, paddingRight: 24 }}
+            href="https://github.com/commonknowledge"
+          >
+            <FaGithub />
+          </a>
+          <a
+            style={{ color: theme.colors.primary, paddingRight: 24 }}
+            href="https://git.coop/commonknowledge"
+          >
+            <FaGitlab />
+          </a>
+          <a
+            style={{ color: theme.colors.primary, paddingRight: 24 }}
+            href="https://twitter.com/platformpolitic"
+          >
+            <FaTwitter />
+          </a>
+          <a
+            style={{ color: theme.colors.primary, paddingRight: 24 }}
+            href="https://facebook.com/commonknowledgecoop"
+          >
+            <FaFacebook />
+          </a>
+          <a
+            style={{ color: theme.colors.primary, paddingRight: 24 }}
+            href="mailto:hello@commonknowledge.coop"
+          >
+            <FaEnvelope />
+          </a>
         </Text>
-      </Container>
+      </Box>
     </Wrapper>
     <Container py={[4, 5, 6]} css={{ background: theme.colors.red }}>
       <Wrapper>
@@ -137,97 +169,8 @@ const IndexPage: React.SFC = () => (
         </Flex>
       </Wrapper>
     </Container>
-    {/* <Box py={[4, 5, 6]} bg="black" color="white">
-      <Wrapper>
-        <Container maxWidth={textWidth}>
-          <Flex
-            flexDirection={['column', 'row']}
-            alignItems={['start', 'center']}
-            css={{ 'line-height': '1em' }}
-          >
-            <Box>
-              <Text fontSize={[3, 5]} pr={[3, 4]} pb={[3, 0]}>
-                <FaWrench />
-              </Text>
-            </Box>
-            <Box>
-              <Heading fontSize={[3, 3, 4]}>
-                We're currently developing a platform for activists and
-                organising resources – stay tuned
-              </Heading>
-            </Box>
-          </Flex>
-        </Container>
-      </Wrapper>
-    </Box> */}
     <Wrapper px={[3, 4, 5]}>
       <Container maxWidth={textWidth} mt={[4, 5]}>
-        {/* <Heading mb={[3, 4, 5]} fontSize={[3, 3, 4]}>
-          What we're about
-        </Heading> */}
-        {/* <TextBlock
-          text={
-            <>
-              <p>
-                The revival of the popular Left in formal politics has been an
-                exciting and direly necessary development.
-              </p>
-              <p>
-                But the prospect of a supportive 'mass movement' has yet to be
-                realised through grassroots political activity at scale.
-              </p>
-              <p>
-                In hindsight, it was naïve to believe that such a movement would
-                naturally arise out of the traditional institutions of the left.
-              </p>
-            </>
-          }
-        />
-        <TextBlock
-          alternate
-          icon={<FaTwitter />}
-          text={
-            <>
-              <p>
-                Modern technology has shown us a route to the kind of popular
-                political engagement we'd need to make radical change.
-              </p>
-              <p>
-                From #Occupy to the Arab Spring to the Corbyn ascendancy,
-                popular social media platforms and technology was critical to
-                organising challenges to ruling class power.
-              </p>
-              <p>
-                But these tools were built by and for private profit; their
-                political utility has been coincidental. We've only scraped the
-                surface of what could be done by and for those who fight to
-                change society.
-              </p>
-              <p>
-                And the rapid rise of the hyper-exploitative gig economy, global
-                logistics and big data companies show us what happens when a
-                technology like the internet is monopolised by business.
-              </p>
-            </>
-          }
-        />
-        <TextBlock
-          icon={<FaWrench />}
-          text={
-            <>
-              <p>
-                We believe the skills, methodologies and technologies of the
-                tech industry can be re-appropriated for the intersectional
-                socialist movement.
-              </p>
-              <p>
-                Grounded in the principles of collaborative research, design,
-                implementation, ownership and control, a democratic technical
-                infrastructure that is strategically useful can be built out.
-              </p>
-            </>
-          }
-        /> */}
         <TextBlock
           alternate
           icon={<FaEye />}
