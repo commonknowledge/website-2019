@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Card from './Card'
-import { isSameDay } from 'date-fns'
+import { isSameDay, format } from 'date-fns'
 // @ts-ignore
 import * as css from './styles'
 
@@ -52,7 +52,9 @@ const InstructionsCard: React.SFC<
       <Section>
         <div style={{ ...css.subtitle }}>When?</div>
         <div style={{ fontSize: 35, ...css.bold }}>
-          {isSameDay(new Date(), new Date(date)) ? 'Today' : date}
+          {isSameDay(new Date(), new Date(date))
+            ? 'Today'
+            : format(date, 'ddd Do MMM')}
         </div>
         <div style={{ fontSize: 35, ...css.bold }}>{time}</div>
       </Section>
