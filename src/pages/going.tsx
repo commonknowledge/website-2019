@@ -40,9 +40,9 @@ const GoingPage: React.SFC = () => {
           ...css.sansSerif,
         }}
       >
-        <React.Suspense fallback={<span />}>
-          <MovementToolkit cid={cid} uid={uid} />
-        </React.Suspense>
+        {/* <React.Suspense fallback={<span />}> */}
+        <MovementToolkit cid={cid} uid={uid} />
+        {/* </React.Suspense> */}
       </div>
     </StyledContainer>
   )
