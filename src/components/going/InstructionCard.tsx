@@ -1,5 +1,6 @@
 import * as React from 'react'
 import Card from './Card'
+import { isSameDay } from 'date-fns'
 // @ts-ignore
 import * as css from './styles'
 
@@ -26,10 +27,19 @@ const InstructionsCard: React.SFC<
     event: string
     address: string
     time: string
+    date: string
     emergencyContact?: string
     instructions?: string[]
   }
-> = ({ event, address, time, emergencyContact, instructions, ...props }) => {
+> = ({
+  event,
+  address,
+  time,
+  date,
+  emergencyContact,
+  instructions,
+  ...props
+}) => {
   return (
     <Card {...props}>
       {/* <div style={{ padding: '20px 20px', textAlign: 'center' }}>
@@ -41,6 +51,9 @@ const InstructionsCard: React.SFC<
       </div>
       <Section>
         <div style={{ ...css.subtitle }}>When?</div>
+        <div style={{ fontSize: 35, ...css.bold }}>
+          {isSameDay(new Date(), date) ? date : 'Today'}
+        </div>
         <div style={{ fontSize: 35, ...css.bold }}>{time}</div>
       </Section>
       <Section>
@@ -77,7 +90,9 @@ const InstructionsCard: React.SFC<
       {emergencyContact && (
         <Section>
           <div style={{ ...css.subtitle }}>Any problems?</div>
-          <div style={{ fontSize: 24, ...css.bold }}>{emergencyContact}</div>
+          <div style={{ fontSize: 24, ...css.bold, lineHeight: '1.15em' }}>
+            {emergencyContact}
+          </div>
         </Section>
       )}
     </Card>

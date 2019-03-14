@@ -45,6 +45,7 @@ const MovementToolkit: React.SFC<{ uid: string; cid: string }> = ({
     name = '',
     event = '',
     time = '',
+    date = '',
     address = '',
     emergencyContact = '',
     instructions = '',
@@ -72,10 +73,11 @@ const MovementToolkit: React.SFC<{ uid: string; cid: string }> = ({
   if (event && time && address) {
     cards.push(
       <>
-        <Caption>Quick reference for you</Caption>
+        <Caption style={{ marginTop: 18 }}>Quick reference for you</Caption>
         <InstructionsCard
           style={{ marginTop: 8 }}
           event={event}
+          date={date}
           time={time}
           address={JSON.parse(address)}
           instructions={instructions}
@@ -88,7 +90,9 @@ const MovementToolkit: React.SFC<{ uid: string; cid: string }> = ({
   if (uid) {
     cards.push(
       <>
-        <Caption>Someone asking about Movement?</Caption>
+        <Caption style={{ marginTop: 18 }}>
+          Someone asking about Movement?
+        </Caption>
         <ReferralCard code={uid} style={{ marginTop: 8 }} />
       </>
     )

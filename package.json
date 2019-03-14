@@ -13,6 +13,7 @@
     "@types/styled-components": "^4.1",
     "@types/typography": "^0.16",
     "babel-plugin-styled-components": "^1.10",
+    "date-fns": "^1.30.1",
     "gatsby": "2.0",
     "gatsby-plugin-google-analytics": "^2.0.16",
     "gatsby-plugin-google-fonts": "^0.0.4",
