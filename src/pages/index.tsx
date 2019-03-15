@@ -101,17 +101,17 @@ const IndexPage: React.SFC = () => (
               fontWeight={900}
               lineHeight={1}
             >
-              Test <i>Movement</i>, the prototype platform for activism
+              <i>Movement</i> - the prototype platform for activism
             </Heading>
             <Text fontSize={1} css={{ color: 'white' }} mt={3}>
               We're building a platform for people to get involved in grassroots
-              activism, when they aren't sure where to start. Movement helps you
-              put your principles into practice, learn new skills and spend
-              valuable time with locals who share your concerns 🙌.
+              activism when they aren't sure where to start. <i>Movement</i>{' '}
+              helps you put your principles into practice, learn new skills and
+              spending valuable time with locals who share your concerns 🙌.
             </Text>
             <Text fontSize={1} css={{ color: 'white' }} mt={3}>
               Sign up and you'll be helping us learn how to make the service
-              better, so even more people can get involved.
+              better so even more people can get involved.
             </Text>
           </Box>
           <Flex
@@ -155,19 +155,18 @@ const IndexPage: React.SFC = () => (
       <Container mt={[4, 5]}>
         <TextBlock
           alternate
-          icon={<FaEye />}
           title="What we're about"
           text={
             <>
               <p>
                 Right now we're developing a toolkit to link up established
-                organisers, activists and those newly politicised, and lower the
+                organisers, activists and those newly politicised and lower the
                 barriers to wide-scale political activity.
               </p>
               <p>
                 But our broader ambition is to explore how pervasive technology
                 can be used by the many to our material benefit, in our daily
-                struggles, and against all forms of domination.
+                struggles and against all forms of domination.
               </p>
               <p>
                 We want to be self-critical, transparent and strategic in our
