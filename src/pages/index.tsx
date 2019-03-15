@@ -91,8 +91,8 @@ const IndexPage: React.SFC = () => (
         (a workers cooperative)
       </Text>
       <Text fontSize={[3, 3, 4]} fontFamily={subtitleFontFamily.name}>
-        Activists and software developers, designing platform-level tools, to
-        grow the grassroots left
+        Activists and software developers designing platform-level tools to grow
+        the grassroots left
       </Text>
       <Box mt={[3, 4, 4]}>
         <Text fontSize={[3, 3, 4]} css={{ opacity: 0.25 }}>
@@ -142,15 +142,15 @@ const IndexPage: React.SFC = () => (
               Test <i>Movement</i>, the prototype platform for activism
             </Heading>
             <Text fontSize={0} css={{ color: 'white' }} mt={3}>
-              We're building a platform for people who are new to politics get
-              involved in grassroots activism, when they aren't sure where to
-              start. Movement helps you put your principles into practice, learn
-              new skills + spend valuable time with locals who share your
+              We're building a platform for people to get involved in grassroots
+              activism, when they aren't sure where to start. Movement helps you
+              put your principles into practice, learn new skills and spend
+              valuable time with locals who share your concerns 🙌.
               concerns 🙌.
             </Text>
             <Text fontSize={0} css={{ color: 'white' }} mt={3}>
-              By signing up for the prototype you'll be helping us learn how to
-              make the service better, so even more people can get involved.
+              Sign up and you'll be helping us learn how to make the service
+              better, so even more people can get involved.
             </Text>
           </Box>
           <Flex
@@ -199,14 +199,14 @@ const IndexPage: React.SFC = () => (
           text={
             <>
               <p>
-                Right now, we're developing a toolkit to link up established
+                Right now we're developing a toolkit to link up established
                 organisers, activists and those newly politicised, and lower the
                 barriers to wide-scale political activity.
               </p>
               <p>
-                But we have broader ambitions to develop a working concept of
-                how pervasive technology can be used by the many, to their
-                material benefit, in their daily struggles, and against all
+                But our broader ambition is to explore how pervasive technology
+                can be used by the many to our material benefit, in our daily
+                struggles, and against all forms of domination.
                 forms of domination.
               </p>
               <p>
@@ -215,7 +215,7 @@ const IndexPage: React.SFC = () => (
               </p>
               <p>We'll report back soon.</p>
               <p>
-                Say{' '}
+                Check back soon when we'll start publishing regular reports.
                 <ExternalLink href="mailto:hello@commonknowledge.coop">
                   hello @ commonknowledge.coop
                 </ExternalLink>
