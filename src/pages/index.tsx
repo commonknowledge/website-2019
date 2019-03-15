@@ -13,11 +13,13 @@ import {
   FaFacebook,
   FaGitlab,
   FaEnvelope,
+  FaDiscord,
 } from 'react-icons/fa'
 import FundingPanel from '../components/FundingPanel'
 import { Link } from 'gatsby'
 import theme from '../styles/theme'
 import { subtitleFontFamily } from '../styles/typography'
+import SocialLinks from '../components/SocialLinks'
 
 interface TextBlockProps {
   icon?: any
@@ -31,6 +33,7 @@ const TextBlock: React.SFC<TextBlockProps> = ({
   title,
   text,
   alternate,
+  ...props
 }) => {
   const _text = (
     <Container width={[1, 1, 0.5]} px={0} mx={0}>
@@ -65,8 +68,8 @@ const TextBlock: React.SFC<TextBlockProps> = ({
 
   return (
     <Flex
-      mb={[2, 3, 5]}
       flexDirection={['column', 'column', alternate ? 'row' : 'row-reverse']}
+      {...props}
     >
       {_image}
       {_text}
@@ -76,7 +79,7 @@ const TextBlock: React.SFC<TextBlockProps> = ({
 
 const IndexPage: React.SFC = () => (
   <Layout>
-    <Wrapper pt={[4, 5, 6]} pb={[4, 4, 4]}>
+    <Wrapper pt={[5, 5, 6]} pb={[5, 5, 6]}>
       <Heading fontSize={[5, 6, 6]}>
         <InternalLink to="/" style={{ textTransform: 'uppercase' }}>
           Common Knowledge
@@ -94,40 +97,6 @@ const IndexPage: React.SFC = () => (
         Activists and software developers designing platform-level tools to grow
         the grassroots left
       </Text>
-      <Box mt={[3, 4, 4]}>
-        <Text fontSize={[3, 3, 4]} css={{ opacity: 0.25 }}>
-          <a
-            style={{ color: theme.colors.primary, paddingRight: 24 }}
-            href="https://github.com/commonknowledge"
-          >
-            <FaGithub />
-          </a>
-          <a
-            style={{ color: theme.colors.primary, paddingRight: 24 }}
-            href="https://git.coop/commonknowledge"
-          >
-            <FaGitlab />
-          </a>
-          <a
-            style={{ color: theme.colors.primary, paddingRight: 24 }}
-            href="https://twitter.com/platformpolitic"
-          >
-            <FaTwitter />
-          </a>
-          <a
-            style={{ color: theme.colors.primary, paddingRight: 24 }}
-            href="https://facebook.com/commonknowledgecoop"
-          >
-            <FaFacebook />
-          </a>
-          <a
-            style={{ color: theme.colors.primary, paddingRight: 24 }}
-            href="mailto:hello@commonknowledge.coop"
-          >
-            <FaEnvelope />
-          </a>
-        </Text>
-      </Box>
     </Wrapper>
     <Container py={[4, 5, 6]} css={{ background: theme.colors.red }}>
       <Wrapper>
@@ -146,7 +115,6 @@ const IndexPage: React.SFC = () => (
               activism, when they aren't sure where to start. Movement helps you
               put your principles into practice, learn new skills and spend
               valuable time with locals who share your concerns 🙌.
-              concerns 🙌.
             </Text>
             <Text fontSize={0} css={{ color: 'white' }} mt={3}>
               Sign up and you'll be helping us learn how to make the service
@@ -207,22 +175,74 @@ const IndexPage: React.SFC = () => (
                 But our broader ambition is to explore how pervasive technology
                 can be used by the many to our material benefit, in our daily
                 struggles, and against all forms of domination.
-                forms of domination.
               </p>
               <p>
                 We want to be self-critical, transparent and strategic in our
                 work.
               </p>
-              <p>We'll report back soon.</p>
               <p>
                 Check back soon when we'll start publishing regular reports.
-                <ExternalLink href="mailto:hello@commonknowledge.coop">
-                  hello @ commonknowledge.coop
-                </ExternalLink>
               </p>
             </>
           }
         />
+        <Flex flexDirection={['column', 'row']} justifyContent={'space-around'}>
+          <Box my={[3, 3, 4]}>
+            <Text>
+              <a
+                style={{
+                  margin: 10,
+                  textAlign: 'center',
+                  display: 'inline-block',
+                  fontSize: 32,
+                  borderRadius: 100,
+                  background: 'white',
+                  color: 'black',
+                  padding: '10px 30px',
+                  fontWeight: 900,
+                  textDecoration: 'none',
+                  border: '1px solid #EEE',
+                  lineHeight: '1em',
+                  verticalAlign: 'center',
+                }}
+                href="https://community.movement.chat"
+              >
+                <span style={{ verticalAlign: 'middle', paddingRight: 10 }}>
+                  Join the community
+                </span>
+                <FaDiscord style={{ verticalAlign: 'middle' }} />
+              </a>
+            </Text>
+            <Text textAlign="center">
+              <a
+                style={{
+                  margin: 10,
+                  display: 'inline-block',
+                  fontSize: 32,
+                  borderRadius: 100,
+                  background: 'white',
+                  color: theme.colors.red,
+                  padding: '10px 30px',
+                  fontWeight: 900,
+                  textDecoration: 'none',
+                  border: '1px solid #EEE',
+                  lineHeight: '1em',
+                }}
+                href="mailto:hello@commonknowledge.coop"
+              >
+                <span style={{ verticalAlign: 'middle', paddingRight: 10 }}>
+                  Let's talk
+                </span>
+                <FaEnvelope style={{ verticalAlign: 'middle' }} />
+              </a>
+            </Text>
+          </Box>
+        </Flex>
+        <center>
+          <Box mt={[3, 4, 4]}>
+            <SocialLinks />
+          </Box>
+        </center>
       </Container>
     </Wrapper>
     <Container
