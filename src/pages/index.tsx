@@ -78,8 +78,9 @@ const IndexPage: React.SFC = () => (
         </InternalLink>
       </Heading>
       <Text
+        py={[2, 2, 3]}
         fontSize={[3, 3, 4]}
-        lineHeight={'2em'}
+        lineHeight={'1em'}
         css={{ opacity: 0.25 }}
         fontFamily={subtitleFontFamily.name}
       >
