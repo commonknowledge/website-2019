@@ -227,11 +227,11 @@ const IndexPage: React.SFC = () => (
     </Wrapper>
     <Container
       mt={[4, 5]}
-      pt={[4, 3, 5]}
+      pt={[4, 5, 5]}
       pb={[5, 6, 7]}
       css={{ background: theme.colors.primary, color: 'white' }}
     >
-      <Wrapper width={[1, 1, 0.5]}>
+      <Wrapper width={[1, 1, 900]}>
         <FundingPanel />
       </Wrapper>
     </Container>
