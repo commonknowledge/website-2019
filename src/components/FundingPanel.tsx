@@ -21,7 +21,7 @@ export default () => (
         Your donation fuels all of this.
       </Text>
             <Text fontSize={0} css={{ color: 'white', opacity: 0.5, marginTop: 10 }}>
-        We're a not-for-profit worker cooperative, <a css={{ color: 'inherit', textDecoration: 'none', fontWeight: 900, borderBottom: '1px solid white' }} href='https://beta.companieshouse.gov.uk/company/11620742'>registered with Companies House</a> as a "private company limited by guarantee without share capital" No. 11620742.
+        We're a not-for-profit worker cooperative, <a css={{ color: 'inherit', textDecoration: 'none', fontWeight: 900, borderBottom: '1px solid white' }} href='https://beta.companieshouse.gov.uk/company/11620742'>registered with Companies House</a> as Common Knowledge Co-operative Ltd (No. 11620742), a private company limited by guarantee without share capital.
       </Text>
     </div>
     <Flex
