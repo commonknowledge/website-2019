@@ -84,7 +84,7 @@ const IndexPage: React.SFC = () => (
         css={{ opacity: 0.25 }}
         fontFamily={subtitleFontFamily.name}
       >
-        (a not-for-profit workers cooperative)
+        (A not-for-profit workers cooperative)
       </Text>
       <Text fontSize={[4, 4, 5]} fontFamily={subtitleFontFamily.name}>
         Activists and software developers designing platform-level tools to grow
@@ -107,7 +107,7 @@ const IndexPage: React.SFC = () => (
               We're building a platform for people to get involved in grassroots
               activism when they aren't sure where to start. <i>Movement</i>{' '}
               helps you put your principles into practice, learn new skills and
-              spending valuable time with locals who share your concerns 🙌.
+              spend time with locals who share your concerns 🙌.
             </Text>
             <Text fontSize={1} css={{ color: 'white' }} mt={3}>
               Sign up and you'll be helping us learn how to make the service
