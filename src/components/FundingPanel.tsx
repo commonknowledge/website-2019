@@ -4,21 +4,24 @@ import { Text, Heading, Box, Flex } from '../utils/rebass'
 export default () => (
   <>
     <div>
-      <Heading fontSize={[5, 5, 5]} css={{ color: 'white' }}>
+      <Heading fontSize={[6, 6, 6]} css={{ color: 'white' }}>
         Help sustain this
       </Heading>
-      <Text fontSize={0} css={{ color: 'white', marginTop: 10 }}>
+      <Text fontSize={1} css={{ color: 'white', marginTop: 10 }}>
         We rely on donations and grants to keep going. We use the money to
         conduct user research, collaborate with campaigning activists, bring
         together existing digital solutions and build new tools.
       </Text>
-      <Text fontSize={0} css={{ color: 'white', marginTop: 10 }}>
+      <Text fontSize={1} css={{ color: 'white', marginTop: 10 }}>
         Our overarching goal is to accelerate the growth of the grassroots left,
         and minimise the barriers that people face to building power for
         themselves.
       </Text>
-      <Text fontSize={0} css={{ color: 'white', marginTop: 10 }}>
+      <Text fontSize={1} css={{ color: 'white', marginTop: 10 }}>
         Your donation fuels all of this.
+      </Text>
+            <Text fontSize={0} css={{ color: 'white', opacity: 0.5, marginTop: 10 }}>
+        We're a not-for-profit worker cooperative, <a css={{ color: 'inherit', textDecoration: 'none', fontWeight: 900, borderBottom: '1px solid white' }} href='https://beta.companieshouse.gov.uk/company/11620742'>registered with Companies House</a> as a "private company limited by guarantee without share capital" No. 11620742.
       </Text>
     </div>
     <Flex

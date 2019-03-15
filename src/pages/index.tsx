@@ -6,15 +6,7 @@ import Layout from '../components/layout'
 import Container from '../components/container'
 // @ts-ignore
 import logo from '../images/movement-logo.svg'
-import {
-  FaEye,
-  FaTwitter,
-  FaGithub,
-  FaFacebook,
-  FaGitlab,
-  FaEnvelope,
-  FaDiscord,
-} from 'react-icons/fa'
+import { FaEye, FaEnvelope, FaDiscord } from 'react-icons/fa'
 import FundingPanel from '../components/FundingPanel'
 import { Link } from 'gatsby'
 import theme from '../styles/theme'
@@ -37,7 +29,7 @@ const TextBlock: React.SFC<TextBlockProps> = ({
 }) => {
   const _text = (
     <Container width={[1, 1, 0.5]} px={0} mx={0}>
-      <Text fontSize={0}>{text}</Text>
+      <Text fontSize={1}>{text}</Text>
     </Container>
   )
 
@@ -46,7 +38,7 @@ const TextBlock: React.SFC<TextBlockProps> = ({
       <Heading
         width={[1, 1, 0.75]}
         ml="auto"
-        fontSize={[5, 5, 5]}
+        fontSize={[6, 6, 6]}
         textAlign={alternate && ['left', 'left', 'right']}
         {...{
           [alternate ? 'pr' : 'pl']: [0, 0, 5],
@@ -55,7 +47,7 @@ const TextBlock: React.SFC<TextBlockProps> = ({
         {title}
       </Heading>
       <Text
-        fontSize={[3, 4]}
+        fontSize={[4, 5]}
         textAlign={alternate && ['left', 'left', 'right']}
         {...{
           [alternate ? 'pr' : 'pl']: [0, 0, 5],
@@ -80,20 +72,20 @@ const TextBlock: React.SFC<TextBlockProps> = ({
 const IndexPage: React.SFC = () => (
   <Layout>
     <Wrapper pt={[5, 5, 6]} pb={[5, 5, 6]}>
-      <Heading fontSize={[5, 6, 6]}>
+      <Heading fontSize={[6, 7, 7]}>
         <InternalLink to="/" style={{ textTransform: 'uppercase' }}>
           Common Knowledge
         </InternalLink>
       </Heading>
       <Text
-        fontSize={[2, 2, 3]}
+        fontSize={[3, 3, 4]}
         lineHeight={'2em'}
         css={{ opacity: 0.25 }}
         fontFamily={subtitleFontFamily.name}
       >
-        (a workers cooperative)
+        (a not-for-profit workers cooperative)
       </Text>
-      <Text fontSize={[3, 3, 4]} fontFamily={subtitleFontFamily.name}>
+      <Text fontSize={[4, 4, 5]} fontFamily={subtitleFontFamily.name}>
         Activists and software developers designing platform-level tools to grow
         the grassroots left
       </Text>
@@ -110,13 +102,13 @@ const IndexPage: React.SFC = () => (
             >
               Test <i>Movement</i>, the prototype platform for activism
             </Heading>
-            <Text fontSize={0} css={{ color: 'white' }} mt={3}>
+            <Text fontSize={1} css={{ color: 'white' }} mt={3}>
               We're building a platform for people to get involved in grassroots
               activism, when they aren't sure where to start. Movement helps you
               put your principles into practice, learn new skills and spend
               valuable time with locals who share your concerns 🙌.
             </Text>
-            <Text fontSize={0} css={{ color: 'white' }} mt={3}>
+            <Text fontSize={1} css={{ color: 'white' }} mt={3}>
               Sign up and you'll be helping us learn how to make the service
               better, so even more people can get involved.
             </Text>
