@@ -38,7 +38,7 @@ const TextBlock: React.SFC<TextBlockProps> = ({
       <Heading
         width={[1, 1, 0.75]}
         ml="auto"
-        fontSize={[6, 6, 6]}
+        fontSize={[5, 6, 6]}
         textAlign={alternate && ['left', 'left', 'right']}
         {...{
           [alternate ? 'pr' : 'pl']: [0, 0, 5],
@@ -109,10 +109,6 @@ const IndexPage: React.SFC = () => (
               helps you put your principles into practice, learn new skills and
               spend time with locals who share your concerns 🙌.
             </Text>
-            <Text fontSize={1} css={{ color: 'white' }} mt={3}>
-              Sign up and you'll be helping us learn how to make the service
-              better so even more people can get involved.
-            </Text>
           </Box>
           <Flex
             mb={[4, 4, 0]}
@@ -123,29 +119,6 @@ const IndexPage: React.SFC = () => (
           >
             <div style={{ padding: '20px 20px', textAlign: 'center' }}>
               <img src={logo} style={{ width: '30%', margin: 0 }} />
-            </div>
-            <div
-              style={{
-                marginTop: 15,
-                textAlign: 'center',
-              }}
-            >
-              <Link
-                style={{
-                  textAlign: 'center',
-                  display: 'inline-block',
-                  fontSize: 32,
-                  borderRadius: 100,
-                  background: 'white',
-                  color: theme.colors.red,
-                  padding: '10px 30px',
-                  fontWeight: 900,
-                  textDecoration: 'none',
-                }}
-                to="movement"
-              >
-                <span>Sign up</span>
-              </Link>
             </div>
           </Flex>
         </Flex>
