@@ -72,7 +72,7 @@ const TextBlock: React.SFC<TextBlockProps> = ({
 const IndexPage: React.SFC = () => (
   <Layout>
     <Wrapper pt={[5, 5, 6]} pb={[5, 5, 6]}>
-      <Heading fontSize={[6, 7, 7]}>
+      <Heading fontSize={[5, 6, 7]}>
         <InternalLink to="/" style={{ textTransform: 'uppercase' }}>
           Common Knowledge
         </InternalLink>
