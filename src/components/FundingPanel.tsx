@@ -4,7 +4,7 @@ import { Text, Heading, Box, Flex } from '../utils/rebass'
 export default () => (
   <>
     <div>
-      <Heading fontSize={[6, 6, 6]} css={{ color: 'white' }}>
+      <Heading fontSize={[5, 6, 6]} css={{ color: 'white' }}>
         Help sustain this
       </Heading>
       <Text fontSize={1} css={{ color: 'white', marginTop: 10 }}>
