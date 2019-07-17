@@ -1,73 +1,17 @@
 import React from 'react'
 import { Heading, Box, Flex, Text } from '../utils/rebass'
-import { InternalLink, ExternalLink } from '../components/link'
+import { InternalLink } from '../components/link'
 import Wrapper from '../components/wrapper'
 import Layout from '../components/layout'
 import Container from '../components/container'
 // @ts-ignore
 import logo from '../images/movement-logo.svg'
-import { FaEye, FaEnvelope, FaDiscord } from 'react-icons/fa'
+import { FaEnvelope, FaDiscord } from 'react-icons/fa'
 import FundingPanel from '../components/FundingPanel'
 import { Link } from 'gatsby'
 import theme from '../styles/theme'
 import { subtitleFontFamily } from '../styles/typography'
 import SocialLinks from '../components/SocialLinks'
-
-interface TextBlockProps {
-  icon?: any
-  text: any
-  title: string
-  alternate?: boolean
-}
-
-const TextBlock: React.SFC<TextBlockProps> = ({
-  icon,
-  title,
-  text,
-  alternate,
-  ...props
-}) => {
-  const _text = (
-    <Container width={[1, 1, 0.5]} px={0} mx={0}>
-      <Text fontSize={1}>{text}</Text>
-    </Container>
-  )
-
-  const _image = (
-    <Box width={[1, 1, 0.5]}>
-      <Heading
-        width={[1, 1, 0.75]}
-        ml="auto"
-        fontSize={[5, 6, 6]}
-        textAlign={alternate && ['left', 'left', 'right']}
-        {...{
-          [alternate ? 'pr' : 'pl']: [0, 0, 5],
-        }}
-      >
-        {title}
-      </Heading>
-      <Text
-        fontSize={[4, 5]}
-        textAlign={alternate && ['left', 'left', 'right']}
-        {...{
-          [alternate ? 'pr' : 'pl']: [0, 0, 5],
-        }}
-      >
-        {icon}
-      </Text>
-    </Box>
-  )
-
-  return (
-    <Flex
-      flexDirection={['column', 'column', alternate ? 'row' : 'row-reverse']}
-      {...props}
-    >
-      {_image}
-      {_text}
-    </Flex>
-  )
-}
 
 const IndexPage: React.SFC = () => (
   <Layout>
@@ -101,7 +45,7 @@ const IndexPage: React.SFC = () => (
               fontWeight={900}
               lineHeight={1}
             >
-              <i>Movement</i> - the prototype platform for activism
+              <i>Movement</i> — the prototype platform for activism
             </Heading>
             <Text fontSize={1} css={{ color: 'white' }} mt={3}>
               We're building a platform for people to get involved in grassroots
@@ -126,11 +70,18 @@ const IndexPage: React.SFC = () => (
     </Container>
     <Wrapper>
       <Container mt={[4, 5]}>
-        <TextBlock
-          alternate
-          title="What we're about"
-          text={
-            <>
+        <Flex flexDirection={['column', 'column', 'row']}>
+          <Container width={[1, 1, 0.5]} px={0} mx={0}>
+            <Heading
+              // width={[1, 1, 0.75]}
+              // ml="auto"
+              fontSize={[6, 6, 6]}
+              textAlign={['left']}
+              // pr={[0, 0, 5]}
+            >
+              What we're about
+            </Heading>
+            <Text fontSize={1}>
               <p>
                 Right now we're developing a toolkit to link up established
                 organisers, activists and those newly politicised and lower the
@@ -148,36 +99,11 @@ const IndexPage: React.SFC = () => (
               <p>
                 Check back soon when we'll start publishing regular reports.
               </p>
-            </>
-          }
-        />
+            </Text>
+          </Container>
+        </Flex>
         <Flex flexDirection={['column', 'row']} justifyContent={'space-around'}>
           <Box my={[3, 3, 4]}>
-            <Text>
-              <a
-                style={{
-                  margin: 10,
-                  textAlign: 'center',
-                  display: 'inline-block',
-                  fontSize: 32,
-                  borderRadius: 100,
-                  background: 'white',
-                  color: 'black',
-                  padding: '10px 30px',
-                  fontWeight: 900,
-                  textDecoration: 'none',
-                  border: '1px solid #EEE',
-                  lineHeight: '1em',
-                  verticalAlign: 'center',
-                }}
-                href="https://community.movement.chat"
-              >
-                <span style={{ verticalAlign: 'middle', paddingRight: 10 }}>
-                  Join the community
-                </span>
-                <FaDiscord style={{ verticalAlign: 'middle' }} />
-              </a>
-            </Text>
             <Text textAlign="center">
               <a
                 style={{

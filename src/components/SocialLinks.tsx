@@ -14,6 +14,24 @@ export default () => (
   <Text fontSize={[3, 3, 4]} css={{ opacity: 0.25 }}>
     <a
       style={{ color: theme.colors.primary, paddingRight: 24 }}
+      href="https://twitter.com/platformpolitic"
+    >
+      <FaTwitter />
+    </a>
+    {/* <a
+      style={{ color: theme.colors.primary, paddingRight: 24 }}
+      href="https://facebook.com/commonknowledgecoop"
+    >
+      <FaFacebook />
+    </a> */}
+    <a
+      style={{ color: theme.colors.primary, paddingRight: 24 }}
+      href="mailto:hello@commonknowledge.coop"
+    >
+      <FaEnvelope />
+    </a>
+    <a
+      style={{ color: theme.colors.primary, paddingRight: 24 }}
       href="https://github.com/commonknowledge"
     >
       <FaGithub />
@@ -23,30 +41,6 @@ export default () => (
       href="https://git.coop/commonknowledge"
     >
       <FaGitlab />
-    </a>
-    <a
-      style={{ color: theme.colors.primary, paddingRight: 24 }}
-      href="https://twitter.com/platformpolitic"
-    >
-      <FaTwitter />
-    </a>
-    <a
-      style={{ color: theme.colors.primary, paddingRight: 24 }}
-      href="https://community.movement.chat"
-    >
-      <FaDiscord />
-    </a>
-    <a
-      style={{ color: theme.colors.primary, paddingRight: 24 }}
-      href="https://facebook.com/commonknowledgecoop"
-    >
-      <FaFacebook />
-    </a>
-    <a
-      style={{ color: theme.colors.primary, paddingRight: 24 }}
-      href="mailto:hello@commonknowledge.coop"
-    >
-      <FaEnvelope />
     </a>
   </Text>
 )

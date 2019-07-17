@@ -8,11 +8,11 @@
 exports.onCreateWebpackConfig = ({
   stage,
   rules,
-  loaders,
-  plugins,
-  actions,
-}) => {
-  actions.setWebpackConfig({
+const webpackFixFs = require('./node/webpackFixFs').default
+
+exports.onCreateWebpackConfig = args => {
+  // required fix for package `qrcode.js`
+  webpackFixFs(args)
     node: {
       fs: 'empty',
     },

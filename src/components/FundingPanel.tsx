@@ -71,5 +71,6 @@ export default () => (
         </Text>
       </Box>
     </Flex>
+    <script src="https://commerce.coinbase.com/v1/checkout.js" />
   </>
 )
