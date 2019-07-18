@@ -32,7 +32,7 @@ const IndexPage: React.SFC = () => (
       </Text>
       <Text fontSize={[4, 4, 5]} fontFamily={subtitleFontFamily.name}>
         Activists and software developers designing platform-level tools to grow
-        the grassroots left
+        the grassroots
       </Text>
     </Wrapper>
     <Container py={[4, 5, 6]} css={{ background: theme.colors.red }}>
