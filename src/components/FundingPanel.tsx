@@ -13,8 +13,7 @@ export default () => (
         together existing digital solutions and build new tools.
       </Text>
       <Text fontSize={1} css={{ color: 'white', marginTop: 10 }}>
-        Our overarching goal is to accelerate the growth of the grassroots left,
-        and minimise the barriers that people face to building power for
+        Our overarching goal is to catalyse grassroots organising and minimise the barriers that people face to building power for
         themselves.
       </Text>
       <Text fontSize={1} css={{ color: 'white', marginTop: 10 }}>
