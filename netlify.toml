@@ -1,0 +1,31 @@
+# Settings in the [build] context are global and are applied to all contexts 
+# unless otherwise overridden by more specific contexts.  
+# Read more: https://www.netlify.com/docs/netlify-toml-reference/
+
+[build]
+  # Default build command.
+  command = "gatsby build"
+
+[build.environment]
+  NODE_VERSION = "11.14"
+  GOOGLE_ANALYTICS_TRACKING_ID="UA-135673372-1"
+
+# [[redirects]]
+#   # The following redirect is intended for use with most SPAs that handle
+#   # routing internally.
+#   from = "/*"
+#   to = "/index.html"
+#   status = 200
+
+# [[headers]]
+#   # Define which paths this specific [[headers]] block will cover.
+#   for = "/index.html"
+
+#   [headers.values]
+#     pragma = 'no-cache'
+#     expires = '0'
+#     cache-control = '''
+#     max-age=0,
+#     no-cache,
+#     no-store,
+#     must-revalidate'''

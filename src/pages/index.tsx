@@ -1,152 +1,149 @@
-import React from 'react'
-import { Heading, Box, Flex, Text } from '../utils/rebass'
-import { InternalLink } from '../components/link'
-import Wrapper from '../components/wrapper'
-import Layout from '../components/layout'
-import Container from '../components/container'
+/** @jsx jsx */
+import { jsx, Box, Flex, Styled } from "theme-ui"
+import SEO from "../components/seo"
+import { Link } from "../components/nav"
 // @ts-ignore
-import logo from '../images/movement-logo.svg'
-import { FaEnvelope, FaDiscord } from 'react-icons/fa'
-import FundingPanel from '../components/FundingPanel'
-import { Link } from 'gatsby'
-import theme from '../styles/theme'
-import { subtitleFontFamily } from '../styles/typography'
-import SocialLinks from '../components/SocialLinks'
+import { Fragment } from "react"
+import { Theme } from "../components/theme"
+import "@csstools/normalize.css"
 
-const IndexPage: React.SFC = () => (
-  <Layout>
-    <Wrapper pt={[5, 5, 6]} pb={[5, 5, 6]}>
-      <Heading fontSize={[5, 6, 7]}>
-        <InternalLink to="/" style={{ textTransform: 'uppercase' }}>
-          Common Knowledge
-        </InternalLink>
-      </Heading>
-      <Text
-        py={[2, 2, 3]}
-        fontSize={[3, 3, 4]}
-        lineHeight={'1em'}
-        css={{ opacity: 0.25 }}
-        fontFamily={subtitleFontFamily.name}
-      >
-        (A not-for-profit workers cooperative)
-      </Text>
-      <Text fontSize={[4, 4, 5]} fontFamily={subtitleFontFamily.name}>
-        Activists and software developers designing platform-level tools to grow
-        the grassroots
-      </Text>
-    </Wrapper>
-    <Container py={[4, 5, 6]} css={{ background: theme.colors.red }}>
-      <Wrapper>
-        <Flex flexDirection={['column-reverse', 'column-reverse', 'row']}>
-          <Box width={[1, 1, 0.5]}>
-            <Heading
-              css={{ color: 'white' }}
-              fontSize={[5, 5, 5]}
-              fontWeight={900}
-              lineHeight={1}
-            >
-              <i>Movement</i> — the prototype platform for activism
-            </Heading>
-            <Text fontSize={1} css={{ color: 'white' }} mt={3}>
-              We're building a platform for people to get involved in grassroots
-              activism when they aren't sure where to start. <i>Movement</i>{' '}
-              helps you put your principles into practice, learn new skills and
-              spend time with locals who share your concerns 🙌.
-            </Text>
-          </Box>
-          <Flex
-            mb={[4, 4, 0]}
-            width={[1, 1, 0.5]}
-            flexDirection="column"
-            justifyContent="center"
-            alignItems="middle"
-          >
-            <div style={{ padding: '20px 20px', textAlign: 'center' }}>
-              <img src={logo} style={{ width: '30%', margin: 0 }} />
-            </div>
-          </Flex>
-        </Flex>
-      </Wrapper>
-    </Container>
-    <Wrapper>
-      <Container mt={[4, 5]}>
-        <Flex flexDirection={['column', 'column', 'row']}>
-          <Container width={[1, 1, 0.5]} px={0} mx={0}>
-            <Heading
-              // width={[1, 1, 0.75]}
-              // ml="auto"
-              fontSize={[6, 6, 6]}
-              textAlign={['left']}
-              // pr={[0, 0, 5]}
-            >
-              What we're about
-            </Heading>
-            <Text fontSize={1}>
-              <p>
-                Right now we're developing a toolkit to link up established
-                organisers, activists and those newly politicised and lower the
-                barriers to wide-scale political activity.
-              </p>
-              <p>
-                But our broader ambition is to explore how pervasive technology
-                can be used by the many to our material benefit, in our daily
-                struggles and against all forms of domination.
-              </p>
-              <p>
-                We want to be self-critical, transparent and strategic in our
-                work.
-              </p>
-              <p>
-                Check back soon when we'll start publishing regular reports.
-              </p>
-            </Text>
-          </Container>
-        </Flex>
-        <Flex flexDirection={['column', 'row']} justifyContent={'space-around'}>
-          <Box my={[3, 3, 4]}>
-            <Text textAlign="center">
-              <a
-                style={{
-                  margin: 10,
-                  display: 'inline-block',
-                  fontSize: 32,
-                  borderRadius: 100,
-                  background: 'white',
-                  color: theme.colors.red,
-                  padding: '10px 30px',
-                  fontWeight: 900,
-                  textDecoration: 'none',
-                  border: '1px solid #EEE',
-                  lineHeight: '1em',
-                }}
-                href="mailto:hello@commonknowledge.coop"
-              >
-                <span style={{ verticalAlign: 'middle', paddingRight: 10 }}>
-                  Let's talk
-                </span>
-                <FaEnvelope style={{ verticalAlign: 'middle' }} />
-              </a>
-            </Text>
-          </Box>
-        </Flex>
-        <center>
-          <Box mt={[3, 4, 4]}>
-            <SocialLinks />
-          </Box>
-        </center>
-      </Container>
-    </Wrapper>
-    <Container
-      mt={[4, 5]}
-      pt={[4, 5, 5]}
-      pb={[5, 6, 7]}
-      css={{ background: theme.colors.primary, color: 'white' }}
+const padding = [3, 4, 5]
+const minorColumnWidth = ["48%", "42%"]
+
+const IndexPage = () => (
+  <Theme>
+    <SEO title="Common Knowledge" />
+    <Flex
+      sx={{
+        flexDirection: ["column", "column", "row"],
+        fontFamily: "brand",
+      }}
     >
-      <Wrapper width={[1, 1, 900]}>
-        <FundingPanel />
-      </Wrapper>
-    </Container>
-  </Layout>
+      <Box
+        sx={{
+          position: ["relative", "fixed"],
+          top: [undefined, 0],
+          left: [undefined, 0],
+          width: ["100%", ...minorColumnWidth],
+        }}
+      >
+        <Styled.h1
+          sx={{
+            m: 0,
+            textTransform: "uppercase",
+            fontWeight: 600,
+            fontSize: [5, 5, 6],
+            padding,
+            paddingBottom: [0, 2, 3],
+          }}
+        >
+          <div>Common</div>
+          <div sx={{ lineHeight: 0.5 }}>Knowledge</div>
+        </Styled.h1>
+      </Box>
+      <Box
+        sx={{
+          fontWeight: 500,
+          fontSize: [4, 5, 6],
+          ml: [0, ...minorColumnWidth],
+          pt: padding,
+          px: padding,
+          pb: 0
+        }}
+      >
+        <span>{'{'}A nonprofit workers cooperative{'}'}</span> <span sx={{ color: 'secondary' }}>building digital tools for the grassroots left</span>
+      </Box>
+    </Flex>
+    <Box sx={{ ml: [0, ...minorColumnWidth], pl: padding, pr: padding, pb: padding, pt: 0 }}>
+      <Styled.h3
+        sx={{ fontWeight: "bold", mt: [4, 5, 6], mb: [1, 2], color: "muted" }}
+      >
+        What we do
+      </Styled.h3>
+      <Styled.p>
+        In a digitally mediated world, deliberately designed technology can facilitate everyday autonomy and mass collective action. As software engineers we work in three complementary spheres, to realise the social movement this vision represents.
+      </Styled.p>
+      {/*  */}
+      <Box>
+        <Flex sx={{ alignItems: "baseline" }}>
+          <Box sx={{ width: 50 }}>
+            <Styled.h3 sx={number}>01.</Styled.h3>
+          </Box>
+          <Box sx={{ width: '100%' }}>
+            <Styled.h3>
+              Building digital tools &amp; infrastructure
+            </Styled.h3>
+            <Styled.p>Co-designing software that lowers barriers to activism and self-organising, recognising that digital technology has so far only coincidentally been useful to our movement.</Styled.p>
+          </Box>
+        </Flex>
+        <Flex sx={{ alignItems: "baseline" }}>
+          <Box sx={{ width: 50 }}>
+            <Styled.h3 sx={number}>02.</Styled.h3>
+          </Box>
+          <Box sx={{ width: '100%' }}>
+            <Styled.h3>
+              Growing the technical capacity of the movement
+            </Styled.h3>
+            <Styled.p>Coordinating fellow technical activists and projects across the ecosystem, and encouraging good engineering practice. We try to do this work in a pedagogical, comradely and professional manner.</Styled.p>
+          </Box>
+        </Flex>
+        <Flex sx={{ alignItems: "baseline" }}>
+          <Box sx={{ width: 50 }}>
+            <Styled.h3 sx={number}>03.</Styled.h3>
+          </Box>
+          <Box sx={{ width: '100%' }}>
+            <Styled.h3>
+              Encouraging platform organising across the movement
+            </Styled.h3>
+            <Styled.p>Recognising that infrastructure is an organic composition of people, tools and structures, we faciliate movement activists and organisations to reflect on their transferable skills and shared challenges, so we can organise at ever-larger scales.</Styled.p>
+          </Box>
+        </Flex>
+      </Box>
+      {/*  */}
+      <Styled.h3
+        sx={{ fontWeight: "bold", mt: [4, 5, 6], mb: [1, 2], color: "muted" }}
+      >
+        What we're working on
+      </Styled.h3>
+      <Styled.h3>Movement App</Styled.h3>
+      <Styled.p>Prototyping a digital platform to help people get involved in grassroots activism when they aren't sure where to start.</Styled.p>
+      <Styled.h3>
+        <Link to='https://theworldtransformed.org/'>The World Transformed</Link> digital strategy
+      </Styled.h3>
+      <Styled.p>Project managing a digital political education and festival organising platform.</Styled.p>
+      <Styled.h3>
+        Autonomous reading group organising // <Link to='https://www.leftbookclub.com/'>Left Book Club</Link>
+      </Styled.h3>
+      <Styled.p>Prototyping an autonomous reading group organising platform, co-designed with Pluto Press.</Styled.p>
+      <Styled.h3>Organising At Scale // <Link to='http://www.antiuniversity.org/'>Antiuniversity</Link></Styled.h3>
+      <Styled.p>Reviving the idea of the old London Underground monthly meetings and co-organising activist assemblies, workshops and meetups to spread knowledge and collectively solve organising problems.</Styled.p>
+      <Styled.h3><Link to='https://twitter.com/techworkersldn'>Tech Workers Coalition London</Link></Styled.h3>
+      <Styled.p>Organising in the London chapter of TWC, a coalition of workers in and around the tech industry, to build power through rank &amp; file self-organisation and education.</Styled.p>
+    </Box>
+    <Box
+      sx={{
+        mt: 4,
+        position: ["relative", "fixed"],
+        bottom: 0,
+        left: 0,
+        padding,
+        pr: 0,
+        width: ["100%", ...minorColumnWidth],
+        fontWeight: 600,
+        fontSize: [3, 2, 3]
+      }}
+    >
+      <div>Want to work with us?</div>
+      <Link to="mailto:hello@commonknowledge.coop" sx={{ border: 'none', color: 'secondary' }}>hello@commonknowledge.coop</Link>
+      <Flex sx={{ mt: [4] }}>
+        <Link sx={{ mr: 2 }} to="http://twitter.com/cmmonknowledge">Twitter</Link>
+        <Link sx={{ mr: 2 }} to="http://github.com/commonknowledge">Github</Link>
+        <Link sx={{ mr: 2 }} to="https://opencollective.com/commonknowledge/donate">Donate</Link>
+      </Flex>
+    </Box>
+  </Theme>
 )
+
+const number = { m: 0, color: 'secondary' }
 
 export default IndexPage

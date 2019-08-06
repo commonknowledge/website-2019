@@ -1,46 +1,51 @@
+const path = require("path")
+
 module.exports = {
   siteMetadata: {
-    title: 'Common Knowledge',
+    title: `Common Knowledge`,
+    description: `A nonprofit workers cooperative building digital infrastructure for grassroots social movements`,
+    author: `@cmmonknowledge`,
   },
   plugins: [
-    'gatsby-plugin-typescript',
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-catch-links',
+    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
-        start_url: '/',
-        background_color: '#FF4419',
-        theme_color: '#FF4419',
-        display: 'minimal-ui',
-        icon: 'src/images/icon.png',
+        name: `gatsby-starter-default`,
+        short_name: `starter`,
+        start_url: `/`,
+        background_color: `#663399`,
+        theme_color: `#663399`,
+        display: `minimal-ui`,
+        icon: `src/favicon.png`, // This path is relative to the root of the site.
       },
     },
+    "gatsby-plugin-emotion",
+    "gatsby-plugin-typescript",
+    "gatsby-plugin-catch-links",
     {
-      resolve: `gatsby-plugin-typography`,
+      resolve: "gatsby-plugin-react-svg",
       options: {
-        pathToConfigModule: `src/styles/typography`,
+        rule: {
+          include: require("path").resolve(__dirname, "src/images"),
+        },
       },
     },
-    'gatsby-plugin-styled-components',
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: 'UA-135673372-1',
-        cookieDomain: 'commonknowledge.coop',
+        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
       },
     },
-    {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [
-          `Patrick Hand`, // you can also specify font weights and styles
-        ],
-      },
-    },
-    'gatsby-plugin-stripe',
-    'gatsby-plugin-offline',
+    `gatsby-plugin-favicon`,
   ],
 }
