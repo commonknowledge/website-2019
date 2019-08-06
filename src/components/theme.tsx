@@ -29,7 +29,7 @@ export const theme = {
     a: {
       color: "primary",
       textDecoration: 'none',
-      borderBottom: theme => "2px solid " + theme.colors.secondary,
+      borderBottom: theme => "3px solid " + theme.colors.secondary,
       '&:hover': {
         color: "secondary",
       }
@@ -70,18 +70,6 @@ const fontStack = `
 /* Space Grotesk - header */
 @font-face {
   font-family: "Space Grotesk";
-  src: url("/fonts/SpaceGrotesk-Light.woff") format("woff");
-  font-weight: lighter;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Space Grotesk";
-  src: url("/fonts/SpaceGrotesk-Regular.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Space Grotesk";
   src: url("/fonts/SpaceGrotesk-Semibold.woff") format("woff");
   font-weight: semibold;
   font-style: normal;
@@ -92,18 +80,18 @@ const fontStack = `
   font-weight: bold;
   font-style: normal;
 }
-@font-face {
-  font-family: "Space Mono";
-  src: url("/fonts/SpaceMono-Regular.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Space Mono";
-  src: url("/fonts/SpaceMono-Bold.ttf") format("truetype");
-  font-weight: bold;
-  font-style: normal;
-}
+// @font-face {
+//   font-family: "Space Mono";
+//   src: url("/fonts/SpaceMono-Regular.ttf") format("truetype");
+//   font-weight: normal;
+//   font-style: normal;
+// }
+// @font-face {
+//   font-family: "Space Mono";
+//   src: url("/fonts/SpaceMono-Bold.ttf") format("truetype");
+//   font-weight: bold;
+//   font-style: normal;
+// }
 /* TeX Gyre Heros - body font */
 @font-face {
   font-family: "TeX Gyre Heros";
