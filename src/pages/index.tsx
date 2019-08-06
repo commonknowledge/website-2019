@@ -61,7 +61,7 @@ const IndexPage = () => (
         What we do
       </Styled.h3>
       <Styled.p>
-        In a digitally mediated world, deliberately designed technology can facilitate everyday autonomy and mass collective action. We work in three complementary spheres.
+        In an increasingly digital world, thoughtfully designed technology can facilitate everyday autonomy and mass collective action. We work in three complementary spheres.
       </Styled.p>
       {/*  */}
       <Box>
@@ -73,7 +73,7 @@ const IndexPage = () => (
             <Styled.h3>
               Building digital tools &amp; infrastructure
             </Styled.h3>
-            <Styled.p>Co-designing software that lowers barriers to activism and self-organising, recognising that digital technology has so far only coincidentally been useful to our movement.</Styled.p>
+            <Styled.p>Co-designing software that lowers barriers to activism and self-organisation.</Styled.p>
           </Box>
         </Flex>
         <Flex sx={{ alignItems: "baseline" }}>
@@ -84,7 +84,7 @@ const IndexPage = () => (
             <Styled.h3>
               Growing the technical capacity of the movement
             </Styled.h3>
-            <Styled.p>Coordinating fellow technical activists and projects across the ecosystem, and encouraging good engineering and design practice.</Styled.p>
+            <Styled.p>Coordinating fellow technical activists and projects across the ecosystem and encouraging good engineering and design practice.</Styled.p>
           </Box>
         </Flex>
         <Flex sx={{ alignItems: "baseline" }}>
