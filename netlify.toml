@@ -17,15 +17,15 @@
 #   to = "/index.html"
 #   status = 200
 
-# [[headers]]
-#   # Define which paths this specific [[headers]] block will cover.
-#   for = "/index.html"
+[[headers]]
+  # Define which paths this specific [[headers]] block will cover.
+  for = "/index.html"
 
-#   [headers.values]
-#     pragma = 'no-cache'
-#     expires = '0'
-#     cache-control = '''
-#     max-age=0,
-#     no-cache,
-#     no-store,
-#     must-revalidate'''
+  [headers.values]
+    pragma = 'no-cache'
+    expires = '0'
+    cache-control = '''
+    max-age=0,
+    no-cache,
+    no-store,
+    must-revalidate'''
