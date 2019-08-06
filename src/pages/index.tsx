@@ -131,7 +131,7 @@ const IndexPage = () => (
       <Link to="mailto:hello@commonknowledge.coop" sx={{ border: 'none', color: 'secondary' }}>hello@commonknowledge.coop</Link>
       <Flex sx={{ mt: [4] }}>
         <Link sx={{ mr: 2 }} to="http://twitter.com/cmmonknowledge">Twitter</Link>
-        <Link sx={{ mr: 2 }} to="http://github.com/commonknowledge">Github</Link>
+        <Link sx={{ mr: 2 }} to="http://github.com/commonknowledge">GitHub</Link>
         <Link sx={{ mr: 2 }} to="https://opencollective.com/commonknowledge/donate">Donate</Link>
       </Flex>
     </Box>
