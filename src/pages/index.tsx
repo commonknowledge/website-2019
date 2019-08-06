@@ -95,7 +95,7 @@ const IndexPage = () => (
             <Styled.h3>
               Encouraging platform organising across the movement
             </Styled.h3>
-            <Styled.p>Recognising that infrastructure is an organic composition of people, tools and structures, we faciliate movement activists and organisations to reflect on their transferable skills and shared challenges, so we can organise at ever-larger scales.</Styled.p>
+            <Styled.p>Recognising that infrastructure is a composition of people, tools and structures, we faciliate movement activists and organisations to reflect on their transferable skills and shared challenges, so we can organise at ever-larger scales.</Styled.p>
           </Box>
         </Flex>
       </Box>
