@@ -108,17 +108,11 @@ const IndexPage = () => (
       <Styled.h3>Movement App</Styled.h3>
       <Styled.p>Prototyping a digital platform to help people get involved in grassroots activism when they aren't sure where to start.</Styled.p>
       <Styled.h3>
-        <Link to='https://theworldtransformed.org/'>The World Transformed</Link> digital strategy
-      </Styled.h3>
-      <Styled.p>Project managing a digital political education and festival organising platform.</Styled.p>
-      <Styled.h3>
         Autonomous reading group organising // <Link to='https://www.leftbookclub.com/'>Left Book Club</Link>
       </Styled.h3>
       <Styled.p>Prototyping an autonomous reading group organising platform, co-designed with Pluto Press.</Styled.p>
       <Styled.h3>Organising At Scale // <Link to='http://www.antiuniversity.org/'>Antiuniversity</Link></Styled.h3>
       <Styled.p>Reviving the idea of the old London Underground monthly meetings and co-organising activist assemblies, workshops and meetups to spread knowledge and collectively solve organising problems.</Styled.p>
-      <Styled.h3><Link to='https://twitter.com/techworkersldn'>Tech Workers Coalition London</Link></Styled.h3>
-      <Styled.p>Organising in the London chapter of TWC, a coalition of workers in and around the tech industry, to build power through rank &amp; file self-organisation and education.</Styled.p>
     </Box>
     <Box
       sx={{
