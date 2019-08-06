@@ -51,7 +51,7 @@ const IndexPage = () => (
           pb: 0
         }}
       >
-        <span>{'{'}A nonprofit workers cooperative{'}'}</span> <span sx={{ color: 'secondary' }}>building digital tools for the grassroots left</span>
+        <span>{'{'}A nonprofit workers cooperative{'}'}</span> <span sx={{ color: 'secondary' }}>building digital tools for the grassroots</span>
       </Box>
     </Flex>
     <Box sx={{ ml: [0, ...minorColumnWidth], pl: padding, pr: padding, pb: padding, pt: 0 }}>
@@ -61,7 +61,7 @@ const IndexPage = () => (
         What we do
       </Styled.h3>
       <Styled.p>
-        In a digitally mediated world, deliberately designed technology can facilitate everyday autonomy and mass collective action. As software engineers we work in three complementary spheres, to realise the social movement this vision represents.
+        In a digitally mediated world, deliberately designed technology can facilitate everyday autonomy and mass collective action. We work in three complementary spheres.
       </Styled.p>
       {/*  */}
       <Box>
@@ -84,7 +84,7 @@ const IndexPage = () => (
             <Styled.h3>
               Growing the technical capacity of the movement
             </Styled.h3>
-            <Styled.p>Coordinating fellow technical activists and projects across the ecosystem, and encouraging good engineering practice. We try to do this work in a pedagogical, comradely and professional manner.</Styled.p>
+            <Styled.p>Coordinating fellow technical activists and projects across the ecosystem, and encouraging good engineering and design practice.</Styled.p>
           </Box>
         </Flex>
         <Flex sx={{ alignItems: "baseline" }}>
