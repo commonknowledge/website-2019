@@ -61,7 +61,7 @@ const IndexPage = () => (
         What we do
       </Styled.h3>
       <Styled.p>
-        In an increasingly digital world, thoughtfully designed technology can help facilitate everyday autonomy and mass collective action. We work in three complementary spheres.
+        In an increasingly digital world, thoughtfully designed technology can help facilitate everyday autonomy and large-scale collective action. We work in three complementary spheres.
       </Styled.p>
       {/*  */}
       <Box>
