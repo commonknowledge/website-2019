@@ -51,7 +51,7 @@ const IndexPage = () => (
             // color: ['muted', 'text']
           }}
         >
-          <span>{'{'}A nonprofit workers cooperative{'}'}</span> <span sx={{ color: 'secondary' }}>building digital tools for the grassroots</span>
+          <span>A nonprofit workers cooperative</span> <span sx={{ color: 'secondary' }}>building digital tools for the grassroots</span>
         </Box>
       </Flex>
       <Box sx={{ ml: [0, ...minorColumnWidth], pl: padding, pr: padding, pb: padding, pt: 0 }}>
