@@ -51,7 +51,7 @@ const IndexPage = () => (
             // color: ['muted', 'text']
           }}
         >
-          <span>A nonprofit workers cooperative</span> <span sx={{ color: 'secondary' }}>building digital tools for the grassroots</span>
+          <span>A nonprofit workers cooperative</span> <span sx={{ color: 'accent' }}>building digital tools for the grassroots</span>
         </Box>
       </Flex>
       <Box sx={{ ml: [0, ...minorColumnWidth], pl: padding, pr: padding, pb: padding, pt: 0 }}>
@@ -129,7 +129,7 @@ const IndexPage = () => (
         }}
       >
         <div>Want to work with us?</div>
-        <Link to="mailto:hello@commonknowledge.coop" sx={{ border: 'none', color: 'secondary' }}>hello@commonknowledge.coop</Link>
+        <Link to="mailto:hello@commonknowledge.coop" sx={{ border: 'none', color: 'accent' }}>hello@commonknowledge.coop</Link>
         <Flex sx={{ mt: [4] }}>
           <Link sx={{ mr: 2 }} to="http://twitter.com/cmmonknowledge">Twitter</Link>
           <Link sx={{ mr: 2 }} to="http://github.com/commonknowledge">GitHub</Link>
@@ -140,6 +140,6 @@ const IndexPage = () => (
   </Theme>
 )
 
-const number = { m: 0, color: 'secondary' }
+const number = { m: 0, color: 'accent' }
 
 export default IndexPage

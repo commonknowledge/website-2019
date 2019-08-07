@@ -29,9 +29,9 @@ export const theme = {
     a: {
       color: "primary",
       textDecoration: 'none',
-      borderBottom: theme => "3px solid " + theme.colors.secondary,
+      borderBottom: theme => "3px solid " + theme.colors.accent,
       '&:hover': {
-        color: "secondary",
+        color: "accent",
       }
     },
     p: {
@@ -58,6 +58,10 @@ export const Theme = ({ children }) => (
             background: ${theme.colors.background};
             font-family: ${theme.fonts.body};
             font-size: ${theme.fontSizes[3]}px;
+          }
+          ::selection {
+            background: ${theme.colors.text};
+            color: #FFFFFF;
           }
         `}
       />
