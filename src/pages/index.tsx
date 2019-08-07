@@ -71,7 +71,7 @@ const IndexPage = () => (
             </Box>
             <Box sx={{ width: '100%' }}>
               <Styled.h3>
-                Building digital tools &amp; infrastructure
+                Building digital tools and infrastructure
               </Styled.h3>
               <Styled.p>Co-designing software that lowers barriers to activism and self-organisation.</Styled.p>
             </Box>
