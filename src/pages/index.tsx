@@ -23,7 +23,7 @@ const IndexPage = () => (
         </Box>
       }>
       <Styled.h3
-        sx={{ fontWeight: "bold", mt: [5, 5, 6], mb: [1, 2], color: "muted" }}
+        sx={{ fontWeight: "bold", mt: [4, 5, 5], mb: [1, 2], color: "muted" }}
       >
         What we do
     </Styled.h3>
