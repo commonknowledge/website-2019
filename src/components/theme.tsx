@@ -2,6 +2,7 @@ import * as React from "react"
 import { ThemeProvider } from "theme-ui"
 import { Global, css } from "@emotion/core"
 import { Fragment } from "react"
+import "@csstools/normalize.css"
 
 export const theme = {
   fonts: {
@@ -42,6 +43,8 @@ export const theme = {
     h3: { mb: "0.1em", mt: "1em" },
     h4: { mb: "0.1em", mt: "1em" }
   },
+  padding: [3, 4, 5],
+  minorColumnWidth: ["48%", "38.196601125%"]
 }
 
 export const Theme = ({ children }) => (
