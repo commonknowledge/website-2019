@@ -15,12 +15,12 @@ const IndexPage = () => (
             <Styled.p sx={{}}>A world of abundance, free from oppression.</Styled.p>
             <Styled.p sx={{}}>To get there, we need people who are confident in their capacity to self-organise, empowered by digital technology.</Styled.p>
             {/*  */}
-            <Styled.h3 sx={{ fontWeight: "bold", mt: [4], mb: [1, 2] }}>
+            <Styled.h3 sx={{ fontWeight: "bold", mt: [4, 5], mb: [1, 2] }}>
                 Mission
             </Styled.h3>
             <Styled.p sx={{}}>Working directly with grassroots activists, we design digital tools that make radical change possible.</Styled.p>
             {/*  */}
-            <Styled.h3 sx={{ fontWeight: "bold", mt: [4], mb: [1, 2] }}>
+            <Styled.h3 sx={{ fontWeight: "bold", mt: [4, 5], mb: [1, 2] }}>
                 Values
             </Styled.h3>
             <Flex sx={{ flexWrap: 'wrap' }}>
