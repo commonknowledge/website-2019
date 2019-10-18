@@ -11,8 +11,6 @@ const Logo = () => (
             textTransform: "uppercase",
             fontWeight: 700,
             fontSize: [5, 5, 6],
-            padding: theme.padding,
-            paddingBottom: [2, 2, 3],
         }}
     >
         <GatsbyLink to='/' sx={{ textDecoration: 'none', color: 'inherit' }}>

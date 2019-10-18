@@ -3,6 +3,7 @@ import { jsx, Box, Flex, Styled, Layout } from 'theme-ui';
 import { theme, Theme } from './theme';
 import Logo from './logo';
 import { Link } from './nav';
+import GatsbyLink from 'gatsby-link';
 
 const GridLayout: React.FC<{
     heading?: any
@@ -21,9 +22,18 @@ const GridLayout: React.FC<{
                         left: [undefined, 0],
                         width: ["100%", ...theme.minorColumnWidth],
                         fontFamily: "brand",
+                        padding: theme.padding,
+                        paddingBottom: [2, 2, 3],
                     }}
                 >
                     <Logo />
+                    <Flex sx={{
+                        flexDirection: ['row'], fontWeight: "bold", mt: [4, 4], mb: [1, 2]
+                    }}>
+                        <Link sx={{ display: 'block', pr: [2, 3], color: 'black', textDecoration: 'none', }} to='/about'>About</Link>
+                        <GatsbyLink sx={{ display: 'block', pr: [2, 3], color: 'black', textDecoration: 'none', }} to='https://medium.com/@commonknowledge'>Blog</GatsbyLink>
+                        <GatsbyLink sx={{ display: 'block', pr: [2, 3], color: 'black', textDecoration: 'none', }} to='mailto:hello@commonknowledge.coop'>Contact</GatsbyLink>
+                    </Flex>
                 </Box>
                 {heading && <Box
                     sx={{
@@ -62,7 +72,7 @@ const GridLayout: React.FC<{
                 </Flex>
             </Box>
         </Layout>
-    </Theme>
+    </Theme >
 )
 
 export default GridLayout
