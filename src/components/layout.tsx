@@ -31,8 +31,8 @@ const GridLayout: React.FC<{
                         flexDirection: ['row'], fontWeight: "bold", mt: [4, 4], mb: [1, 2]
                     }}>
                         <Link sx={{ display: 'block', pr: [2, 3], color: 'black', textDecoration: 'none', }} to='/about'>About</Link>
-                        <GatsbyLink sx={{ display: 'block', pr: [2, 3], color: 'black', textDecoration: 'none', }} to='https://medium.com/@commonknowledge'>Blog</GatsbyLink>
-                        <GatsbyLink sx={{ display: 'block', pr: [2, 3], color: 'black', textDecoration: 'none', }} to='mailto:hello@commonknowledge.coop'>Contact</GatsbyLink>
+                        <a sx={{ display: 'block', pr: [2, 3], color: 'black', textDecoration: 'none', }} target='__blank' href='https://medium.com/@commonknowledge'>Blog</a>
+                        <a sx={{ display: 'block', pr: [2, 3], color: 'black', textDecoration: 'none', }} href='mailto:hello@commonknowledge.coop'>Contact</a>
                     </Flex>
                 </Box>
                 {heading && <Box
