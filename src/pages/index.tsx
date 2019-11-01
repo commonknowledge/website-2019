@@ -30,7 +30,6 @@ const IndexPage = () => (
       <Styled.p>
         In an increasingly digital world, thoughtfully designed technology can facilitate everyday autonomy and large-scale collective action. We work in three complementary spheres.
         </Styled.p>
-      {/*  */}
       <Box>
         <Flex sx={{ alignItems: "baseline" }}>
           <Box sx={{ width: 50 }}>
@@ -66,7 +65,6 @@ const IndexPage = () => (
           </Box>
         </Flex>
       </Box>
-      {/*  */}
       <Styled.h3
         sx={{ fontWeight: "bold", mt: [5, 5, 6], mb: [1, 2], color: "muted" }}
       >

@@ -57,7 +57,6 @@ const GridLayout: React.FC<{
                     left: 0,
                     padding: theme.padding,
                     pr: 0,
-                    // pb: [5],
                     width: ["100%", ...theme.minorColumnWidth],
                     fontWeight: 600,
                     fontSize: [3, 2, 2, 3]
