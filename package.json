@@ -6,9 +6,11 @@
   "author": "hello@commonknowledge.coop",
   "dependencies": {
     "@csstools/normalize.css": "^10.1.0",
-    "@emotion/core": "^10.0.15",
+    "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.15",
-    "@mdx-js/react": "^1.1.5",
+    "@mdx-js/mdx": "^1.5.4",
+    "@mdx-js/react": "^1.5.4",
+    "@types/lodash": "^4.14.149",
     "dotenv": "^8.0.0",
     "gatsby": "^2.13.45",
     "gatsby-image": "^2.2.7",
@@ -17,6 +19,7 @@
     "gatsby-plugin-favicon": "^3.1.6",
     "gatsby-plugin-google-analytics": "^2.1.6",
     "gatsby-plugin-manifest": "^2.2.4",
+    "gatsby-plugin-mdx": "^1.0.67",
     "gatsby-plugin-offline": "^2.2.4",
     "gatsby-plugin-react-helmet": "^3.1.2",
     "gatsby-plugin-react-svg": "^2.1.1",
@@ -24,16 +27,21 @@
     "gatsby-plugin-typescript": "^2.1.2",
     "gatsby-source-filesystem": "^2.1.7",
     "gatsby-transformer-sharp": "^2.2.5",
+    "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
+    "react-sidebar": "^3.0.2",
+    "react-spring": "^8.0.27",
     "styled-system": "^5.0.18",
     "theme-ui": "^0.2.26",
     "ts-node": "^8.3.0"
   },
   "devDependencies": {
+    "@types/react-sidebar": "^3.0.0",
     "@types/styled-system": "^5.0.1",
+    "@types/theme-ui": "^0.2.6",
     "prettier": "^1.18.2"
   },
   "keywords": [

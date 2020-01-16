@@ -2,6 +2,9 @@ import * as React from "react"
 import { ThemeProvider } from "theme-ui"
 import { Global, css } from "@emotion/core"
 import { Fragment } from "react"
+import { memoize, times } from "lodash"
+
+const fib = memoize((x: number): number => (x === 0 ? x : x + fib(x - 1)))
 
 export const theme = {
   fonts: {
@@ -10,9 +13,8 @@ export const theme = {
     monospace: "'Space Mono', Menlo, monospace",
     brand: "'Space Grotesk'",
   },
-  fontSizes: [
-    12, 14, 16, 20, 24, 32, 48, 64
-  ],
+  space: times(10, x => 3 * fib(x)),
+  fontSizes: [12, 14, 16, 20, 24, 32, 48, 64],
   lineHeights: {
     body: 1.45,
     heading: 1.125,
@@ -28,19 +30,21 @@ export const theme = {
   styles: {
     a: {
       color: "primary",
-      textDecoration: 'none',
+      textDecoration: "none",
       borderBottom: theme => "3px solid " + theme.colors.accent,
-      '&:hover': {
+      "&:hover": {
         color: "accent",
-      }
+      },
     },
     p: {
-      lineHeight: 'body', mb: "0.5em", mt: "0.5em"
+      lineHeight: "body",
+      mb: "0.5em",
+      mt: "0.5em",
     },
     h1: { mb: "0.1em", mt: "1em" },
     h2: { mb: "0.1em", mt: "1em" },
     h3: { mb: "0.1em", mt: "1em" },
-    h4: { mb: "0.1em", mt: "1em" }
+    h4: { mb: "0.1em", mt: "1em" },
   },
 }
 
@@ -61,7 +65,7 @@ export const Theme = ({ children }) => (
           }
           ::selection {
             background: ${theme.colors.text};
-            color: #FFFFFF;
+            color: #ffffff;
           }
         `}
       />
