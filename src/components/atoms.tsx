@@ -14,7 +14,13 @@ export const IconButton: ViewElement<ButtonHTMLAttributes<{}>> = props => (
       outline: "none",
       bg: "rgba(0,0,0,0)",
       cursor: "pointer",
+      color: "inherit",
     }}
     {...props}
   />
 )
+
+export const BackgroundImage: ViewElement<{ src: string }> = ({
+  src,
+  ...props
+}) => <figure sx={{ backgroundImage: "url('" + src + "')" }} {...props} />

@@ -5,9 +5,10 @@ import { Box, Flex, Styled, Layout } from "theme-ui"
 import SEO from "../components/seo"
 import { Theme } from "../components/theme"
 import "@csstools/normalize.css"
-import { PageHeader } from "../components/page"
+import { PageHeader, Hero } from "../components/page"
 import { Link } from "../components/nav"
 import "@csstools/normalize.css"
+import { BackgroundImage } from "../components/atoms"
 
 const padding = [3, 4, 5]
 const minorColumnWidth = ["48%", "38.196601125%"]
@@ -16,7 +17,26 @@ const IndexPage = () => (
   <Theme>
     <SEO title="Common Knowledge" />
 
-    <PageHeader />
+    <PageHeader sx={{ color: "white", bg: "black" }}>
+      <Hero
+        sx={{ px: 3, pt: 0, pb: 0 }}
+        title="Working directly with grassroots activists, we design digital tools that make radical change possible."
+        image={
+          <BackgroundImage
+            sx={{
+              height: 150,
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "contain",
+              m: 0,
+              mt: 2,
+              backgroundPositionY: "bottom",
+              backgroundPositionX: "center",
+            }}
+            src="/diagram.png"
+          />
+        }
+      />
+    </PageHeader>
 
     <Layout sx={{ maxWidth: 1600 }}>
       <Flex
@@ -32,21 +52,7 @@ const IndexPage = () => (
             left: [undefined, 0],
             width: ["100%", ...minorColumnWidth],
           }}
-        >
-          <Styled.h1
-            sx={{
-              m: 0,
-              textTransform: "uppercase",
-              fontWeight: 700,
-              fontSize: [5, 5, 6],
-              padding,
-              paddingBottom: [2, 2, 3],
-            }}
-          >
-            <div>Common</div>
-            <div sx={{ lineHeight: 0.5 }}>Knowledge</div>
-          </Styled.h1>
-        </Box>
+        ></Box>
         <Box
           sx={{
             fontWeight: 500,
