@@ -21,7 +21,7 @@ export const theme = {
   },
   colors: {
     text: "#111",
-    background: "#EFEFEF",
+    background: "#E5E5E5",
     muted: "#ACACAC",
     primary: "#111",
     secondary: "#FC0D1B",
@@ -88,18 +88,18 @@ const fontStack = `
   font-weight: bold;
   font-style: normal;
 }
-// @font-face {
-//   font-family: "Space Mono";
-//   src: url("/fonts/SpaceMono-Regular.ttf") format("truetype");
-//   font-weight: normal;
-//   font-style: normal;
-// }
-// @font-face {
-//   font-family: "Space Mono";
-//   src: url("/fonts/SpaceMono-Bold.ttf") format("truetype");
-//   font-weight: bold;
-//   font-style: normal;
-// }
+@font-face {
+  font-family: "Space Mono";
+  src: url("/fonts/SpaceMono-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Space Mono";
+  src: url("/fonts/SpaceMono-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
 /* TeX Gyre Heros - body font */
 @font-face {
   font-family: "TeX Gyre Heros";
