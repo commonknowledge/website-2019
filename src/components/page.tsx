@@ -13,15 +13,6 @@ export const PageHeader: ViewElement = ({ children, ...props }) => {
 
   return (
     <div {...props}>
-      <BurgerBar open={open} onSetOpen={setOpen}>
-        <IconButton
-          sx={{ m: 3, position: "absolute", top: 0, right: 0 }}
-          onClick={() => setOpen(true)}
-        >
-          <BurgerIcon />
-        </IconButton>
-      </BurgerBar>
-
       <header
         sx={{
           position: "relative",
@@ -38,6 +29,15 @@ export const PageHeader: ViewElement = ({ children, ...props }) => {
       </header>
 
       {children}
+
+      <BurgerBar open={open} onSetOpen={setOpen}>
+        <IconButton
+          sx={{ m: 3, position: "absolute", top: 0, right: 0 }}
+          onClick={() => setOpen(true)}
+        >
+          <BurgerIcon />
+        </IconButton>
+      </BurgerBar>
     </div>
   )
 }

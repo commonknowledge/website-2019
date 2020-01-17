@@ -27,6 +27,16 @@ export const theme = {
     secondary: "#FC0D1B",
     accent: "#FC0D1B",
   },
+  link: {
+    faded: {
+      opacity: 0.7,
+      color: "inherit",
+      textDecoration: "inherit",
+      "&:hover": {
+        color: "accent",
+      },
+    },
+  },
   styles: {
     a: {
       color: "primary",

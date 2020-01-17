@@ -9,18 +9,22 @@ import { PageHeader, Hero } from "../components/page"
 import { Link } from "../components/nav"
 import "@csstools/normalize.css"
 import { BackgroundImage } from "../components/atoms"
+import { graphql } from "gatsby"
 import {
   Card,
   CardHeader,
   CardMeta,
   CardTitle,
   CardContent,
+  CardList,
 } from "../components/card"
+import { FC } from "react"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 const padding = [3, 4, 5]
 const minorColumnWidth = ["48%", "38.196601125%"]
 
-const IndexPage = () => (
+const IndexPage: FC<any> = ({ data: { work } }) => (
   <Theme>
     <SEO title="Common Knowledge" />
 
@@ -45,23 +49,38 @@ const IndexPage = () => (
       />
     </PageHeader>
 
-    <Card>
-      <CardHeader>
-        <CardMeta>Project</CardMeta>
-        <CardMeta>Momentum</CardMeta>
-        <CardMeta>2019–Ongoing</CardMeta>
-        <CardMeta>mycampaignmap.com</CardMeta>
-      </CardHeader>
+    <CardList>
+      {work.edges.map(({ node: { id, frontmatter, body } }) => (
+        <Card key={id}>
+          <CardHeader>
+            <CardMeta>{frontmatter.type}</CardMeta>
+            <CardMeta>{frontmatter.client}</CardMeta>
+            <CardMeta>{frontmatter.dates}</CardMeta>
+            <CardMeta>
+              <Link sx={{ variant: "link.faded" }} to={frontmatter.location}>
+                {frontmatter.location.replace(/^.*:\/\//, "")}
+              </Link>
+            </CardMeta>
+          </CardHeader>
 
-      <CardTitle>My Campaign Map</CardTitle>
+          <CardTitle>{frontmatter.name}</CardTitle>
 
-      <CardContent>
-        Part of Momentum’s digital infrastructure for the 2019 General Election,
-        My Campaign Map helps you find out where and how you can help build our
-        movement. Working directly with grassroots activists, we design digital
-        tools that make radical change possible.
-      </CardContent>
-    </Card>
+          <CardContent>
+            <MDXRenderer>{body}</MDXRenderer>
+          </CardContent>
+        </Card>
+      ))}
+    </CardList>
+
+    <div sx={{ m: 4, fontWeight: 500, fontSize: "18px" }}>
+      <div>Interested in working with us?</div>
+      <Link
+        to="mailto:hello@commonknowledge.coop"
+        sx={{ border: "none", color: "accent" }}
+      >
+        hello@commonknowledge.coop
+      </Link>
+    </div>
 
     <Box
       sx={{
@@ -77,13 +96,6 @@ const IndexPage = () => (
         fontSize: [3, 2, 2, 3],
       }}
     >
-      <div>Want to work with us?</div>
-      <Link
-        to="mailto:hello@commonknowledge.coop"
-        sx={{ border: "none", color: "accent" }}
-      >
-        hello@commonknowledge.coop
-      </Link>
       <Flex sx={{ mt: [4] }}>
         <Link sx={{ mr: 2 }} to="http://twitter.com/cmmonknowledge">
           Twitter
@@ -102,5 +114,26 @@ const IndexPage = () => (
   </Theme>
 )
 
+export const pageQuery = graphql`
+  query HomePage {
+    work: allMdx(filter: { fileAbsolutePath: { glob: "**/work/*" } }) {
+      edges {
+        node {
+          id
+          body
+          frontmatter {
+            name
+            type
+            client
+            dates
+            location
+          }
+        }
+      }
+    }
+  }
+`
+
 const number = { m: 0, color: "accent" }
+
 export default IndexPage

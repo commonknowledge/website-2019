@@ -1,21 +1,20 @@
-import * as React from "react"
-import { Link as GatsbyLink } from "gatsby"
-import { Styled } from "theme-ui"
+/** @jsx jsx */
 
-export const Link: React.FC<
+import { Link as GatsbyLink } from "gatsby"
+import { jsx } from "theme-ui"
+import { ViewElement } from "./atoms"
+
+export const Link: ViewElement<
   {
-    to: string,
-    sx?: any
-  } & React.DetailedHTMLProps<
-    React.AnchorHTMLAttributes<HTMLAnchorElement>,
-    HTMLAnchorElement
-  >
+    to: string
+  },
+  React.AnchorHTMLAttributes<{}>
 > = ({ children, to, ...props }) => {
   if (["http", "mail"].some(s => to.startsWith(s))) {
     return (
-      <Styled.a {...props} href={to}>
+      <a {...props} href={to}>
         {children} {to.startsWith("http") && "↗"}
-      </Styled.a>
+      </a>
     )
   } else {
     return (
