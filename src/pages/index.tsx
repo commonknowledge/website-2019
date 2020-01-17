@@ -134,6 +134,4 @@ export const pageQuery = graphql`
   }
 `
 
-const number = { m: 0, color: "accent" }
-
 export default IndexPage
