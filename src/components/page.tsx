@@ -49,8 +49,28 @@ export const Hero: ViewElement<{ title: string; image: ReactNode }> = ({
 }) => (
   <div sx={{ display: "flex", flexDirection: "column" }} {...props}>
     <h2 sx={{ fontWeight: 500, fontSize: "24px" }}>{title}</h2>
-
     <div>{image}</div>
+  </div>
+)
+
+export const FooterBlock: ViewElement<{ title?: string }> = ({
+  title,
+  children,
+  ...props
+}) => (
+  <div
+    sx={{
+      display: "flex",
+      flexDirection: "column",
+      fontSize: "15px",
+      lineHeight: "133%",
+    }}
+    {...props}
+  >
+    {title && (
+      <h3 sx={{ fontSize: "inherit", fontWeight: 600, m: 0 }}>{title}</h3>
+    )}
+    {children}
   </div>
 )
 

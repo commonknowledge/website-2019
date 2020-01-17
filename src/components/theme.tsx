@@ -28,12 +28,19 @@ export const theme = {
     accent: "#FC0D1B",
   },
   link: {
-    faded: {
+    default: {
       opacity: 0.7,
       color: "inherit",
       textDecoration: "inherit",
       "&:hover": {
         color: "accent",
+      },
+    },
+    accent: {
+      color: "accent",
+      textDecoration: "inherit",
+      "&:hover": {
+        opacity: 0.7,
       },
     },
   },
