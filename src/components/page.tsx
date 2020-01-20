@@ -8,23 +8,22 @@ import { Match } from "@reach/router"
 import { Link } from "../components/nav"
 import { CoOpsLogo, CoTechLogo } from "../components/graphics"
 import { FC, Fragment, useState, ReactNode } from "react"
-import Sidebar, { SidebarProps } from "react-sidebar"
 import { ViewElement, IconButton } from "./atoms"
 import { LogoOneLine } from "../images/logo"
 import { BurgerIcon } from "../images/burger"
 import { MailChimpForm } from "./mailchimp-form"
+import { Topbar, TopbarProps } from "./topbar"
+
+const HEADER_HEIGHT = 52
 
 export const Page: ViewElement = ({ children }) => (
   <Match path="*">
     {({ location }) => (
       <Theme>
-        <PageHeader extended={location.pathname === "/"}>
-          <Hero
-            sx={{ px: 3, pt: 0, pb: 0 }}
-            title="Working directly with grassroots activists, we design digital tools that make radical change possible."
-            image={<AspectImage ratio={480 / 217} src="/diagram.png" />}
-          />
-        </PageHeader>
+        <PageHeader
+          dark={location.pathname === "/"}
+          extended={location.pathname === "/"}
+        />
 
         {children}
 
@@ -88,56 +87,74 @@ export const Page: ViewElement = ({ children }) => (
   </Match>
 )
 
-export const PageHeader: ViewElement<{ extended?: boolean }> = ({
-  children,
-  extended,
-  ...props
-}) => {
+export const PageHeader: ViewElement<{
+  extended?: boolean
+  dark?: boolean
+}> = ({ children, extended, dark, ...props }) => {
   const [open, setOpen] = useState(false)
+  const colorStyle =
+    dark && !open
+      ? { color: "white", bg: "black" }
+      : {
+          color: "black",
+          bg: "background",
+        }
 
   return (
-    <div
-      sx={{
-        transition: "color 250ms ease-in-out, background 250ms ease-in-out",
-        ...(!extended
-          ? {
-              maxHeight: 52,
-              overflow: "hidden",
-              color: "black",
-              bg: "rgba(0,0,0,0)",
-              borderBottom: "1px solid black",
-            }
-          : { color: "white", bg: "black" }),
-      }}
-      {...props}
-    >
+    <Fragment>
+      <Topbar
+        sx={{
+          top: HEADER_HEIGHT,
+        }}
+        open={open}
+        onClose={() => setOpen(false)}
+      >
+        <div
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            ">*": {
+              p: 3,
+              borderTop: "1px solid white",
+            },
+            transition: "color 500ms ease-in-out, background 500ms ease-in-out",
+            ...colorStyle,
+          }}
+        >
+          <NavContent onClick={() => setOpen(false)} />
+        </div>
+      </Topbar>
+
       <header
         sx={{
-          position: "relative",
+          position: "fixed",
+          top: 0,
+          width: "100%",
+          zIndex: 2,
+          transition:
+            "max-height 500ms ease-in-out, color 500ms ease-in-out, background 500ms ease-in-out",
           display: "flex",
           flexDirection: "row",
-          justiyContent: "space-between",
-          mx: 3,
+          justifyContent: "space-between",
+          px: 3,
           pb: 4,
           pt: 3,
+          height: HEADER_HEIGHT,
+          boxSizing: "border-box",
+          ...colorStyle,
         }}
       >
-        <Link to="/">
+        <Link to="/" onClick={() => setOpen(false)}>
           <LogoOneLine sx={{ mr: 2 }} />
         </Link>
-      </header>
 
-      {children}
-
-      <BurgerBar open={open} onSetOpen={setOpen}>
-        <IconButton
-          sx={{ m: 3, position: "absolute", top: 0, right: 0 }}
-          onClick={() => setOpen(true)}
-        >
+        <IconButton onClick={() => setOpen(!open)}>
           <BurgerIcon />
         </IconButton>
-      </BurgerBar>
-    </div>
+      </header>
+
+      <div sx={{ height: HEADER_HEIGHT }} />
+    </Fragment>
   )
 }
 
@@ -173,36 +190,19 @@ export const FooterBlock: ViewElement<{ title?: string }> = ({
   </div>
 )
 
-const BurgerBar: ViewElement<SidebarProps> = props => (
-  <Sidebar
-    pullRight
-    sidebar={
-      <div
-        sx={{
-          backgroundColor: "white",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          minWidth: 300,
-          p: 3,
-          boxSizing: "border-box",
-          ">*": {
-            mb: 2,
-          },
-        }}
-      >
-        <NavContent />
-      </div>
-    }
-    {...props}
-  ></Sidebar>
-)
-
-const NavContent: FC = () => (
+const NavContent: FC<{ onClick?: () => void }> = ({ onClick }) => (
   <Fragment>
-    <Link to="/about">About</Link>
-    <Link to="/writing">Writing</Link>
-    <Link to="/work">Work</Link>
-    <Link to="/contact">Contact</Link>
+    <Link onClick={onClick} to="/about">
+      About
+    </Link>
+    <Link onClick={onClick} to="/writing">
+      Writing
+    </Link>
+    <Link onClick={onClick} to="/work">
+      Work
+    </Link>
+    <Link onClick={onClick} to="/contact">
+      Contact
+    </Link>
   </Fragment>
 )

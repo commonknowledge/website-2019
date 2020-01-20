@@ -13,10 +13,18 @@ import {
 } from "../components/card"
 import { FC, Fragment } from "react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import { Hero } from "../components/page"
+import { AspectImage } from "@theme-ui/components"
 
 const IndexPage: FC<any> = ({ data: { work } }) => (
   <Fragment>
     <SEO title="Common Knowledge" />
+
+    <Hero
+      sx={{ px: 3, pt: 0, pb: 0, bg: "black", color: "white" }}
+      title="Working directly with grassroots activists, we design digital tools that make radical change possible."
+      image={<AspectImage ratio={480 / 217} src="/diagram.png" />}
+    />
 
     <CardList>
       {work.edges.map(({ node: { id, frontmatter, body } }) => (
