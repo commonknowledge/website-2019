@@ -14,7 +14,7 @@ export const theme = {
     brand: "'Space Grotesk'",
   },
   space: times(10, x => 3 * fib(x)),
-  fontSizes: [12, 14, 16, 20, 24, 32, 48, 64],
+  fontSizes: [8, 10, 14, 15, 18, 24, 32, 38, 54],
   lineHeights: {
     body: 1.45,
     heading: 1.125,
@@ -44,6 +44,34 @@ export const theme = {
       },
     },
   },
+  buttons: {
+    primary: {
+      p: 3,
+      borderRadius: 6,
+      bg: "#767676",
+      color: "white",
+      width: "100%",
+      transition: "opacity 250ms ease-in-out",
+      cursor: "pointer",
+      "&:hover": {
+        opacity: 0.8,
+      },
+    },
+  },
+  forms: {
+    label: {},
+    input: {
+      color: "black",
+      p: 3,
+      borderRadius: 6,
+      transition: "border-color 250ms ease-in-out",
+      border: "2px solid rgba(0,0,0,0)",
+      "&:focus": {
+        borderColor: "secondary",
+        outline: "none",
+      },
+    },
+  },
   styles: {
     a: {
       color: "primary",
@@ -58,10 +86,10 @@ export const theme = {
       mb: "0.5em",
       mt: "0.5em",
     },
-    h1: { mb: "0.1em", mt: "1em" },
-    h2: { mb: "0.1em", mt: "1em" },
-    h3: { mb: "0.1em", mt: "1em" },
-    h4: { mb: "0.1em", mt: "1em" },
+    h1: {},
+    h2: { fontWeight: 500, m: 0, mb: 2 },
+    h3: {},
+    h4: {},
   },
 }
 
