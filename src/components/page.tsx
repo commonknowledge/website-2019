@@ -14,7 +14,7 @@ import { BurgerIcon } from "../images/burger"
 import { MailChimpForm } from "./mailchimp-form"
 import { Topbar, TopbarProps } from "./topbar"
 
-const HEADER_HEIGHT = 52
+const HEADER_HEIGHT = 51
 
 export const Page: ViewElement = ({ children }) => (
   <Match path="*">
@@ -104,7 +104,7 @@ export const PageHeader: ViewElement<{
     <Fragment>
       <Topbar
         sx={{
-          top: HEADER_HEIGHT,
+          top: HEADER_HEIGHT - 1,
         }}
         open={open}
         onClose={() => setOpen(false)}
@@ -125,33 +125,38 @@ export const PageHeader: ViewElement<{
         </div>
       </Topbar>
 
-      <header
+      <div
         sx={{
+          ...colorStyle,
           position: "fixed",
           top: 0,
           width: "100%",
           zIndex: 2,
-          transition:
-            "max-height 500ms ease-in-out, color 500ms ease-in-out, background 500ms ease-in-out",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          px: 3,
-          pb: 4,
-          pt: 3,
-          height: HEADER_HEIGHT,
+          transition: "color 500ms ease-in-out, background 500ms ease-in-out",
           boxSizing: "border-box",
-          ...colorStyle,
+          height: HEADER_HEIGHT,
         }}
       >
-        <Link to="/" onClick={() => setOpen(false)}>
-          <LogoOneLine sx={{ mr: 2 }} />
-        </Link>
+        <header
+          sx={{
+            mx: 3,
+            pb: 2,
+            pt: 3,
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            borderBottom: dark ? "none" : "1px solid #767676",
+          }}
+        >
+          <Link to="/" onClick={() => setOpen(false)}>
+            <LogoOneLine sx={{ mr: 2 }} />
+          </Link>
 
-        <IconButton onClick={() => setOpen(!open)}>
-          <BurgerIcon />
-        </IconButton>
-      </header>
+          <IconButton onClick={() => setOpen(!open)}>
+            <BurgerIcon />
+          </IconButton>
+        </header>
+      </div>
 
       <div sx={{ height: HEADER_HEIGHT }} />
     </Fragment>
@@ -164,7 +169,9 @@ export const Hero: ViewElement<{ title: string; image: ReactNode }> = ({
   ...props
 }) => (
   <div sx={{ display: "flex", flexDirection: "column" }} {...props}>
-    <h2 sx={{ fontWeight: 500, fontSize: "24px" }}>{title}</h2>
+    <h2 sx={{ fontSize: "24px", lineHeight: "125%", fontWeight: 500 }}>
+      {title}
+    </h2>
     <div>{image}</div>
   </div>
 )

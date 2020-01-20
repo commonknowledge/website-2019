@@ -6,7 +6,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 export const CardList: ViewElement = props => (
   <div
     {...props}
-    sx={{ "> *:not(:last-of-type)": { borderBottom: "1px solid black" } }}
+    sx={{ "> *:not(:last-of-type)": { borderBottom: "1px solid #767676" } }}
   />
 )
 
