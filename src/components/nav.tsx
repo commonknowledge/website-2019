@@ -15,13 +15,22 @@ export const Link: ViewElement<
 
   if (["http", "mail"].some(s => to.startsWith(s))) {
     return (
-      <a sx={{ variant }} {...props} href={to}>
+      <a
+        sx={{ variant, userSelect: "none" }}
+        target="_blank"
+        {...props}
+        href={to}
+      >
         {children} {to.startsWith("http") && "↗"}
       </a>
     )
   } else {
     return (
-      <GatsbyLink sx={{ variant }} {...(props as any)} to={to}>
+      <GatsbyLink
+        sx={{ variant, userSelect: "none" }}
+        {...(props as any)}
+        to={to}
+      >
         {children}
       </GatsbyLink>
     )

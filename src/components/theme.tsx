@@ -101,6 +101,7 @@ export const Theme = ({ children }) => (
           ${fontStack};
           html,
           body {
+            -webkit-tap-highlight-color: transparent;
             margin: 0;
             padding: 0;
             min-height: 100%;

@@ -7,9 +7,13 @@
 // You can delete this file if you're not using it
 
 import "@csstools/normalize.css"
-import React from "react"
-import { Page } from "./src/components/page"
+import React, { Fragment } from "react"
+import { PageGlobal, PageLocal } from "./src/components/page"
 
 export const wrapRootElement = ({ element }) => {
-  return <Page>{element}</Page>
+  return <PageGlobal>{element}</PageGlobal>
+}
+
+export const wrapPageElement = ({ element }) => {
+  return <PageLocal>{element}</PageLocal>
 }

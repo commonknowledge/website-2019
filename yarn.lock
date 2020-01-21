@@ -4847,7 +4847,7 @@ dom-converter@^0.2:
   dependencies:
     utila "~0.4"
 
-dom-helpers@^3.4.0:
+dom-helpers@^3.3.1, dom-helpers@^3.4.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/dom-helpers/-/dom-helpers-3.4.0.tgz#e9b369700f959f62ecde5a6babde4bccd9169af8"
   integrity sha512-LnuPJ+dwqKDIyotW1VzmOZ5TONUN7CwkCR5hrgawTUbkBGYdeoNLZo6nNfGkCrjtE1nXXaj7iMMpDa8/d9WoIA==
@@ -11449,6 +11449,14 @@ rc@^1.2.7, rc@^1.2.8:
     ini "~1.3.0"
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
+
+react-css-transition-replace@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/react-css-transition-replace/-/react-css-transition-replace-4.0.2.tgz#a2076f2e0dbd25cec9ac7950d2bf15044d329eeb"
+  integrity sha512-ed5KXvCwEcmvee40NpDQjTvg7t8tmKHc/2rKbd4p+0Pe0uEC/5/sH3Nd1SW32hSnpoMzfaXBlpW7D5paRNwfHw==
+  dependencies:
+    dom-helpers "^3.3.1"
+    prop-types "^15.7.2"
 
 react-dev-utils@^4.2.3:
   version "4.2.3"
