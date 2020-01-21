@@ -12,7 +12,7 @@ import { ViewElement, IconButton } from "./atoms"
 import { LogoOneLine } from "../images/logo"
 import { BurgerIcon } from "../images/burger"
 import { MailChimpForm } from "./mailchimp-form"
-import { Topbar, TopbarProps } from "./topbar"
+import { Topbar } from "./topbar"
 
 const HEADER_HEIGHT = 51
 

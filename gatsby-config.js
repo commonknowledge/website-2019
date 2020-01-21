@@ -21,6 +21,17 @@ module.exports = {
         defaultLayouts: {
           default: require.resolve("./src/layouts/default.layout.tsx"),
         },
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1200,
+            },
+          },
+          {
+            resolve: "gatsby-remark-static-images",
+          },
+        ],
       },
     },
     {
@@ -47,14 +58,14 @@ module.exports = {
     "gatsby-plugin-emotion",
     "gatsby-plugin-typescript",
     "gatsby-plugin-catch-links",
-    {
-      resolve: "gatsby-plugin-react-svg",
-      options: {
-        rule: {
-          include: require("path").resolve(__dirname, "src/images"),
-        },
-      },
-    },
+    // {
+    //   resolve: "gatsby-plugin-react-svg",
+    //   options: {
+    //     rule: {
+    //       include: require("path").resolve(__dirname, "src/images"),
+    //     },
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {

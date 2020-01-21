@@ -4,7 +4,37 @@ import { MDXProvider } from "@mdx-js/react"
 import { ViewElement } from "../components/atoms"
 
 const DefaultLayout: ViewElement = ({ children }) => (
-  <div sx={{ p: 3 }}>
+  <div
+    sx={{
+      p: 3,
+      img: { maxWidth: "100%" },
+      hr: {
+        my: 4,
+        height: 1,
+        backgroundColor: "#767676",
+        border: "none",
+      },
+      ol: {
+        position: "relative",
+        listStyle: "none",
+        pl: 3,
+        lineHeight: "125%",
+        fontWeight: 500,
+        mb: 3,
+        counterReset: "list-counter",
+        "> li:before": {
+          content: "counter(list-counter)",
+          counterIncrement: "list-counter",
+          position: "absolute",
+          left: 0,
+          color: "accent",
+        },
+        "> li:not(:last-of-type)": {
+          mb: 2,
+        },
+      },
+    }}
+  >
     <MDXProvider
       components={{
         h1: props => (
@@ -59,40 +89,6 @@ const DefaultLayout: ViewElement = ({ children }) => (
               m: 0,
               lineHeight: "133%",
               mb: 3,
-            }}
-            {...props}
-          />
-        ),
-        hr: props => (
-          <hr
-            sx={{
-              my: 4,
-              height: 1,
-              backgroundColor: "#767676",
-              border: "none",
-            }}
-            {...props}
-          />
-        ),
-        ol: props => (
-          <ol
-            sx={{
-              position: "relative",
-              listStyle: "none",
-              pl: 3,
-              lineHeight: "125%",
-              fontWeight: 500,
-              counterReset: "list-counter",
-              "> li:before": {
-                content: "counter(list-counter)",
-                counterIncrement: "list-counter",
-                position: "absolute",
-                left: 0,
-                color: "accent",
-              },
-              "> li:not(:last-of-type)": {
-                mb: 2,
-              },
             }}
             {...props}
           />
