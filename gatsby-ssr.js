@@ -5,3 +5,14 @@
  */
 
 // You can delete this file if you're not using it
+
+import React from "react"
+import { PageGlobal, PageLocal } from "./src/components/page"
+
+export const wrapRootElement = ({ element }) => {
+  return <PageGlobal>{element}</PageGlobal>
+}
+
+export const wrapPageElement = ({ element }) => {
+  return <PageLocal>{element}</PageLocal>
+}
