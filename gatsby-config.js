@@ -41,6 +41,13 @@ module.exports = {
         path: `${__dirname}/content/work/`,
       },
     },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "work",
+        path: `${__dirname}/content/writing/`,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

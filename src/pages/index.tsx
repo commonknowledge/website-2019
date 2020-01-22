@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import SEO from "../components/seo"
-import { Link } from "../components/nav"
+import { Link, LiteralLink } from "../components/nav"
 import { graphql } from "gatsby"
 import {
   Card,
@@ -15,8 +15,18 @@ import { FC, Fragment } from "react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Hero } from "../components/page"
 import { AspectImage } from "@theme-ui/components"
+import {
+  Connection,
+  ContentItem,
+  PageRoot,
+  getContentType,
+  ContentNodeFragment,
+} from "../data/content-type"
+import { YearRange } from "../data/date"
 
-const IndexPage: FC<any> = ({ data: { work } }) => (
+const IndexPage: PageRoot<{ work: Connection<ContentItem> }> = ({
+  data: { work },
+}) => (
   <Fragment>
     <SEO title="Common Knowledge" />
 
@@ -27,23 +37,25 @@ const IndexPage: FC<any> = ({ data: { work } }) => (
     />
 
     <CardList>
-      {work.edges.map(({ node: { id, frontmatter, body } }) => (
-        <Card key={id}>
+      {work.edges.map(({ node }) => (
+        <Card key={node.id}>
           <CardHeader>
-            <CardMeta>{frontmatter.type}</CardMeta>
-            <CardMeta>{frontmatter.client}</CardMeta>
-            <CardMeta>{frontmatter.dates}</CardMeta>
+            <CardMeta>{getContentType(node)}</CardMeta>
+            <CardMeta>{node.frontmatter.client}</CardMeta>
             <CardMeta>
-              <Link sx={{ variant: "link.faded" }} to={frontmatter.location}>
-                {frontmatter.location.replace(/^.*:\/\//, "")}
-              </Link>
+              <YearRange value={node.frontmatter} />
             </CardMeta>
+            {node.frontmatter.url && (
+              <CardMeta>
+                <LiteralLink variant="faded" to={node.frontmatter.url} />
+              </CardMeta>
+            )}
           </CardHeader>
 
-          <CardTitle>{frontmatter.name}</CardTitle>
+          <CardTitle>{node.frontmatter.title}</CardTitle>
 
           <CardContent>
-            <MDXRenderer>{body}</MDXRenderer>
+            <MDXRenderer>{node.body}</MDXRenderer>
           </CardContent>
         </Card>
       ))}
@@ -56,15 +68,7 @@ export const pageQuery = graphql`
     work: allMdx(filter: { fileAbsolutePath: { glob: "**/work/*" } }) {
       edges {
         node {
-          id
-          body
-          frontmatter {
-            name
-            type
-            client
-            dates
-            location
-          }
+          ...ContentNodeFragment
         }
       }
     }

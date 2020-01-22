@@ -1,14 +1,12 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import { Grid, AspectImage } from "@theme-ui/components"
+import { Grid } from "@theme-ui/components"
 
-import { SwitchTransition, CSSTransition } from "react-transition-group"
 import { Theme } from "../components/theme"
-import "@csstools/normalize.css"
 import { Match } from "@reach/router"
 import { Link } from "../components/nav"
 import { CoOpsLogo, CoTechLogo } from "../components/graphics"
-import { FC, Fragment, useState, ReactNode, useEffect, useRef } from "react"
+import { FC, Fragment, useState, ReactNode } from "react"
 import { ViewElement, IconButton } from "./atoms"
 import { LogoOneLine } from "../images/logo"
 import { BurgerIcon } from "../images/burger"
@@ -37,7 +35,7 @@ export const PageLocal: FC = ({ children }) => (
 
     <MailChimpForm />
 
-    <Grid as="footer" gap={5} sx={{ m: 4 }}>
+    <Grid id="contact" as="footer" gap={5} sx={{ m: 4 }}>
       <div sx={{ fontWeight: 500, fontSize: "18px" }}>
         <div>Interested in working with us?</div>
         <Link variant="accent" to="mailto:hello@commonknowledge.coop">
@@ -96,7 +94,7 @@ export const PageLocal: FC = ({ children }) => (
 export const PageHeader: ViewElement<{
   extended?: boolean
   dark?: boolean
-}> = ({ children, extended, dark, ...props }) => {
+}> = ({ children, extended, dark }) => {
   const animationDuration = 500
 
   const [open, setOpenValue] = useState(false)
@@ -184,7 +182,13 @@ export const PageHeader: ViewElement<{
             <LogoOneLine sx={{ mr: 2 }} />
           </Link>
 
-          <IconButton onClick={() => setOpen(!open)}>
+          <IconButton
+            sx={{
+              color: dark && !open ? "white" : "accent",
+              ...colorTransition,
+            }}
+            onClick={() => setOpen(!open)}
+          >
             <BurgerIcon />
           </IconButton>
         </header>
@@ -240,7 +244,7 @@ const NavContent: FC<{ onClick?: () => void }> = ({ onClick }) => (
     <Link onClick={onClick} to="/work">
       Work
     </Link>
-    <Link onClick={onClick} to="/contact">
+    <Link onClick={onClick} to="#contact">
       Contact
     </Link>
   </Fragment>

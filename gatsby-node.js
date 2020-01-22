@@ -8,16 +8,40 @@
 const webpackFixFs = require("./node/webpackFixFs").default
 const { createFilePath } = require("gatsby-source-filesystem")
 const path = require("path")
+const fs = require("fs")
 
-const sections = {
-  work: { component: "src/templates/work.template.tsx" },
+const sections = fs.readdirSync(path.join(__dirname, "content"))
+
+const getLayoutComponent = slug => {
+  // look first for a matching layout for this page type, otherwise fall back
+  // to the default
+
+  const customLayout = path.join(
+    __dirname,
+    "src",
+    "layouts",
+    slug + ".layout.tsx"
+  )
+  const defaultLayout = path.join(
+    __dirname,
+    "src",
+    "layouts",
+    "default.layout.tsx"
+  )
+
+  if (fs.existsSync(customLayout)) {
+    return customLayout
+  } else {
+    return defaultLayout
+  }
 }
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   // Destructure the createPage function from the actions object
   const { createPage } = actions
 
-  for await (const [slug, { component }] of Object.entries(sections)) {
+  for await (const slug of sections) {
+    const component = getLayoutComponent(slug)
     const result = await graphql(`
       query {
         pages: allMdx(filter: { fileAbsolutePath: { glob: "**/${slug}/*" } }) {
@@ -66,6 +90,21 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value,
     })
   }
+}
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  const typeDefs = `
+    type MdxFrontmatter implements Node {
+      title: String!
+      client: String
+      startDate: String
+      endDate: String
+      publishedDate: String
+      url: String
+    }
+  `
+  createTypes(typeDefs)
 }
 
 exports.onCreateWebpackConfig = args => {

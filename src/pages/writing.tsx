@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import SEO from "../components/seo"
-import { LiteralLink } from "../components/nav"
 import { graphql } from "gatsby"
 import {
   Card,
@@ -14,33 +13,27 @@ import {
 import { Fragment } from "react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import {
+  getContentType,
   PageRoot,
   Connection,
   ContentItem,
-  getContentType,
 } from "../data/content-type"
-import { YearRange } from "../data/date"
+import { NumericDate } from "../data/date"
 
-const WorkListPage: PageRoot<{ work: Connection<ContentItem> }> = ({
-  data: { work },
+const WritingListPage: PageRoot<{ writing: Connection<ContentItem> }> = ({
+  data: { writing },
 }) => (
   <Fragment>
     <SEO title="Common Knowledge" />
 
     <CardList>
-      {work.edges.map(({ node }) => (
+      {writing.edges.map(({ node }) => (
         <Card key={node.id}>
           <CardHeader>
             <CardMeta>{getContentType(node)}</CardMeta>
-            <CardMeta>{node.frontmatter.client}</CardMeta>
             <CardMeta>
-              <YearRange value={node.frontmatter} />
+              <NumericDate value={node.frontmatter.publishedDate} />
             </CardMeta>
-            {node.frontmatter.url && (
-              <CardMeta>
-                <LiteralLink variant="faded" to={node.frontmatter.url} />
-              </CardMeta>
-            )}
           </CardHeader>
 
           <CardTitle>{node.frontmatter.title}</CardTitle>
@@ -55,8 +48,8 @@ const WorkListPage: PageRoot<{ work: Connection<ContentItem> }> = ({
 )
 
 export const pageQuery = graphql`
-  query WorkListPage {
-    work: allMdx(filter: { fileAbsolutePath: { glob: "**/work/*" } }) {
+  query WritingListPage {
+    writing: allMdx(filter: { fileAbsolutePath: { glob: "**/writing/*" } }) {
       edges {
         node {
           ...ContentNodeFragment
@@ -66,4 +59,4 @@ export const pageQuery = graphql`
   }
 `
 
-export default WorkListPage
+export default WritingListPage
