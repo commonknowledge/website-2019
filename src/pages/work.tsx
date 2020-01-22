@@ -20,6 +20,7 @@ import {
   getContentType,
 } from "../data/content-type"
 import { YearRange } from "../data/date"
+import { ArticleCard } from "../components/article-card"
 
 const WorkListPage: PageRoot<{ work: Connection<ContentItem> }> = ({
   data: { work },
@@ -29,26 +30,7 @@ const WorkListPage: PageRoot<{ work: Connection<ContentItem> }> = ({
 
     <CardList>
       {work.edges.map(({ node }) => (
-        <Card key={node.id}>
-          <CardHeader>
-            <CardMeta>{getContentType(node)}</CardMeta>
-            <CardMeta>{node.frontmatter.client}</CardMeta>
-            <CardMeta>
-              <YearRange value={node.frontmatter} />
-            </CardMeta>
-            {node.frontmatter.url && (
-              <CardMeta>
-                <LiteralLink variant="faded" to={node.frontmatter.url} />
-              </CardMeta>
-            )}
-          </CardHeader>
-
-          <CardTitle>{node.frontmatter.title}</CardTitle>
-
-          <CardContent>
-            <MDXRenderer>{node.body}</MDXRenderer>
-          </CardContent>
-        </Card>
+        <ArticleCard key={node.id} content={node} />
       ))}
     </CardList>
   </Fragment>

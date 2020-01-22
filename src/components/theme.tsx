@@ -8,10 +8,9 @@ const fib = memoize((x: number): number => (x === 0 ? x : x + fib(x - 1)))
 
 export const theme = {
   fonts: {
-    body: "'TeX Gyre Heros', system-ui, sans-serif",
-    heading: "'TeX Gyre Heros', system-ui, sans-serif",
+    body: "'IBM Plex Sans', system-ui, sans-serif",
+    heading: "'IBM Plex Sans', system-ui, sans-serif",
     monospace: "'Space Mono', Menlo, monospace",
-    brand: "'Space Grotesk'",
   },
   space: times(10, x => 3 * fib(x)),
   fontSizes: [8, 10, 14, 15, 18, 24, 32, 38, 54],
@@ -21,7 +20,7 @@ export const theme = {
   },
   colors: {
     text: "#111",
-    background: "#E5E5E5",
+    background: "#F0F0F0",
     muted: "#ACACAC",
     primary: "#111",
     secondary: "#FC0D1B",
@@ -123,53 +122,9 @@ export const Theme = ({ children }) => (
 const fontStack = `
 /* Space Grotesk - header */
 @font-face {
-  font-family: "Space Grotesk";
-  src: url("/fonts/SpaceGrotesk-Semibold.woff") format("woff");
-  font-weight: semibold;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Space Grotesk";
-  src: url("/fonts/SpaceGrotesk-Bold.woff") format("woff");
-  font-weight: bold;
-  font-style: normal;
-}
-@font-face {
   font-family: "Space Mono";
   src: url("/fonts/SpaceMono-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
-}
-@font-face {
-  font-family: "Space Mono";
-  src: url("/fonts/SpaceMono-Bold.ttf") format("truetype");
-  font-weight: bold;
-  font-style: normal;
-}
-/* TeX Gyre Heros - body font */
-@font-face {
-  font-family: "TeX Gyre Heros";
-  src: url("/fonts/texgyreheros-regular-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "TeX Gyre Heros";
-  src: url("/fonts/texgyreheros-italic-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: italic;
-}
-@font-face {
-  font-family: "TeX Gyre Heros";
-  src: url("/fonts/texgyreheros-bold-webfont.woff") format("woff");
-  font-weight: bold;
-  font-style: normal;
-}
-@font-face {
-  font-family: "TeX Gyre Heros";
-  src: url("/fonts/texgyreheros-bolditalic-webfont.woff")
-    format("woff");
-  font-weight: bold;
-  font-style: italic;
 }
 `

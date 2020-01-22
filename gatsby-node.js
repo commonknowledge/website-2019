@@ -100,6 +100,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       client: String
       startDate: String
       endDate: String
+      featuredImage: File
       publishedDate: String
       url: String
     }

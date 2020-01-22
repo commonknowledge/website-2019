@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import SEO from "../components/seo"
-import { Link, LiteralLink } from "../components/nav"
+import { LiteralLink } from "../components/nav"
 import { graphql } from "gatsby"
 import {
   Card,
@@ -11,7 +11,7 @@ import {
   CardContent,
   CardList,
 } from "../components/card"
-import { FC, Fragment } from "react"
+import { Fragment } from "react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Hero } from "../components/page"
 import { AspectImage } from "@theme-ui/components"
@@ -20,9 +20,9 @@ import {
   ContentItem,
   PageRoot,
   getContentType,
-  ContentNodeFragment,
 } from "../data/content-type"
 import { YearRange } from "../data/date"
+import { ArticleCard } from "../components/article-card"
 
 const IndexPage: PageRoot<{ work: Connection<ContentItem> }> = ({
   data: { work },
@@ -38,26 +38,7 @@ const IndexPage: PageRoot<{ work: Connection<ContentItem> }> = ({
 
     <CardList>
       {work.edges.map(({ node }) => (
-        <Card key={node.id}>
-          <CardHeader>
-            <CardMeta>{getContentType(node)}</CardMeta>
-            <CardMeta>{node.frontmatter.client}</CardMeta>
-            <CardMeta>
-              <YearRange value={node.frontmatter} />
-            </CardMeta>
-            {node.frontmatter.url && (
-              <CardMeta>
-                <LiteralLink variant="faded" to={node.frontmatter.url} />
-              </CardMeta>
-            )}
-          </CardHeader>
-
-          <CardTitle>{node.frontmatter.title}</CardTitle>
-
-          <CardContent>
-            <MDXRenderer>{node.body}</MDXRenderer>
-          </CardContent>
-        </Card>
+        <ArticleCard content={node} />
       ))}
     </CardList>
   </Fragment>

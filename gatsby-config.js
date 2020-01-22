@@ -65,14 +65,13 @@ module.exports = {
     "gatsby-plugin-emotion",
     "gatsby-plugin-typescript",
     "gatsby-plugin-catch-links",
-    // {
-    //   resolve: "gatsby-plugin-react-svg",
-    //   options: {
-    //     rule: {
-    //       include: require("path").resolve(__dirname, "src/images"),
-    //     },
-    //   },
-    // },
+    {
+      resolve: "gatsby-plugin-google-fonts",
+      options: {
+        fonts: [`IBM+Plex+Sans:400,400i,500,600`],
+        display: "swap",
+      },
+    },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {

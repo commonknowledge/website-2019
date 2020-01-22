@@ -36,14 +36,14 @@ export const PageLocal: FC = ({ children }) => (
     <MailChimpForm />
 
     <Grid id="contact" as="footer" gap={5} sx={{ m: 4 }}>
-      <div sx={{ fontWeight: 500, fontSize: "18px" }}>
+      <div sx={{ fontWeight: 500, fontSize: [18, null, 38] }}>
         <div>Interested in working with us?</div>
         <Link variant="accent" to="mailto:hello@commonknowledge.coop">
           hello@commonknowledge.coop
         </Link>
       </div>
 
-      <Grid gap={4} columns={2}>
+      <Grid gap={4} columns={[2, null, 4]}>
         <FooterBlock title="Visit">
           Space4
           <br />
@@ -71,7 +71,7 @@ export const PageLocal: FC = ({ children }) => (
         </FooterBlock>
       </Grid>
 
-      <Grid gap={4}>
+      <Grid columns={[2, null, null, 4]} gap={4}>
         <Grid gap={1}>
           <FooterBlock>Company no. 11620742</FooterBlock>
           <FooterBlock>Registered in England and Wales</FooterBlock>
@@ -82,10 +82,10 @@ export const PageLocal: FC = ({ children }) => (
           <FooterBlock>Manage Cookies</FooterBlock>
         </Grid>
 
-        <Grid columns={2}>
-          <CoOpsLogo />
+        <div sx={{ display: "flex", flexDirection: "row" }}>
+          <CoOpsLogo sx={{ mr: 6 }} />
           <CoTechLogo />
-        </Grid>
+        </div>
       </Grid>
     </Grid>
   </Fragment>
@@ -204,11 +204,42 @@ export const Hero: ViewElement<{ title: string; image: ReactNode }> = ({
   image,
   ...props
 }) => (
-  <div sx={{ display: "flex", flexDirection: "column" }} {...props}>
-    <h2 sx={{ fontSize: "24px", lineHeight: "125%", fontWeight: 500 }}>
+  <div
+    sx={{
+      display: "flex",
+      flexDirection: ["column", null, "row-reverse"],
+      height: [null, null, 350],
+    }}
+    {...props}
+  >
+    <h2
+      sx={{
+        position: "relative",
+        fontSize: ["24px", "32px"],
+        width: [null, null, "50%"],
+        lineHeight: "125%",
+        fontWeight: 500,
+        maxWidth: 600,
+        alignSelf: [null, null, "center"],
+        pr: 5,
+        ml: [null, null, 3],
+        top: [null, null, "-1em"],
+      }}
+    >
       {title}
     </h2>
-    <div>{image}</div>
+    <div
+      sx={{
+        maxHeight: 217,
+        position: "relative",
+        alignSelf: ["stretch", null, "flex-end"],
+        width: [null, null, "50%"],
+        mr: [null, null, 3],
+        textAlign: "center",
+      }}
+    >
+      {image}
+    </div>
   </div>
 )
 
