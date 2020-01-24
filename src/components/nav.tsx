@@ -61,6 +61,7 @@ export const Link: ViewElement<LinkProps, React.AnchorHTMLAttributes<{}>> = ({
       <GatsbyLink
         {...(props as any)}
         sx={{ variant, userSelect: "none" }}
+        activeClassName="active"
         to={to}
       >
         {children}

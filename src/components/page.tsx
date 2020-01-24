@@ -189,10 +189,13 @@ export const PageHeader: ViewElement<{
               flexDirection: "row",
               "> *": {
                 mr: 4,
+                opacity: 1,
               },
-              "> :active": {
-                mr: 4,
+              "> .active": {
                 color: "black",
+              },
+              "> *:not(.active)": {
+                color: dark ? "rgba(255,255,255,0.75)" : "#767676",
               },
             }}
           >
