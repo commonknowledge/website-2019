@@ -9,7 +9,7 @@ export const MailChimpForm: ViewElement = props => (
     sx={{ bg: "black", color: "white", p: 4 }}
     {...props}
   >
-    <h2 sx={{ m: 0, mb: 4, fontSize: "inherit" }}>
+    <h2 sx={{ m: 0, mb: 4, fontSize: [15, null, 18] }}>
       Subscribe to our newsletter
     </h2>
     <form

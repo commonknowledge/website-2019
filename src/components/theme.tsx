@@ -106,7 +106,7 @@ export const Theme = ({ children }) => (
             min-height: 100%;
             background: ${theme.colors.background};
             font-family: ${theme.fonts.body};
-            font-size: ${theme.fontSizes[3]}px;
+            font-size: ${[theme.fontSizes[3]]}px;
           }
           ::selection {
             background: ${theme.colors.text};

@@ -169,7 +169,7 @@ export const PageHeader: ViewElement<{
       >
         <header
           sx={{
-            mx: 3,
+            mx: 4,
             pb: 2,
             pt: 3,
             display: "flex",
@@ -182,8 +182,26 @@ export const PageHeader: ViewElement<{
             <LogoOneLine sx={{ mr: 2 }} />
           </Link>
 
+          <div
+            sx={{
+              width: "50%",
+              display: ["none", null, "flex"],
+              flexDirection: "row",
+              "> *": {
+                mr: 4,
+              },
+              "> :active": {
+                mr: 4,
+                color: "black",
+              },
+            }}
+          >
+            <NavContent />
+          </div>
+
           <IconButton
             sx={{
+              display: [null, null, "none"],
               color: dark && !open ? "white" : "accent",
               ...colorTransition,
             }}
@@ -194,7 +212,7 @@ export const PageHeader: ViewElement<{
         </header>
       </div>
 
-      <div sx={{ height: HEADER_HEIGHT }} />
+      <div sx={{ ...colorStyle, height: HEADER_HEIGHT }} />
     </Fragment>
   )
 }
@@ -206,24 +224,30 @@ export const Hero: ViewElement<{ title: string; image: ReactNode }> = ({
 }) => (
   <div
     sx={{
-      display: "flex",
-      flexDirection: ["column", null, "row-reverse"],
+      position: "relative",
+      width: "100%",
       height: [null, null, 350],
+      paddingTop: HEADER_HEIGHT,
+      marginTop: -HEADER_HEIGHT,
     }}
     {...props}
   >
     <h2
       sx={{
-        position: "relative",
-        fontSize: ["24px", "32px"],
+        position: ["relative", null, "absolute"],
         width: [null, null, "50%"],
+        bottom: [null, null, "50%"],
+        left: [null, null, "50%"],
+        maxWidth: 600,
+        fontSize: ["24px", "32px"],
+        transform: [null, null, "translateY(50%)"],
+        boxSizing: "border-box",
         lineHeight: "125%",
         fontWeight: 500,
-        maxWidth: 600,
-        alignSelf: [null, null, "center"],
+        m: 0,
+        pl: [4, null, 0],
+        py: [3, null, 0],
         pr: 5,
-        ml: [null, null, 3],
-        top: [null, null, "-1em"],
       }}
     >
       {title}
@@ -231,10 +255,10 @@ export const Hero: ViewElement<{ title: string; image: ReactNode }> = ({
     <div
       sx={{
         maxHeight: 217,
-        position: "relative",
-        alignSelf: ["stretch", null, "flex-end"],
+        position: ["relative", null, "absolute"],
+        left: 0,
+        bottom: 0,
         width: [null, null, "50%"],
-        mr: [null, null, 3],
         textAlign: "center",
       }}
     >
@@ -266,14 +290,14 @@ export const FooterBlock: ViewElement<{ title?: string }> = ({
 
 const NavContent: FC<{ onClick?: () => void }> = ({ onClick }) => (
   <Fragment>
-    <Link onClick={onClick} to="/about">
-      About
+    <Link onClick={onClick} to="/work">
+      Work
     </Link>
     <Link onClick={onClick} to="/writing">
       Writing
     </Link>
-    <Link onClick={onClick} to="/work">
-      Work
+    <Link onClick={onClick} to="/about">
+      About
     </Link>
     <Link onClick={onClick} to="#contact">
       Contact

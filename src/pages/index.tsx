@@ -31,14 +31,14 @@ const IndexPage: PageRoot<{ work: Connection<ContentItem> }> = ({
     <SEO title="Common Knowledge" />
 
     <Hero
-      sx={{ px: 3, pt: 0, pb: 0, bg: "black", color: "white" }}
+      sx={{ bg: "black", color: "white" }}
       title="Working directly with grassroots activists, we design digital tools that make radical change possible."
       image={<AspectImage ratio={480 / 217} src="/diagram.png" />}
     />
 
     <CardList>
       {work.edges.map(({ node }) => (
-        <ArticleCard content={node} />
+        <ArticleCard key={node.id} content={node} />
       ))}
     </CardList>
   </Fragment>

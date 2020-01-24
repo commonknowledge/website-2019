@@ -14,7 +14,6 @@ import {
   Connection,
   ContentItem,
   getContentType,
-  ContentNodeFragment,
 } from "../data/content-type"
 import { Fragment } from "react"
 import SEO from "../components/seo"
