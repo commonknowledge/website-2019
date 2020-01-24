@@ -22,7 +22,7 @@ import {
   getContentType,
 } from "../data/content-type"
 import { YearRange } from "../data/date"
-import { ArticleCard } from "../components/article-card"
+import { ArticleCard } from "../components/content-card"
 
 const IndexPage: PageRoot<{ work: Connection<ContentItem> }> = ({
   data: { work },

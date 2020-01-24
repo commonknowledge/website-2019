@@ -16,6 +16,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `assets`,
+        path: `${__dirname}/assets`,
+      },
+    },
+    {
       resolve: "gatsby-plugin-mdx",
       options: {
         defaultLayouts: {

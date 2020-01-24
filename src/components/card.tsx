@@ -18,17 +18,21 @@ export const CardHeader: ViewElement = props => (
   <header
     sx={{
       fontFamily: "monospace",
-      fontSize: "10px",
+      fontSize: [10, 14],
       boxSizing: "border-box",
       letterSpacing: 1.5,
       textTransform: "uppercase",
-      pb: [3, 5],
+      pb: [2, null, 4],
     }}
     {...props}
   />
 )
 
-export const CardMeta: ViewElement = ({ children, ...props }) => (
+export const CardMeta: ViewElement<{ label: string }> = ({
+  children,
+  label,
+  ...props
+}) => (
   <div
     sx={{
       display: "inline-block",
@@ -36,7 +40,11 @@ export const CardMeta: ViewElement = ({ children, ...props }) => (
       mb: 1,
       width: ["50%", null, "25%"],
     }}
+    {...props}
   >
+    <div sx={{ display: ["none", null, "block"], color: "#767676", mb: 1 }}>
+      {label}
+    </div>
     {children}
   </div>
 )
@@ -46,5 +54,13 @@ export const CardTitle: ViewElement = props => (
 )
 
 export const CardContent: ViewElement = props => (
-  <div sx={{ m: 0, lineHeight: "147%", fontSize: "15px" }} {...props} />
+  <div
+    sx={{
+      m: 0,
+      mb: [null, null, 3],
+      lineHeight: "147%",
+      fontSize: "15px",
+    }}
+    {...props}
+  />
 )

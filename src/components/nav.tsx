@@ -44,7 +44,7 @@ export const Link: ViewElement<LinkProps, React.AnchorHTMLAttributes<{}>> = ({
         {children} {to.startsWith("http") && "↗"}
       </a>
     )
-  } else if (["http", "mail"].some(s => to.startsWith(s))) {
+  } else if (["http", "mailto"].some(s => to.startsWith(s))) {
     return (
       <a
         {...props}
@@ -52,7 +52,8 @@ export const Link: ViewElement<LinkProps, React.AnchorHTMLAttributes<{}>> = ({
         target="_blank"
         href={to}
       >
-        {children} {to.startsWith("http") && "↗"}
+        {children}
+        {to.startsWith("http") && "↗"}
       </a>
     )
   } else {

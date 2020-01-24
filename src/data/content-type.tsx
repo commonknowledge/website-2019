@@ -32,7 +32,7 @@ export const contentNodeFragment = graphql`
       startDate
       featuredImage {
         childImageSharp {
-          fluid(maxWidth: 800) {
+          fluid(maxWidth: 800, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }

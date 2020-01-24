@@ -32,7 +32,7 @@ export const theme = {
       color: "inherit",
       textDecoration: "inherit",
       "&:hover": {
-        color: "white",
+        opacity: 0.4,
       },
     },
     accent: {
