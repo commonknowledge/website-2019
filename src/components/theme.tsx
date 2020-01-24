@@ -45,7 +45,7 @@ export const theme = {
   },
   buttons: {
     primary: {
-      p: 3,
+      p: "1em",
       borderRadius: 6,
       bg: "#767676",
       color: "white",
@@ -61,7 +61,7 @@ export const theme = {
     label: {},
     input: {
       color: "black",
-      p: 3,
+      p: "1em",
       borderRadius: 6,
       transition: "border-color 250ms ease-in-out",
       border: "2px solid rgba(0,0,0,0)",
