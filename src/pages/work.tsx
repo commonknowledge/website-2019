@@ -20,6 +20,7 @@ import {
   getContentType,
 } from "../data/content-type"
 import { ContentCard } from "../components/content-card"
+import { PageFooter } from "../components/page"
 
 const WorkListPage: PageRoot<{ work: Connection<ContentItem> }> = ({
   data: { work },
@@ -32,6 +33,8 @@ const WorkListPage: PageRoot<{ work: Connection<ContentItem> }> = ({
         <ContentCard key={node.id} content={node} />
       ))}
     </CardList>
+
+    <PageFooter />
   </Fragment>
 )
 

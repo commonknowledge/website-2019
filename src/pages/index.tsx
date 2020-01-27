@@ -13,7 +13,7 @@ import {
 } from "../components/card"
 import { Fragment } from "react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import { Hero } from "../components/page"
+import { Hero, PageFooter } from "../components/page"
 import { AspectImage } from "@theme-ui/components"
 import {
   Connection,
@@ -41,6 +41,8 @@ const IndexPage: PageRoot<{ work: Connection<ContentItem> }> = ({
         <ContentCard key={node.id} content={node} />
       ))}
     </CardList>
+
+    <PageFooter />
   </Fragment>
 )
 

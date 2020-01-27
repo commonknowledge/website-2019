@@ -12,6 +12,7 @@ import { LogoOneLine } from "../images/logo"
 import { BurgerIcon } from "../images/burger"
 import { MailChimpForm } from "./mailchimp-form"
 import { Topbar } from "./topbar"
+import { ContactDetails } from "./contact"
 
 const HEADER_HEIGHT = 51
 
@@ -29,13 +30,11 @@ export const PageGlobal: ViewElement = ({ children }) => (
   </Match>
 )
 
-export const PageLocal: FC = ({ children }) => (
+export const PageFooter: FC = () => (
   <Fragment>
-    {children}
-
     <MailChimpForm />
 
-    <Grid id="contact" as="footer" gap={5} sx={{ m: 4 }}>
+    <Grid id="contact" gap={5} sx={{ m: 4, mb: 0 }}>
       <div sx={{ fontWeight: 500, fontSize: [18, null, 38] }}>
         <div>Interested in working with us?</div>
         <Link variant="accent" to="mailto:hello@commonknowledge.coop">
@@ -43,56 +42,32 @@ export const PageLocal: FC = ({ children }) => (
         </Link>
       </div>
 
-      <Grid gap={4} columns={[2, null, 4]}>
-        <FooterBlock title="Visit">
-          Space4
-          <br />
-          113 Fonthill Road
-          <br />
-          London, N4 3HH
-        </FooterBlock>
-
-        <FooterBlock title="Contact">
-          {/* <Link>Book a meeting</Link>
-<Link>PGP Key</Link> */}
-        </FooterBlock>
-
-        <FooterBlock title="Elsewhere">
-          <Link to="http://twitter.com/cmmonknowledge">Twitter</Link>
-          <Link to="http://github.com/commonknowledge">Github</Link>
-          {/* <Link>Git.coop</Link> */}
-        </FooterBlock>
-
-        <FooterBlock title="Support our work">
-          <Link to="https://opencollective.com/commonknowledge/donate">
-            Open Collective
-          </Link>
-          {/* <Link>Coinbase</Link> */}
-        </FooterBlock>
-      </Grid>
-
-      <Grid columns={[2, null, null, 4]} gap={4}>
-        <div>
-          <FooterBlock>Company no. 11620742</FooterBlock>
-          <FooterBlock>Registered in England and Wales</FooterBlock>
-        </div>
-
-        <div>
-          <FooterBlock>Privacy Policy</FooterBlock>
-          <FooterBlock>Manage Cookies</FooterBlock>
-        </div>
-
-        <div sx={{ display: "flex", flexDirection: "row" }}>
-          <Link icon to="https://www.uk.coop/">
-            <CoOpsLogo sx={{ mr: 6 }} />
-          </Link>
-          <Link icon to="https://www.coops.tech/">
-            <CoTechLogo />
-          </Link>
-        </div>
-      </Grid>
+      <ContactDetails />
     </Grid>
   </Fragment>
+)
+
+export const PageFooterCommon = () => (
+  <Grid as="footer" sx={{ m: 4 }} columns={[2, null, null, 4]} gap={4}>
+    <div>
+      <FooterBlock>Company no. 11620742</FooterBlock>
+      <FooterBlock>Registered in England and Wales</FooterBlock>
+    </div>
+
+    <div>
+      <FooterBlock>Privacy Policy</FooterBlock>
+      <FooterBlock>Manage Cookies</FooterBlock>
+    </div>
+
+    <div sx={{ display: "flex", flexDirection: "row" }}>
+      <Link icon to="https://www.uk.coop/">
+        <CoOpsLogo sx={{ mr: 6 }} />
+      </Link>
+      <Link icon to="https://www.coops.tech/">
+        <CoTechLogo />
+      </Link>
+    </div>
+  </Grid>
 )
 
 export const PageHeader: ViewElement<{
@@ -306,7 +281,7 @@ const NavContent: FC<{ onClick?: () => void }> = ({ onClick }) => (
     <Link onClick={onClick} to="/about">
       About
     </Link>
-    <Link onClick={onClick} to="#contact">
+    <Link onClick={onClick} to="/contact">
       Contact
     </Link>
   </Fragment>

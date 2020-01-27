@@ -20,6 +20,7 @@ import {
 } from "../data/content-type"
 import { NumericDate } from "../data/date"
 import { ContentCard } from "../components/content-card"
+import { PageFooter } from "../components/page"
 
 const WritingListPage: PageRoot<{ writing: Connection<ContentItem> }> = ({
   data: { writing },
@@ -32,6 +33,8 @@ const WritingListPage: PageRoot<{ writing: Connection<ContentItem> }> = ({
         <ContentCard key={node.id} content={node} />
       ))}
     </CardList>
+
+    <PageFooter />
   </Fragment>
 )
 

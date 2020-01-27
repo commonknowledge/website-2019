@@ -17,7 +17,7 @@ import {
 } from "../data/content-type"
 import { Fragment } from "react"
 import SEO from "../components/seo"
-import { Hero } from "../components/page"
+import { Hero, PageFooter } from "../components/page"
 import { AspectImage } from "@theme-ui/components"
 import { YearRange } from "../data/date"
 import { LiteralLink } from "../components/nav"
@@ -52,6 +52,8 @@ const WorkPage: PageRoot<{ node: ContentItem }> = ({ data: { node } }) => (
         <MDXRenderer>{node.body}</MDXRenderer>
       </CardContent>
     </Card>
+
+    <PageFooter />
   </Fragment>
 )
 
