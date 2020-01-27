@@ -36,6 +36,8 @@ export const CardMeta: ViewElement<{ label?: string }> = ({
     sx={{
       display: "inline-block",
       whiteSpace: "nowrap",
+      overflow: "hidden",
+      textOverflow: "ellipsis",
       mb: 1,
       width: ["50%", null, "25%"],
     }}

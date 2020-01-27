@@ -8,11 +8,19 @@ export const NumericDate: FC<{ value?: string }> = ({ value }) => (
 
 export const YearRange: FC<{
   value: { date?: string; endDate?: string }
-}> = ({ value }) => (
-  <Fragment>
-    {value.date &&
-      `${format(parseISO(value.date), "yyyy")}–${
-        value.endDate ? format(parseISO(value.endDate), "yyyy") : "Ongoing"
-      }`}
-  </Fragment>
-)
+}> = ({ value }) => {
+  const startDate = value.date && format(parseISO(value.date), "yyyy")
+  const endDate = value.endDate
+    ? format(parseISO(value.endDate), "yyyy")
+    : "Ongoing"
+
+  if (startDate === endDate) {
+    return (
+      <Fragment>
+        {value.date && format(parseISO(value.date), "LL.yyyy")}
+      </Fragment>
+    )
+  } else {
+    return <Fragment>{startDate && `${startDate}–${endDate}`}</Fragment>
+  }
+}
