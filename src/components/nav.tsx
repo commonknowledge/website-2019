@@ -3,8 +3,6 @@
 import { Link as GatsbyLink } from "gatsby"
 import { jsx } from "theme-ui"
 import { ViewElement } from "./atoms"
-import scrollTo from "animated-scroll-to"
-import { MouseEventHandler } from "react"
 
 type LinkProps = {
   to: string
@@ -21,31 +19,7 @@ export const Link: ViewElement<LinkProps, React.AnchorHTMLAttributes<{}>> = ({
 }) => {
   const variant = "link." + linkVariant
 
-  if (to.startsWith("#")) {
-    return (
-      <a
-        sx={{ variant, userSelect: "none" }}
-        {...props}
-        href={to}
-        onClick={event => {
-          const { onClick } = props
-          const el = document.querySelector<HTMLElement>(to)
-          if (el) {
-            if (onClick) {
-              onClick(event)
-            }
-
-            if (!event.defaultPrevented) {
-              event.preventDefault()
-              scrollTo(el.offsetTop)
-            }
-          }
-        }}
-      >
-        {children} {to.startsWith("http") && "↗"}
-      </a>
-    )
-  } else if (["http", "mailto"].some(s => to.startsWith(s))) {
+  if (["http", "mailto"].some(s => to.startsWith(s))) {
     return (
       <a
         {...props}

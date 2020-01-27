@@ -15,6 +15,7 @@ import { Topbar } from "./topbar"
 import { ContactDetails } from "./contact"
 
 const HEADER_HEIGHT = 45
+declare const Metomic: any
 
 export const PageGlobal: ViewElement = ({ children }) => (
   <Match path="*">
@@ -61,7 +62,17 @@ export const PageFooterCommon = () => (
 
     <div>
       <FooterBlock>Privacy Policy</FooterBlock>
-      <FooterBlock>Manage Cookies</FooterBlock>
+      <FooterBlock>
+        <Link
+          to="#"
+          onClick={e => {
+            e.preventDefault()
+            Metomic("ConsentManager:show")
+          }}
+        >
+          Manage Cookies
+        </Link>
+      </FooterBlock>
     </div>
 
     <div sx={{ display: "flex", flexDirection: "row" }}>

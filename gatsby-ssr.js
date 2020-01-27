@@ -13,7 +13,7 @@ export const wrapRootElement = ({ element }) => {
   return <PageGlobal>{element}</PageGlobal>
 }
 
-export const onRenderBody = ({ setHeadComponents, setPostBodyComponents }) => {
+export const onRenderBody = ({ setHeadComponents }) => {
   setHeadComponents([
     <script
       src="https://config.metomic.io/config.js?id=prj:099e4e54-0922-481a-826c-52839ea79e1f"
@@ -25,11 +25,5 @@ export const onRenderBody = ({ setHeadComponents, setPostBodyComponents }) => {
       crossorigin
       charset="utf-8"
     />,
-  ])
-
-  setPostBodyComponents([
-    <a href="javascript:window.Metomic('ConsentManager:show')">
-      manage cookies
-    </a>,
   ])
 }

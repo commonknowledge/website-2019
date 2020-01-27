@@ -104,7 +104,7 @@ export const WorkCard: FC<{ content: ContentItem }> = ({ content }) => (
 )
 
 export const WorkMeta: FC<{ content: ContentItem }> = ({ content }) => (
-  <Fragment>
+  <Grid gap={[1, null, 3]} columns={[2, null, 4]}>
     <CardMeta label="Category">{getContentType(content)}</CardMeta>
     {content.frontmatter.client && (
       <CardMeta label="Organisation">{content.frontmatter.client}</CardMeta>
@@ -119,5 +119,5 @@ export const WorkMeta: FC<{ content: ContentItem }> = ({ content }) => (
         <LiteralLink to={content.frontmatter.url} />
       </CardMeta>
     )}
-  </Fragment>
+  </Grid>
 )
