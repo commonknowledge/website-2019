@@ -15,21 +15,23 @@ export const ContactDetails: ViewElement<GridProps> = props => (
     </FooterBlock>
 
     <FooterBlock title="Contact">
-      {/* <Link>Book a meeting</Link>
-<Link>PGP Key</Link> */}
+      <Link to="https://alexworradandrews.youcanbook.me/">Book a meeting</Link>
+      {/* <Link>PGP Key</Link> */}
     </FooterBlock>
 
     <FooterBlock title="Elsewhere">
       <Link to="http://twitter.com/cmmonknowledge">Twitter</Link>
       <Link to="http://github.com/commonknowledge">Github</Link>
-      {/* <Link>Git.coop</Link> */}
+      <Link to="https://git.coop/commonknowledge">Git.coop</Link>
     </FooterBlock>
 
     <FooterBlock title="Support our work">
       <Link to="https://opencollective.com/commonknowledge/donate">
         Open Collective
       </Link>
-      {/* <Link>Coinbase</Link> */}
+      <Link to="https://commerce.coinbase.com/checkout/bcda7a9f-01a8-4835-b586-13558aa2cb2d">
+        Coinbase
+      </Link>
     </FooterBlock>
   </Grid>
 )
