@@ -72,6 +72,7 @@ module.exports = {
     "gatsby-plugin-emotion",
     "gatsby-plugin-typescript",
     "gatsby-plugin-catch-links",
+    "gatsby-plugin-netlify-cache",
     {
       resolve: "gatsby-plugin-google-fonts",
       options: {
