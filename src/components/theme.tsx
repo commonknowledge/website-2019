@@ -21,10 +21,11 @@ export const theme = {
   colors: {
     text: "#111",
     background: "#F0F0F0",
+    backgroundTranslucent: "rgba(240,240,240,0.95)",
     muted: "#ACACAC",
     primary: "#111",
-    secondary: "#FC0D1B",
-    accent: "#FC0D1B",
+    secondary: "#00B07B",
+    accent: "#00B07B",
   },
   link: {
     default: {

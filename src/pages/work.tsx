@@ -19,8 +19,7 @@ import {
   ContentItem,
   getContentType,
 } from "../data/content-type"
-import { YearRange } from "../data/date"
-import { ArticleCard } from "../components/content-card"
+import { ContentCard } from "../components/content-card"
 
 const WorkListPage: PageRoot<{ work: Connection<ContentItem> }> = ({
   data: { work },
@@ -30,7 +29,7 @@ const WorkListPage: PageRoot<{ work: Connection<ContentItem> }> = ({
 
     <CardList>
       {work.edges.map(({ node }) => (
-        <ArticleCard key={node.id} content={node} />
+        <ContentCard key={node.id} content={node} />
       ))}
     </CardList>
   </Fragment>
@@ -38,7 +37,10 @@ const WorkListPage: PageRoot<{ work: Connection<ContentItem> }> = ({
 
 export const pageQuery = graphql`
   query WorkListPage {
-    work: allMdx(filter: { fileAbsolutePath: { glob: "**/work/*" } }) {
+    work: allMdx(
+      filter: { fileAbsolutePath: { glob: "**/work/*" } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       edges {
         node {
           ...ContentNodeFragment

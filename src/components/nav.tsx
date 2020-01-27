@@ -9,11 +9,13 @@ import { MouseEventHandler } from "react"
 type LinkProps = {
   to: string
   variant?: string
+  icon?: boolean
 }
 
 export const Link: ViewElement<LinkProps, React.AnchorHTMLAttributes<{}>> = ({
   variant: linkVariant = "default",
   children,
+  icon,
   to,
   ...props
 }) => {
@@ -35,7 +37,6 @@ export const Link: ViewElement<LinkProps, React.AnchorHTMLAttributes<{}>> = ({
 
             if (!event.defaultPrevented) {
               event.preventDefault()
-              console.log(el.offsetTop)
               scrollTo(el.offsetTop)
             }
           }
@@ -53,7 +54,7 @@ export const Link: ViewElement<LinkProps, React.AnchorHTMLAttributes<{}>> = ({
         href={to}
       >
         {children}
-        {to.startsWith("http") && "↗"}
+        {to.startsWith("http") && !icon && "↗"}
       </a>
     )
   } else {

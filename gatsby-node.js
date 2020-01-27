@@ -98,10 +98,11 @@ exports.createSchemaCustomization = ({ actions }) => {
     type MdxFrontmatter implements Node {
       title: String!
       client: String
-      startDate: String
+      date: String
       endDate: String
+      intro: String
       featuredImage: File
-      publishedDate: String
+      date: String
       url: String
     }
   `

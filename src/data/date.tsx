@@ -7,11 +7,11 @@ export const NumericDate: FC<{ value?: string }> = ({ value }) => (
 )
 
 export const YearRange: FC<{
-  value: { startDate?: string; endDate?: string }
+  value: { date?: string; endDate?: string }
 }> = ({ value }) => (
   <Fragment>
-    {value.startDate &&
-      `${format(parseISO(value.startDate), "yyyy")}–${
+    {value.date &&
+      `${format(parseISO(value.date), "yyyy")}–${
         value.endDate ? format(parseISO(value.endDate), "yyyy") : "Ongoing"
       }`}
   </Fragment>

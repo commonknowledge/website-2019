@@ -16,21 +16,35 @@ import {
   ContentNodeFragment,
 } from "../data/content-type"
 import { NumericDate } from "../data/date"
+import { ArticleMeta } from "../components/content-card"
 
 const WritingPage: PageRoot<{ node: ContentItem }> = ({ data: { node } }) => (
   <Card key={node.id}>
-    <CardHeader>
-      <CardMeta>{getContentType(node)}</CardMeta>
-      <CardMeta>
-        <NumericDate value={node.frontmatter.publishedDate} />
-      </CardMeta>
+    <CardHeader sx={{ pb: [1, null, 3] }}>
+      <ArticleMeta content={node} />
     </CardHeader>
 
-    <CardTitle>{node.frontmatter.title}</CardTitle>
+    <div
+      sx={{
+        marginLeft: [null, null, "50%"],
+      }}
+    >
+      <CardTitle
+        sx={{
+          borderBottom: "1px solid black",
+          borderBottomColor: "accent",
+          lineHeight: "100%",
+          pb: 3,
+          mb: 3,
+        }}
+      >
+        {node.frontmatter.title}
+      </CardTitle>
 
-    <CardContent>
-      <MDXRenderer>{node.body}</MDXRenderer>
-    </CardContent>
+      <CardContent sx={{ h2: { mt: 4, mb: 3 }, p: { mb: 3 } }}>
+        <MDXRenderer>{node.body}</MDXRenderer>
+      </CardContent>
+    </div>
   </Card>
 )
 

@@ -72,19 +72,23 @@ export const PageLocal: FC = ({ children }) => (
       </Grid>
 
       <Grid columns={[2, null, null, 4]} gap={4}>
-        <Grid gap={1}>
+        <div>
           <FooterBlock>Company no. 11620742</FooterBlock>
           <FooterBlock>Registered in England and Wales</FooterBlock>
-        </Grid>
+        </div>
 
-        <Grid gap={1}>
+        <div>
           <FooterBlock>Privacy Policy</FooterBlock>
           <FooterBlock>Manage Cookies</FooterBlock>
-        </Grid>
+        </div>
 
         <div sx={{ display: "flex", flexDirection: "row" }}>
-          <CoOpsLogo sx={{ mr: 6 }} />
-          <CoTechLogo />
+          <Link icon to="https://www.uk.coop/">
+            <CoOpsLogo sx={{ mr: 6 }} />
+          </Link>
+          <Link icon to="https://www.coops.tech/">
+            <CoTechLogo />
+          </Link>
         </div>
       </Grid>
     </Grid>
@@ -101,10 +105,10 @@ export const PageHeader: ViewElement<{
   const [animatingClosed, setAnimatingClosed] = useState(false)
   const colorStyle =
     dark && !open
-      ? { color: "white", bg: "black" }
+      ? { color: "white", bg: "rgba(0,0,0,0.9)" }
       : {
           color: "black",
-          bg: "background",
+          bg: "backgroundTranslucent",
         }
 
   // Color transition looks off when moving from dark page to light page if the menu isn't open
@@ -280,7 +284,7 @@ export const FooterBlock: ViewElement<{ title?: string }> = ({
       display: "flex",
       flexDirection: "column",
       fontSize: "15px",
-      lineHeight: "133%",
+      lineHeight: "150%",
     }}
     {...props}
   >

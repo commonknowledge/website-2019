@@ -19,6 +19,7 @@ import {
   ContentItem,
 } from "../data/content-type"
 import { NumericDate } from "../data/date"
+import { ContentCard } from "../components/content-card"
 
 const WritingListPage: PageRoot<{ writing: Connection<ContentItem> }> = ({
   data: { writing },
@@ -28,20 +29,7 @@ const WritingListPage: PageRoot<{ writing: Connection<ContentItem> }> = ({
 
     <CardList>
       {writing.edges.map(({ node }) => (
-        <Card key={node.id}>
-          <CardHeader>
-            <CardMeta>{getContentType(node)}</CardMeta>
-            <CardMeta>
-              <NumericDate value={node.frontmatter.publishedDate} />
-            </CardMeta>
-          </CardHeader>
-
-          <CardTitle>{node.frontmatter.title}</CardTitle>
-
-          <CardContent>
-            <MDXRenderer>{node.body}</MDXRenderer>
-          </CardContent>
-        </Card>
+        <ContentCard key={node.id} content={node} />
       ))}
     </CardList>
   </Fragment>
@@ -49,7 +37,10 @@ const WritingListPage: PageRoot<{ writing: Connection<ContentItem> }> = ({
 
 export const pageQuery = graphql`
   query WritingListPage {
-    writing: allMdx(filter: { fileAbsolutePath: { glob: "**/writing/*" } }) {
+    writing: allMdx(
+      filter: { fileAbsolutePath: { glob: "**/writing/*" } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       edges {
         node {
           ...ContentNodeFragment

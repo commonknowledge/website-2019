@@ -1,12 +1,11 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import { ViewElement } from "./atoms"
-import { MDXRenderer } from "gatsby-plugin-mdx"
 
 export const CardList: ViewElement = props => (
   <div
     {...props}
-    sx={{ "> *:not(:last-of-type)": { borderBottom: "1px solid #767676" } }}
+    sx={{ "> *:not(:last-child)": { borderBottom: "1px solid #767676" } }}
   />
 )
 
@@ -22,13 +21,13 @@ export const CardHeader: ViewElement = props => (
       boxSizing: "border-box",
       letterSpacing: 1.5,
       textTransform: "uppercase",
-      pb: [2, null, 4],
+      pb: 2,
     }}
     {...props}
   />
 )
 
-export const CardMeta: ViewElement<{ label: string }> = ({
+export const CardMeta: ViewElement<{ label?: string }> = ({
   children,
   label,
   ...props
@@ -42,9 +41,11 @@ export const CardMeta: ViewElement<{ label: string }> = ({
     }}
     {...props}
   >
-    <div sx={{ display: ["none", null, "block"], color: "#767676", mb: 1 }}>
-      {label}
-    </div>
+    {label && (
+      <div sx={{ display: ["none", null, "block"], color: "#767676", mb: 1 }}>
+        {label}
+      </div>
+    )}
     {children}
   </div>
 )

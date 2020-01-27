@@ -5,12 +5,18 @@ import { FC } from "react"
 export interface ContentItem {
   id: string
   fileAbsolutePath: string
+  timeToRead: number
+  file: {
+    name: string
+  }
+  excerpt: string
   frontmatter: {
     title: string
     client?: string
-    startDate?: string
+    intro?: string
+    date?: string
     endDate?: string
-    publishedDate?: string
+    date?: string
     featuredImage?: {
       childImageSharp: {
         fluid: any
@@ -26,10 +32,18 @@ export const contentNodeFragment = graphql`
     id
     body
     fileAbsolutePath
+    excerpt
+    timeToRead
+    file: parent {
+      ... on File {
+        name
+      }
+    }
     frontmatter {
       title
       client
-      startDate
+      intro
+      date
       featuredImage {
         childImageSharp {
           fluid(maxWidth: 800, quality: 100) {
@@ -38,7 +52,7 @@ export const contentNodeFragment = graphql`
         }
       }
       endDate
-      publishedDate
+      date
       url
     }
   }
@@ -48,11 +62,11 @@ export type Edge<T> = { node: T }
 export type Connection<T> = { edges: Edge<T>[] }
 export type PageRoot<Data> = FC<{ data: Data }>
 
-const contentTypes = {
+export const ContentType = {
   work: "Project",
   writing: "Writing",
 }
 
 export const getContentType = ({ fileAbsolutePath }: ContentItem) => {
-  return (contentTypes as any)[basename(dirname(fileAbsolutePath, ".mdx"))]
+  return (ContentType as any)[basename(dirname(fileAbsolutePath, ".mdx"))]
 }
