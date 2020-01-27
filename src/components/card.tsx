@@ -21,7 +21,7 @@ export const CardHeader: ViewElement = props => (
       boxSizing: "border-box",
       letterSpacing: 1.5,
       textTransform: "uppercase",
-      pb: 2,
+      mb: [2, null, 3],
     }}
     {...props}
   />

@@ -14,7 +14,7 @@ import { MailChimpForm } from "./mailchimp-form"
 import { Topbar } from "./topbar"
 import { ContactDetails } from "./contact"
 
-const HEADER_HEIGHT = 51
+const HEADER_HEIGHT = 45
 
 export const PageGlobal: ViewElement = ({ children }) => (
   <Match path="*">
@@ -35,7 +35,7 @@ export const PageFooter: FC = () => (
     <MailChimpForm />
 
     <Grid id="contact" gap={5} sx={{ m: 4, mb: 0 }}>
-      <div sx={{ fontWeight: 500, fontSize: [18, null, 38] }}>
+      <div sx={{ fontWeight: 500, fontSize: [15, 18, 38] }}>
         <div>Interested in working with us?</div>
         <Link variant="accent" to="mailto:hello@commonknowledge.coop">
           hello@commonknowledge.coop
@@ -48,7 +48,12 @@ export const PageFooter: FC = () => (
 )
 
 export const PageFooterCommon = () => (
-  <Grid as="footer" sx={{ m: 4 }} columns={[2, null, null, 4]} gap={4}>
+  <Grid
+    as="footer"
+    sx={{ m: 4, fontSize: [12, 15], color: "#767676" }}
+    columns={[1, 2, null, 4]}
+    gap={[3, 4]}
+  >
     <div>
       <FooterBlock>Company no. 11620742</FooterBlock>
       <FooterBlock>Registered in England and Wales</FooterBlock>
@@ -83,7 +88,7 @@ export const PageHeader: ViewElement<{
       ? { color: "white", bg: "rgba(0,0,0,0.9)" }
       : {
           color: "black",
-          bg: "backgroundTranslucent",
+          bg: open ? "background" : "backgroundTranslucent",
         }
 
   // Color transition looks off when moving from dark page to light page if the menu isn't open
@@ -183,13 +188,15 @@ export const PageHeader: ViewElement<{
 
           <IconButton
             sx={{
+              position: "absolute",
+              right: 3,
               display: [null, null, "none"],
               color: dark && !open ? "white" : "accent",
               ...colorTransition,
             }}
             onClick={() => setOpen(!open)}
           >
-            <BurgerIcon />
+            <BurgerIcon sx={{ position: "relative", top: -0.5 }} />
           </IconButton>
         </header>
       </div>
@@ -258,8 +265,8 @@ export const FooterBlock: ViewElement<{ title?: string }> = ({
     sx={{
       display: "flex",
       flexDirection: "column",
-      fontSize: "15px",
       lineHeight: "150%",
+      fontWeight: 300,
     }}
     {...props}
   >

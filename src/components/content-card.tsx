@@ -22,11 +22,11 @@ export const ContentCard: FC<{ content: ContentItem }> = props => {
 
 export const WritingCard: FC<{ content: ContentItem }> = ({ content }) => (
   <Card>
-    <CardHeader sx={{ pb: [1, null, 3] }}>
+    <CardHeader>
       <ArticleMeta content={content} />
     </CardHeader>
 
-    <CardTitle sx={{ fontSize: [24, 32], mb: 1 }}>
+    <CardTitle sx={{ fontSize: [24, 32] }}>
       <Link sx={{ opacity: "inherit" }} to={`/writing/` + content.file.name}>
         {content.frontmatter.title} <span sx={{ color: "accent" }}>↗</span>
       </Link>
@@ -60,7 +60,7 @@ export const WritingCard: FC<{ content: ContentItem }> = ({ content }) => (
 )
 
 export const ArticleMeta: FC<{ content: ContentItem }> = ({ content }) => (
-  <Grid columns={[2, null, 4]}>
+  <Grid gap={[1, null, 3]} columns={[2, null, 4]}>
     <CardMeta label="Category">Writing</CardMeta>
     <span />
     <CardMeta label="Date">
@@ -75,7 +75,6 @@ export const WorkCard: FC<{ content: ContentItem }> = ({ content }) => (
     <CardHeader>
       <WorkMeta content={content} />
     </CardHeader>
-       
     <CardTitle>{content.frontmatter.title}</CardTitle>
     <CardContent>
       <Grid gap={3} columns={[1, null, 2]}>

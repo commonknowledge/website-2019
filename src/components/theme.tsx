@@ -12,7 +12,8 @@ export const theme = {
     heading: "'IBM Plex Sans', system-ui, sans-serif",
     monospace: "'Space Mono', Menlo, monospace",
   },
-  space: times(10, x => 3 * fib(x)),
+  breakpoints: ["40em", "52em", "72em"],
+  space: times(10, x => 2.5 * fib(x)),
   fontSizes: [8, 10, 14, 15, 18, 24, 32, 38, 54],
   lineHeights: {
     body: 1.45,

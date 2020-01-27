@@ -9,7 +9,7 @@ export const MailChimpForm: ViewElement = props => (
     sx={{ bg: "black", color: "white", p: 4 }}
     {...props}
   >
-    <h2 sx={{ m: 0, mb: 4, fontSize: [15, null, 18] }}>
+    <h2 sx={{ m: 0, mb: [2, null, 4], fontSize: [15, null, 18] }}>
       Subscribe to our newsletter
     </h2>
     <form
@@ -26,7 +26,7 @@ export const MailChimpForm: ViewElement = props => (
       <div
         sx={{
           display: "flex",
-          flexDirection: ["column", null, "row"],
+          flexDirection: ["column", "row"],
         }}
         id="mc_embed_signup"
       >
@@ -49,7 +49,7 @@ export const MailChimpForm: ViewElement = props => (
           </div>
         </div>
         <Button
-          sx={{ maxWidth: [null, null, "8em"], ml: [null, null, 2] }}
+          sx={{ maxWidth: [null, "8em"], ml: [null, 2], mt: [2, 0] }}
           type="submit"
           value="Subscribe"
           name="subscribe"

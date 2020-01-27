@@ -16,7 +16,7 @@ const DefaultLayout: ViewElement = ({ children }) => (
   <Fragment>
     <div
       sx={{
-        p: 3,
+        p: 4,
         img: { maxWidth: "100%" },
         hr: {
           my: 4,
@@ -65,7 +65,7 @@ const DefaultLayout: ViewElement = ({ children }) => (
             <h3
               sx={{
                 m: 0,
-                ml: [null, null, 3],
+                ml: [null, null, 4],
                 mb: [3, null, 4],
                 fontSize: [15, 18],
                 fontWeight: 600,

@@ -15,13 +15,13 @@ const ContactPage = () => (
     <SEO title="Common Knowledge" />
 
     <Card>
-      <CardContent sx={{ pl: [null, null, "50%"] }}>
+      <CardContent sx={{ pl: [null, null, null, "50%"] }}>
         <div
           sx={{
             fontWeight: 500,
             lineHeight: "100%",
             mb: 4,
-            fontSize: [18, null, 38],
+            fontSize: [18, 38],
           }}
         >
           <div>Interested in working with us?</div>
