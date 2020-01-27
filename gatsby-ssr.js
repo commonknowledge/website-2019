@@ -13,7 +13,7 @@ export const wrapRootElement = ({ element }) => {
   return <PageGlobal>{element}</PageGlobal>
 }
 
-export const onRenderBody = ({ setHeadComponents }) => {
+export const onRenderBody = ({ setHeadComponents, setPostBodyComponents }) => {
   setHeadComponents([
     <script
       src="https://config.metomic.io/config.js?id=prj:099e4e54-0922-481a-826c-52839ea79e1f"
