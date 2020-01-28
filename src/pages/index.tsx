@@ -33,7 +33,7 @@ const IndexPage: PageRoot<{ work: Connection<ContentItem> }> = ({
     <Hero
       sx={{ bg: "black", color: "white" }}
       title="Working directly with grassroots activists, we design digital tools that make radical change possible."
-      image={<AspectImage ratio={480 / 217} src="/diagram.png" />}
+      image={<AspectImage ratio={480 / 220} src="/diagram.jpg" />}
     />
 
     <CardList>
