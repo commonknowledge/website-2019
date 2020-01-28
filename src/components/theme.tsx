@@ -25,8 +25,8 @@ export const theme = {
     backgroundTranslucent: "rgba(240,240,240,0.95)",
     muted: "#ACACAC",
     primary: "#111",
-    secondary: "#00B07B",
-    accent: "#00B07B",
+    secondary: "#00E8A2",
+    accent: "#00E8A2",
   },
   link: {
     default: {
@@ -77,7 +77,7 @@ export const theme = {
     a: {
       color: "primary",
       textDecoration: "none",
-      borderBottom: theme => "3px solid " + theme.colors.accent,
+      borderBottom: theme => "1px solid " + theme.colors.accent,
       "&:hover": {
         color: "accent",
       },
