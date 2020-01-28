@@ -79,7 +79,7 @@ const DefaultLayout: ViewElement = ({ children }) => (
           h3: props => (
             <h4
               sx={{
-                fontSize: 15,
+                fontSize: 18,
                 m: 0,
                 mb: 2,
                 fontWeight: 600,
@@ -90,7 +90,7 @@ const DefaultLayout: ViewElement = ({ children }) => (
           h4: props => (
             <h4
               sx={{
-                fontSize: 15,
+                fontSize: 18,
                 m: 0,
                 mb: 1,
                 fontWeight: 600,
