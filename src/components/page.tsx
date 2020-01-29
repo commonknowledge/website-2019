@@ -61,7 +61,9 @@ export const PageFooterCommon = () => (
     </div>
 
     <div>
-      <FooterBlock>Privacy Policy</FooterBlock>
+      <FooterBlock>
+        <Link to="/privacy-policy">Privacy Policy</Link>
+      </FooterBlock>
       <FooterBlock>
         <Link
           to="#"
