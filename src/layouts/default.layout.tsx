@@ -34,7 +34,6 @@ const DefaultLayout: ViewElement = ({ children }) => (
           ml: [null, null, 4],
           fontSize: [15, 18],
           fontWeight: 600,
-          color: "accent",
           position: [null, null, "absolute"],
           left: 0,
         },
