@@ -16,16 +16,19 @@ export const wrapRootElement = ({ element }) => {
 export const onRenderBody = ({ setHeadComponents }) => {
   setHeadComponents([
     <script
+      key={1}
       src="https://config.metomic.io/config.js?id=prj:099e4e54-0922-481a-826c-52839ea79e1f"
       crossOrigin
       charSet="utf-8"
     />,
     <script
+      key={2}
       src="https://consent-manager.metomic.io/embed.js"
       crossOrigin
       charSet="utf-8"
     />,
     <script
+      key={3}
       type="text/x-metomic"
       data-micropolicy="statistics"
       dangerouslySetInnerHTML={{

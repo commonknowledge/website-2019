@@ -5,6 +5,7 @@ module.exports = {
     title: `Common Knowledge`,
     description: `A nonprofit workers cooperative building digital infrastructure for grassroots social movements`,
     author: `@cmmonknowledge`,
+    siteUrl: `https://commonknowledge.coop`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -81,5 +82,80 @@ module.exports = {
       },
     },
     `gatsby-plugin-favicon`,
+    `gatsby-plugin-robots-txt`,
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+        {
+          site {
+            siteMetadata {
+              title
+              description
+              siteUrl
+              site_url: siteUrl
+            }
+          }
+        }
+      `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMdx } }) => {
+              return allMarkdownRemark.edges.map(edge => {
+                const path = edge.node.file.absolutePath.split("/")
+                const category = pathComponents.slice[path.length - 2]
+                const slug = category + "/" + edge.node.file.name
+
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.intro || edge.node.excerpt,
+                  date: edge.node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + slug,
+                  guid: slug,
+                  custom_elements: [{ "content:encoded": edge.node.html }],
+                })
+              })
+            },
+            query: `
+            {
+              allMdx(
+                sort: { fields: [frontmatter___date], order: DESC }
+              ) {
+                edges {
+                  node {
+                    id
+                    file: parent {
+                      ... on File {
+                        name
+                        absolutePath
+                      }
+                    }
+                    frontmatter {
+                      title
+                      client
+                      intro
+                      date
+                      endDate
+                      date
+                      url
+                    }
+                  }
+                }
+              }
+            }
+          `,
+            output: "/rss.xml",
+            title: "Your Site's RSS Feed",
+            // optional configuration to insert feed reference in pages:
+            // if `string` is used, it will be used to create RegExp and then test if pathname of
+            // current page satisfied this regular expression;
+            // if not provided or `undefined`, all pages will have feed reference inserted
+            match: "^/blog/",
+            // optional configuration to specify external rss feed, such as feedburner
+            link: "https://feeds.feedburner.com/gatsby/blog",
+          },
+        ],
+      },
+    },
   ],
 }
