@@ -154,6 +154,7 @@ module.exports = {
                 edges {
                   node {
                     id
+                    html
                     file: parent {
                       ... on File {
                         name
