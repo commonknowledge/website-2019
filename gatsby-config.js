@@ -83,7 +83,37 @@ module.exports = {
     },
     `gatsby-plugin-favicon`,
     `gatsby-plugin-robots-txt`,
-    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/sitemap.xml`,
+        query: `
+          {
+            site {
+              siteMetadata {
+                siteUrl
+              }
+            }
+  
+            allSitePage {
+              edges {
+                node {
+                  path
+                }
+              }
+            }
+        }`,
+        serialize: ({ site, allSitePage }) =>
+          allSitePage.edges.map(edge => {
+            return {
+              url: site.siteMetadata.siteUrl + edge.node.path,
+              changefreq:
+                edge.node.path.split("/").length > 1 ? "weekly" : `daily`,
+              priority: edge.node.path.split("/").length > 1 ? 0.7 : 1,
+            }
+          }),
+      },
+    },
     {
       resolve: `gatsby-plugin-feed`,
       options: {
@@ -102,15 +132,15 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMdx } }) => {
-              return allMarkdownRemark.edges.map(edge => {
+              return allMdx.edges.map(edge => {
                 const path = edge.node.file.absolutePath.split("/")
-                const category = pathComponents.slice[path.length - 2]
+                const category = path[path.length - 2]
                 const slug = category + "/" + edge.node.file.name
 
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.intro || edge.node.excerpt,
                   date: edge.node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + slug,
+                  url: site.siteMetadata.siteUrl + "/" + slug,
                   guid: slug,
                   custom_elements: [{ "content:encoded": edge.node.html }],
                 })
@@ -150,7 +180,7 @@ module.exports = {
             // if `string` is used, it will be used to create RegExp and then test if pathname of
             // current page satisfied this regular expression;
             // if not provided or `undefined`, all pages will have feed reference inserted
-            match: "^/blog/",
+            match: "^/(writing|work)/",
             // optional configuration to specify external rss feed, such as feedburner
             link: "https://feeds.feedburner.com/gatsby/blog",
           },
