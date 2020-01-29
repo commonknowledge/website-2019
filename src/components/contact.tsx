@@ -6,13 +6,15 @@ import { Link } from "./nav"
 
 export const ContactDetails: ViewElement<GridProps> = props => (
   <Grid gap={4} columns={[2, null, 4]} {...props}>
-    <FooterBlock title="Visit">
-      Space4
-      <br />
-      113 Fonthill Road
-      <br />
-      London, N4 3HH
-    </FooterBlock>
+    <Link to="https://www.openstreetmap.org/query?lat=51.56466&lon=-0.10876#map=18/51.56458/-0.10913">
+      <FooterBlock title="Visit">
+        Space4
+        <br />
+        113 Fonthill Road
+        <br />
+        London, N4 3HH
+      </FooterBlock>
+    </Link>
 
     <FooterBlock title="Contact">
       <Link to="https://commonknowledge.youcanbook.me/">Book a meeting</Link>
