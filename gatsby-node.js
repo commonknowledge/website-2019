@@ -36,6 +36,42 @@ const getLayoutComponent = slug => {
   }
 }
 
+exports.createPages = async ({ graphql, actions, reporter }) => {
+  // Destructure the createPage function from the actions object
+  const { createPage } = actions
+
+  for await (const slug of sections) {
+    const component = getLayoutComponent(slug)
+    const result = await graphql(`
+      query {
+        pages: allMdx(filter: { fileAbsolutePath: { glob: "**/${slug}/*" } }) {
+          edges {
+            node {
+              id
+              fields {
+                slug
+              }
+            }
+          }
+        }
+      }`)
+
+    if (result.errors) {
+      reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query')
+    }
+
+    const pages = result.data.pages.edges
+
+    pages.forEach(({ node }) => {
+      createPage({
+        path: slug + node.fields.slug,
+        component: path.resolve(component),
+        context: { id: node.id },
+      })
+    })
+  }
+}
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
   // you only want to operate on `Mdx` nodes. If you had content from a
