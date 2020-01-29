@@ -17,13 +17,13 @@ export const onRenderBody = ({ setHeadComponents }) => {
   setHeadComponents([
     <script
       src="https://config.metomic.io/config.js?id=prj:099e4e54-0922-481a-826c-52839ea79e1f"
-      crossorigin
-      charset="utf-8"
+      crossOrigin
+      charSet="utf-8"
     />,
     <script
       src="https://consent-manager.metomic.io/embed.js"
-      crossorigin
-      charset="utf-8"
+      crossOrigin
+      charSet="utf-8"
     />,
   ])
 }

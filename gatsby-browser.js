@@ -8,7 +8,7 @@
 
 import "@csstools/normalize.css"
 import React, { Fragment } from "react"
-import { PageGlobal, PageLocal, PageFooterCommon } from "./src/components/page"
+import { PageGlobal, PageFooterCommon } from "./src/components/page"
 
 export const wrapRootElement = ({ element }) => {
   return <PageGlobal>{element}</PageGlobal>

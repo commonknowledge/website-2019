@@ -8,6 +8,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Grid } from "@theme-ui/components"
 import Img from "gatsby-image"
 import { FC, Fragment } from "react"
+import { Content } from "./page"
 
 export const ContentCard: FC<{ content: ContentItem }> = props => {
   switch (getContentType(props.content)) {
@@ -34,15 +35,15 @@ export const WritingCard: FC<{ content: ContentItem }> = ({ content }) => (
 
     <CardContent>
       <Grid gap={3} columns={[1, null, 2]}>
-        <div
+        <Content
           sx={{
             position: "relative",
             "> *": { width: [null, null, null, "66%"] },
           }}
         >
           {content.frontmatter.intro || content.excerpt}
-        </div>
-        <div>
+        </Content>
+        <Content>
           {content.frontmatter.featuredImage?.childImageSharp?.fluid && (
             <Img
               sx={{
@@ -53,7 +54,7 @@ export const WritingCard: FC<{ content: ContentItem }> = ({ content }) => (
               fluid={content.frontmatter.featuredImage.childImageSharp.fluid}
             />
           )}
-        </div>
+        </Content>
       </Grid>
     </CardContent>
   </Card>
@@ -78,15 +79,10 @@ export const WorkCard: FC<{ content: ContentItem }> = ({ content }) => (
     <CardTitle>{content.frontmatter.title}</CardTitle>
     <CardContent>
       <Grid gap={3} columns={[1, null, 2]}>
-        <div
-          sx={{
-            position: "relative",
-            "> *": { width: [null, null, null, "66%"] },
-          }}
-        >
+        <Content>
           <MDXRenderer>{content.body}</MDXRenderer>
-        </div>
-        <div>
+        </Content>
+        <Content>
           {content.frontmatter.featuredImage?.childImageSharp?.fluid && (
             <Img
               sx={{
@@ -97,7 +93,7 @@ export const WorkCard: FC<{ content: ContentItem }> = ({ content }) => (
               fluid={content.frontmatter.featuredImage.childImageSharp.fluid}
             />
           )}
-        </div>
+        </Content>
       </Grid>
     </CardContent>
   </Card>

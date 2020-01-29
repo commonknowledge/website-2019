@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import { MDXProvider } from "@mdx-js/react"
-import { ViewElement } from "../components/atoms"
+import { ViewElement, MainContent } from "../components/atoms"
 import {
   ReactElement,
   ReactChildren,
@@ -10,11 +10,11 @@ import {
   Fragment,
 } from "react"
 import { ReactNodeArray } from "prop-types"
-import { PageFooter } from "../components/page"
+import { PageFooter, ArticleContent } from "../components/page"
 
 const DefaultLayout: ViewElement = ({ children }) => (
   <Fragment>
-    <div
+    <ArticleContent
       sx={{
         p: 4,
         img: { maxWidth: "100%" },
@@ -113,7 +113,7 @@ const DefaultLayout: ViewElement = ({ children }) => (
       >
         {layoutFromMarkdown(children as any)}
       </MDXProvider>
-    </div>
+    </ArticleContent>
     <PageFooter />
   </Fragment>
 )
@@ -144,13 +144,13 @@ const layoutFromMarkdown = (content: ReactChildren) => {
         <section
           sx={{
             display: "flex",
+            width: [null, null, "50%"],
             flexDirection: ["column", null, "row"],
           }}
           key={groupedContent.length}
         >
           <div
             sx={{
-              width: [null, null, "50%"],
               "h3 + *": {
                 mt: [null, null, 5],
               },

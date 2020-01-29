@@ -288,6 +288,14 @@ export const FooterBlock: ViewElement<{ title?: string }> = ({
   </div>
 )
 
+export const Content: ViewElement = props => (
+  <div sx={{ maxWidth: ["100%", null, 600] }} {...props} />
+)
+
+export const ArticleContent: ViewElement = props => (
+  <main sx={{ "> *:not(hr)": { maxWidth: ["100%", null, 600] } }} {...props} />
+)
+
 const NavContent: FC<{ onClick?: () => void }> = ({ onClick }) => (
   <Fragment>
     <Link onClick={onClick} to="/work">

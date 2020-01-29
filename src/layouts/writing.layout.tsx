@@ -1,19 +1,12 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import {
-  Card,
-  CardHeader,
-  CardMeta,
-  CardTitle,
-  CardContent,
-} from "../components/card"
+import { Card, CardHeader, CardTitle, CardContent } from "../components/card"
 import { graphql } from "gatsby"
+import { Fragment } from "react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { PageRoot, ContentItem } from "../data/content-type"
-import { NumericDate } from "../data/date"
 import { ArticleMeta } from "../components/content-card"
-import { Fragment } from "react"
-import { PageFooter } from "../components/page"
+import { PageFooter, ArticleContent } from "../components/page"
 
 const WritingPage: PageRoot<{ node: ContentItem }> = ({ data: { node } }) => (
   <Fragment>
@@ -22,27 +15,35 @@ const WritingPage: PageRoot<{ node: ContentItem }> = ({ data: { node } }) => (
         <ArticleMeta content={node} />
       </CardHeader>
 
-      <div
+      <ArticleContent
         sx={{
           marginLeft: [null, null, "50%"],
         }}
       >
         <CardTitle
           sx={{
-            borderBottom: "1px solid black",
-            borderBottomColor: "accent",
             lineHeight: "100%",
-            pb: 3,
             mb: 3,
           }}
         >
           {node.frontmatter.title}
         </CardTitle>
 
+        <hr
+          sx={{
+            my: 4,
+            height: 1,
+            backgroundColor: theme => theme.colors.accent,
+            border: "none",
+          }}
+        />
+
         <CardContent sx={{ h2: { mt: 4, mb: 3 }, p: { mb: 3 } }}>
-          <MDXRenderer>{node.body}</MDXRenderer>
+          <ArticleContent>
+            <MDXRenderer>{node.body}</MDXRenderer>
+          </ArticleContent>
         </CardContent>
-      </div>
+      </ArticleContent>
     </Card>
     <PageFooter />
   </Fragment>

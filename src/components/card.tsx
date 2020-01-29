@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import { ViewElement } from "./atoms"
+import { Content } from "./page"
 
 export const CardList: ViewElement = props => (
   <div
