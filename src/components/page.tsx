@@ -14,7 +14,7 @@ import { MailChimpForm } from "./mailchimp-form"
 import { Topbar } from "./topbar"
 import { ContactDetails } from "./contact"
 
-const HEADER_HEIGHT = 45
+const HEADER_HEIGHT = 46
 declare const Metomic: any
 
 export const PageGlobal: ViewElement = ({ children }) => (
@@ -35,8 +35,8 @@ export const PageFooter: FC = () => (
   <Fragment>
     <MailChimpForm />
 
-    <Grid id="contact" gap={5} sx={{ m: 4, mb: 0 }}>
-      <div sx={{ fontWeight: 500, fontSize: [15, 18, 38] }}>
+    <Grid id="contact" gap={[4, null, 5]} sx={{ m: 4, mb: 0 }}>
+      <div sx={{ fontWeight: 500, lineHeight: "133%", fontSize: [18, 38] }}>
         <div>Interested in working with us?</div>
         <Link variant="accent" to="mailto:hello@commonknowledge.coop">
           hello@commonknowledge.coop
@@ -139,7 +139,8 @@ export const PageHeader: ViewElement<{
             display: "flex",
             flexDirection: "column",
             ">*": {
-              p: 3,
+              p: 4,
+              py: 3,
               borderTop: "1px solid white",
               borderTopColor: open ? "white" : "rgba(0,0,0,0)",
               transition: "border-top-color 250ms ease-in-out",

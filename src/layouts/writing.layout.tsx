@@ -51,7 +51,7 @@ const WritingPage: PageRoot<{
           }}
         />
 
-        <CardContent sx={{ h2: { mt: 4, mb: 3 }, p: { mb: 3 } }}>
+        <CardContent>
           <ArticleContent>
             <MDXRenderer>{node.body}</MDXRenderer>
           </ArticleContent>

@@ -16,13 +16,33 @@ const DefaultLayout: ViewElement = ({ children }) => (
   <Fragment>
     <ArticleContent
       sx={{
-        p: 4,
+        m: 4,
         img: { maxWidth: "100%" },
         hr: {
           my: 4,
           height: 1,
           backgroundColor: "#767676",
           border: "none",
+        },
+        h1: {
+          mt: [null, 3],
+          fontSize: [24, 32],
+          lineHeight: ["125%", "110%"],
+        },
+        h2: {
+          mt: 0,
+          ml: [null, null, 4],
+          fontSize: [15, 18],
+          fontWeight: 600,
+          color: "accent",
+          position: [null, null, "absolute"],
+          left: 0,
+        },
+        p: {
+          m: 0,
+          lineHeight: "133%",
+          fontSize: [15, 18],
+          mb: 3,
         },
         ol: {
           position: "relative",
@@ -46,73 +66,7 @@ const DefaultLayout: ViewElement = ({ children }) => (
         },
       }}
     >
-      <MDXProvider
-        components={{
-          h1: props => (
-            <h2
-              sx={{
-                m: 0,
-                mb: 4,
-                mt: [null, 3],
-                fontWeight: 500,
-                fontSize: [24, 32],
-                lineHeight: ["125%", "110%"],
-              }}
-              {...props}
-            />
-          ),
-          h2: props => (
-            <h3
-              sx={{
-                m: 0,
-                ml: [null, null, 4],
-                mb: [3, null, 4],
-                fontSize: [15, 18],
-                fontWeight: 600,
-                color: "accent",
-                position: [null, null, "absolute"],
-                left: 0,
-              }}
-              {...props}
-            />
-          ),
-          h3: props => (
-            <h4
-              sx={{
-                fontSize: 18,
-                m: 0,
-                mb: 2,
-                fontWeight: 600,
-              }}
-              {...props}
-            />
-          ),
-          h4: props => (
-            <h4
-              sx={{
-                fontSize: 18,
-                m: 0,
-                mb: 1,
-                fontWeight: 600,
-              }}
-              {...props}
-            />
-          ),
-          p: props => (
-            <p
-              sx={{
-                m: 0,
-                lineHeight: "133%",
-                fontSize: [15, 18],
-                mb: 3,
-              }}
-              {...props}
-            />
-          ),
-        }}
-      >
-        {layoutFromMarkdown(children as any)}
-      </MDXProvider>
+      {layoutFromMarkdown(children as any)}
     </ArticleContent>
     <PageFooter />
   </Fragment>
@@ -151,7 +105,7 @@ const layoutFromMarkdown = (content: ReactChildren) => {
         >
           <div
             sx={{
-              "h3 + *": {
+              "h2 + *": {
                 mt: [null, null, 5],
               },
             }}

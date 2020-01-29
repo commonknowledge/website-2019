@@ -89,8 +89,8 @@ export const theme = {
       mt: "0.5em",
     },
     h1: {},
-    h2: { fontWeight: 500, m: 0, mb: 2 },
-    h3: {},
+    h2: { fontWeight: 500, mb: 3, "&:not(:first-of-type)": { mt: 5 } },
+    h3: { mt: 4, mb: 2 },
     h4: {},
   },
 }
