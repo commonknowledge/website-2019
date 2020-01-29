@@ -48,6 +48,7 @@ export const theme = {
   buttons: {
     primary: {
       p: "1em",
+      font: "body",
       borderRadius: 6,
       bg: "#767676",
       color: "white",
