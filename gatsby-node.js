@@ -102,6 +102,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       endDate: String
       intro: String
       featuredImage: File
+      weight: Float
       date: String
       url: String
     }

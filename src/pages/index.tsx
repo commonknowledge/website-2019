@@ -24,9 +24,10 @@ import {
 import { YearRange } from "../data/date"
 import { ContentCard } from "../components/content-card"
 
-const IndexPage: PageRoot<{ work: Connection<ContentItem> }> = ({
-  data: { work },
-}) => (
+const IndexPage: PageRoot<{
+  featured: Connection<ContentItem>
+  historical: Connection<ContentItem>
+}> = ({ data: { featured, historical } }) => (
   <Fragment>
     <SEO title="Common Knowledge" />
 
@@ -37,7 +38,10 @@ const IndexPage: PageRoot<{ work: Connection<ContentItem> }> = ({
     />
 
     <CardList>
-      {work.edges.map(({ node }) => (
+      {featured.edges.map(({ node }) => (
+        <ContentCard key={node.id} content={node} />
+      ))}
+      {historical.edges.map(({ node }) => (
         <ContentCard key={node.id} content={node} />
       ))}
     </CardList>
@@ -48,7 +52,20 @@ const IndexPage: PageRoot<{ work: Connection<ContentItem> }> = ({
 
 export const pageQuery = graphql`
   query HomePage {
-    work: allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+    featured: allMdx(
+      sort: { fields: [frontmatter___weight], order: ASC }
+      filter: { frontmatter: { weight: { ne: null } } }
+    ) {
+      edges {
+        node {
+          ...ContentNodeFragment
+        }
+      }
+    }
+    historical: allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { weight: { eq: null } } }
+    ) {
       edges {
         node {
           ...ContentNodeFragment
