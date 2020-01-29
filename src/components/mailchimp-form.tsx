@@ -58,6 +58,11 @@ export const MailChimpForm: ViewElement = props => (
           Subscribe
         </Button>
       </div>
+
+      <div sx={{ mt: 3, fontSize: [13, 15] }}>
+        By pressing Submit, I consent to recieving newsletters from Common
+        Knowledge.
+      </div>
     </form>
   </Grid>
 )
