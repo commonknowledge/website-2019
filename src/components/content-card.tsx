@@ -21,10 +21,13 @@ export const ContentCard: FC<{ content: ContentItem }> = props => {
   }
 }
 
-export const WritingCard: FC<{ content: ContentItem }> = ({ content }) => (
+export const WritingCard: FC<{ content: ContentItem; compact?: boolean }> = ({
+  content,
+  compact,
+}) => (
   <Card>
     <CardHeader>
-      <ArticleMeta content={content} />
+      <ArticleMeta compact={compact} content={content} />
     </CardHeader>
 
     <CardTitle sx={{ fontSize: [24, 32] }}>
@@ -34,11 +37,10 @@ export const WritingCard: FC<{ content: ContentItem }> = ({ content }) => (
     </CardTitle>
 
     <CardContent>
-      <Grid gap={3} columns={[1, null, 2]}>
+      <Grid gap={3} columns={[1, null, compact ? 1 : 2]}>
         <Content
           sx={{
             position: "relative",
-            "> *": { width: [null, null, null, "66%"] },
           }}
         >
           {content.frontmatter.intro || content.excerpt}
@@ -60,10 +62,13 @@ export const WritingCard: FC<{ content: ContentItem }> = ({ content }) => (
   </Card>
 )
 
-export const ArticleMeta: FC<{ content: ContentItem }> = ({ content }) => (
-  <Grid gap={[1, null, 3]} columns={[2, null, 4]}>
-    <CardMeta label="Category">Writing</CardMeta>
-    <span />
+export const ArticleMeta: FC<{ content: ContentItem; compact?: boolean }> = ({
+  content,
+  compact,
+}) => (
+  <Grid gap={[1, null, 3]} columns={[2, null, compact ? 2 : 4]}>
+    {!compact && <CardMeta label="Category">Writing</CardMeta>}
+    {!compact && <span />}
     <CardMeta label="Date">
       <NumericDate value={content.frontmatter.date} />
     </CardMeta>

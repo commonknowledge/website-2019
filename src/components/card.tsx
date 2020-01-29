@@ -58,8 +58,6 @@ export const CardTitle: ViewElement = props => (
 export const CardContent: ViewElement = props => (
   <div
     sx={{
-      m: 0,
-      mb: [null, null, 3],
       lineHeight: "147%",
       fontSize: ["15px", "18px"],
     }}
