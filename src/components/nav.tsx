@@ -8,12 +8,14 @@ type LinkProps = {
   to: string
   variant?: string
   icon?: boolean
+  arrow?: boolean
 }
 
 export const Link: ViewElement<LinkProps, React.AnchorHTMLAttributes<{}>> = ({
   variant: linkVariant = "default",
   children,
   icon,
+  arrow,
   to,
   ...props
 }) => {
@@ -28,7 +30,7 @@ export const Link: ViewElement<LinkProps, React.AnchorHTMLAttributes<{}>> = ({
         href={to}
       >
         {children}
-        {to.startsWith("http") && !icon && "↗"}
+        {to.startsWith("http") && !icon && arrow && "↗"}
       </a>
     )
   } else {

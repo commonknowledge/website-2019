@@ -89,7 +89,7 @@ export const PageFooterCommon = () => (
 export const PageHeader: ViewElement<{
   extended?: boolean
   dark?: boolean
-}> = ({ children, extended, dark }) => {
+}> = ({ dark }) => {
   const animationDuration = 500
 
   const [open, setOpenValue] = useState(false)

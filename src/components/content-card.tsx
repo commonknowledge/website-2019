@@ -112,7 +112,7 @@ export const WorkMeta: FC<{ content: ContentItem }> = ({ content }) => (
     )}
     {content.frontmatter.url && (
       <CardMeta label="Link">
-        <LiteralLink to={content.frontmatter.url} />
+        <LiteralLink arrow to={content.frontmatter.url} />
       </CardMeta>
     )}
   </Grid>
