@@ -5,6 +5,7 @@ module.exports = {
     title: `Common Knowledge`,
     description: `A nonprofit workers cooperative building digital infrastructure for grassroots social movements`,
     author: `@cmmonknowledge`,
+    siteUrl: `https://commonknowledge.coop`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -13,6 +14,46 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `assets`,
+        path: `${__dirname}/assets`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        defaultLayouts: {
+          default: require.resolve("./src/layouts/default.layout.tsx"),
+        },
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1200,
+            },
+          },
+          {
+            resolve: "gatsby-remark-static-images",
+          },
+        ],
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "work",
+        path: `${__dirname}/content/work/`,
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "work",
+        path: `${__dirname}/content/writing/`,
       },
     },
     `gatsby-transformer-sharp`,
@@ -32,20 +73,120 @@ module.exports = {
     "gatsby-plugin-emotion",
     "gatsby-plugin-typescript",
     "gatsby-plugin-catch-links",
+    "gatsby-plugin-netlify-cache",
     {
-      resolve: "gatsby-plugin-react-svg",
+      resolve: "gatsby-plugin-google-fonts",
       options: {
-        rule: {
-          include: require("path").resolve(__dirname, "src/images"),
-        },
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
+        fonts: [`IBM+Plex+Sans:400,400i,500,600`],
+        display: "swap",
       },
     },
     `gatsby-plugin-favicon`,
+    `gatsby-plugin-robots-txt`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/sitemap.xml`,
+        query: `
+          {
+            site {
+              siteMetadata {
+                siteUrl
+              }
+            }
+  
+            allSitePage {
+              edges {
+                node {
+                  path
+                }
+              }
+            }
+        }`,
+        serialize: ({ site, allSitePage }) =>
+          allSitePage.edges.map(edge => {
+            return {
+              url: site.siteMetadata.siteUrl + edge.node.path,
+              changefreq:
+                edge.node.path.split("/").length > 1 ? "weekly" : `daily`,
+              priority: edge.node.path.split("/").length > 1 ? 0.7 : 1,
+            }
+          }),
+      },
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+        {
+          site {
+            siteMetadata {
+              title
+              description
+              siteUrl
+              site_url: siteUrl
+            }
+          }
+        }
+      `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMdx } }) => {
+              return allMdx.edges.map(edge => {
+                const path = edge.node.file.absolutePath.split("/")
+                const category = path[path.length - 2]
+                const slug = category + "/" + edge.node.file.name
+
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.intro || edge.node.excerpt,
+                  date: edge.node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + "/" + slug,
+                  guid: slug,
+                  custom_elements: [{ "content:encoded": edge.node.html }],
+                })
+              })
+            },
+            query: `
+            {
+              allMdx(
+                sort: { fields: [frontmatter___date], order: DESC }
+              ) {
+                edges {
+                  node {
+                    id
+                    html
+                    file: parent {
+                      ... on File {
+                        name
+                        absolutePath
+                      }
+                    }
+                    frontmatter {
+                      title
+                      client
+                      intro
+                      date
+                      endDate
+                      date
+                      url
+                    }
+                  }
+                }
+              }
+            }
+          `,
+            output: "/rss.xml",
+            title: "Common Knowledge",
+            // optional configuration to insert feed reference in pages:
+            // if `string` is used, it will be used to create RegExp and then test if pathname of
+            // current page satisfied this regular expression;
+            // if not provided or `undefined`, all pages will have feed reference inserted
+            match: "^/(writing|work)/",
+            // optional configuration to specify external rss feed, such as feedburner
+            link: "https://feeds.feedburner.com/gatsby/blog",
+          },
+        ],
+      },
+    },
   ],
 }

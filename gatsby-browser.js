@@ -5,3 +5,18 @@
  */
 
 // You can delete this file if you're not using it
+
+import "@csstools/normalize.css"
+import React, { Fragment } from "react"
+import { PageGlobal, PageFooterCommon } from "./src/components/page"
+
+export const wrapRootElement = ({ element }) => {
+  return <PageGlobal>{element}</PageGlobal>
+}
+
+export const wrapPageElement = ({ element }) => (
+  <Fragment>
+    {element}
+    <PageFooterCommon />
+  </Fragment>
+)

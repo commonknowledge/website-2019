@@ -1,27 +1,52 @@
-import * as React from "react"
-import { Link as GatsbyLink } from "gatsby"
-import { Styled } from "theme-ui"
+/** @jsx jsx */
 
-export const Link: React.FC<
-  {
-    to: string,
-    sx?: any
-  } & React.DetailedHTMLProps<
-    React.AnchorHTMLAttributes<HTMLAnchorElement>,
-    HTMLAnchorElement
-  >
-> = ({ children, to, ...props }) => {
-  if (["http", "mail"].some(s => to.startsWith(s))) {
+import { Link as GatsbyLink } from "gatsby"
+import { jsx } from "theme-ui"
+import { ViewElement } from "./atoms"
+
+type LinkProps = {
+  to: string
+  variant?: string
+  icon?: boolean
+  arrow?: boolean
+}
+
+export const Link: ViewElement<LinkProps, React.AnchorHTMLAttributes<{}>> = ({
+  variant: linkVariant = "default",
+  children,
+  icon,
+  arrow,
+  to,
+  ...props
+}) => {
+  const variant = "link." + linkVariant
+
+  if (["http", "mailto"].some(s => to.startsWith(s))) {
     return (
-      <Styled.a {...props} href={to}>
-        {children} {to.startsWith("http") && "↗"}
-      </Styled.a>
+      <a
+        {...props}
+        sx={{ variant, userSelect: "none" }}
+        target="_blank"
+        href={to}
+      >
+        {children}
+        {to.startsWith("http") && !icon && arrow && "↗"}
+      </a>
     )
   } else {
     return (
-      <GatsbyLink {...(props as any)} to={to}>
+      <GatsbyLink
+        {...(props as any)}
+        sx={{ variant, userSelect: "none" }}
+        activeClassName="active"
+        to={to}
+      >
         {children}
       </GatsbyLink>
     )
   }
 }
+
+export const LiteralLink: ViewElement<LinkProps> = props => (
+  <Link {...props}>{props.to.replace(/^.*:\/\//, "")}</Link>
+)

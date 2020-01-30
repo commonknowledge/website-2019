@@ -1,13 +1,26 @@
-import React from "react"
-import SEO from "../components/seo"
-import { Theme } from '../components/theme';
+/** @jsx jsx */
+import { jsx } from "theme-ui"
+import { PageFooterCommon, PageFooter } from "../components/page"
+import { CardTitle } from "../components/card"
+import { Fragment } from "react"
 
 const NotFoundPage = () => (
-  <Theme>
-    <SEO title="404: Not found" />
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </Theme>
+  <Fragment>
+    <div
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "100%",
+        m: 4,
+      }}
+    >
+      <h2>There isn’t a page here.</h2>
+    </div>
+
+    <PageFooter />
+  </Fragment>
 )
 
 export default NotFoundPage
