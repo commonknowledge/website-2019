@@ -48,7 +48,9 @@ export const theme = {
   buttons: {
     primary: {
       p: "1em",
-      font: "body",
+      fontFamily: "body",
+      userSelect: "none",
+      outline: "none",
       borderRadius: 6,
       bg: "#767676",
       color: "white",
