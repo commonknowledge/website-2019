@@ -91,6 +91,13 @@ export const theme = {
         color: "accent",
       },
     },
+    blockquote: {
+      fontStyle: "italic",
+      ml: 0,
+      pl: 4,
+      color: "#767676",
+      borderLeft: theme => "1px solid " + theme.colors.accent,
+    },
     p: {
       lineHeight: "body",
       mb: "0.5em",
