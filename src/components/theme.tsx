@@ -33,15 +33,19 @@ export const theme = {
       opacity: 0.7,
       color: "inherit",
       textDecoration: "inherit",
-      "&:hover": {
-        opacity: 0.4,
+      "@media (hover: hover)": {
+        "&:hover": {
+          opacity: 0.4,
+        },
       },
     },
     accent: {
       color: "accent",
       textDecoration: "inherit",
-      "&:hover": {
-        opacity: 0.7,
+      "@media (hover: hover)": {
+        "&:hover": {
+          opacity: 0.7,
+        },
       },
     },
   },
@@ -57,8 +61,10 @@ export const theme = {
       width: "100%",
       transition: "opacity 250ms ease-in-out",
       cursor: "pointer",
-      "&:hover": {
-        opacity: 0.8,
+      "@media (hover: hover)": {
+        "&:hover": {
+          opacity: 0.8,
+        },
       },
     },
   },

@@ -77,7 +77,7 @@ const WritingPage: PageRoot<{
         sx={{
           m: 4,
           mb: [3, null, 4],
-          fontSize: [15, 18],
+          fontSize: 18,
           fontWeight: 600,
           position: [null, null, "absolute"],
           left: 0,
@@ -86,7 +86,7 @@ const WritingPage: PageRoot<{
         Read next
       </h3>
 
-      <CardList sx={{ mt: -3 }}>
+      <CardList sx={{ mt: -3, ml: [null, null, -4] }}>
         {readNext.edges.map(
           ({ node: readNextNode }) =>
             node.id !== readNextNode.id && (
