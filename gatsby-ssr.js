@@ -7,11 +7,18 @@
 // You can delete this file if you're not using it
 
 import React from "react"
-import { PageGlobal, PageLocal } from "./src/components/page"
+import { PageGlobal, PageFooterCommon } from "./src/components/page"
 
 export const wrapRootElement = ({ element }) => {
   return <PageGlobal>{element}</PageGlobal>
 }
+
+export const wrapPageElement = ({ element }) => (
+  <Fragment>
+    {element}
+    <PageFooterCommon />
+  </Fragment>
+)
 
 export const onRenderBody = ({ setHeadComponents }) => {
   setHeadComponents([
