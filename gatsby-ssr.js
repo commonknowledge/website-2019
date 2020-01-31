@@ -6,7 +6,7 @@
 
 // You can delete this file if you're not using it
 
-import React from "react"
+import React, { Fragment } from "react"
 import { PageGlobal, PageFooterCommon } from "./src/components/page"
 
 export const wrapRootElement = ({ element }) => {
