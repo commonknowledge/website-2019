@@ -33,19 +33,15 @@ export const theme = {
       opacity: 0.7,
       color: "inherit",
       textDecoration: "inherit",
-      "@media (hover: hover)": {
-        "&:hover": {
-          opacity: 0.4,
-        },
+      "body.hasHover &:hover": {
+        opacity: 0.4,
       },
     },
     accent: {
       color: "accent",
       textDecoration: "inherit",
-      "@media (hover: hover)": {
-        "&:hover": {
-          opacity: 0.7,
-        },
+      "body.hasHover &:hover": {
+        opacity: 0.7,
       },
     },
   },
@@ -61,10 +57,8 @@ export const theme = {
       width: "100%",
       transition: "opacity 250ms ease-in-out",
       cursor: "pointer",
-      "@media (hover: hover)": {
-        "&:hover": {
-          opacity: 0.8,
-        },
+      "body.hasHover &:hover": {
+        opacity: 0.8,
       },
     },
   },
@@ -87,7 +81,7 @@ export const theme = {
       color: "primary",
       textDecoration: "none",
       borderBottom: theme => "1px solid " + theme.colors.accent,
-      "&:hover": {
+      "body.hasHover &:hover": {
         color: "accent",
       },
     },
