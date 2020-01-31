@@ -1,7 +1,6 @@
 /** @jsx jsx */
+
 import { jsx } from "theme-ui"
-import { MDXProvider } from "@mdx-js/react"
-import { ViewElement, MainContent } from "../components/atoms"
 import {
   ReactElement,
   ReactChildren,
@@ -9,20 +8,20 @@ import {
   isValidElement,
   Fragment,
 } from "react"
-import { ReactNodeArray } from "prop-types"
-import { PageFooter, ArticleContent } from "../components/page"
+import { ViewElement } from "../components/atoms"
+import { PageFooter } from "../components/page"
 
 const DefaultLayout: ViewElement = ({ children }) => (
   <Fragment>
-    <ArticleContent
+    <div
       sx={{
         m: 4,
-        img: { maxWidth: "100%" },
+        img: {
+          maxWidth: 600,
+        },
         hr: {
           my: 4,
-          height: 1,
-          backgroundColor: "#767676",
-          border: "none",
+          borderTop: "1px solid #767676",
         },
         h1: {
           mt: [null, 3],
@@ -37,9 +36,22 @@ const DefaultLayout: ViewElement = ({ children }) => (
           position: [null, null, "absolute"],
           left: 0,
         },
+        h3: {
+          fontSize: 18,
+          m: 0,
+          mb: 2,
+          fontWeight: 600,
+        },
+        h4: {
+          fontSize: 18,
+          m: 0,
+          mb: 1,
+          fontWeight: 600,
+        },
         p: {
           m: 0,
           lineHeight: "133%",
+          maxWidth: 600,
           fontSize: [15, 18],
           mb: 3,
         },
@@ -66,7 +78,7 @@ const DefaultLayout: ViewElement = ({ children }) => (
       }}
     >
       {layoutFromMarkdown(children as any)}
-    </ArticleContent>
+    </div>
     <PageFooter />
   </Fragment>
 )
@@ -97,13 +109,14 @@ const layoutFromMarkdown = (content: ReactChildren) => {
         <section
           sx={{
             display: "flex",
-            width: [null, null, "50%"],
             flexDirection: ["column", null, "row"],
+            width: "100%",
           }}
           key={groupedContent.length}
         >
           <div
             sx={{
+              width: [null, null, "50%"],
               "h2 + *": {
                 mt: [null, null, 5],
               },
@@ -114,11 +127,9 @@ const layoutFromMarkdown = (content: ReactChildren) => {
           </div>
           <aside
             sx={{
-              display: "flex",
-              flexDirection: "column",
-              flex: 1,
-              alignItems: "center",
+              width: [null, null, "50%"],
               ml: [null, null, 3],
+              textAlign: "right",
             }}
           >
             {image}
