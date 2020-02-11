@@ -19,6 +19,7 @@ function SEO({ description, lang, meta, title }) {
 			title
 			description
 			author
+			siteUrl
 		  }
 		}
 	  }
@@ -38,7 +39,7 @@ function SEO({ description, lang, meta, title }) {
 					rel: `alternate`,
 					type: `application/rss+xml`,
 					title: `Common Knowledge`,
-					href: `https://commonknowledge.coop/rss.xml`,
+					href: `${site.siteMetadata.siteUrl}/rss.xml`,
 				}
 			]}
 			meta={[
@@ -59,8 +60,12 @@ function SEO({ description, lang, meta, title }) {
 					content: `website`,
 				},
 				{
+					property: "og:image",
+					content: `${site.siteMetadata.siteUrl}/sharecard.jpg`
+				},
+				{
 					name: `twitter:card`,
-					content: `summary`,
+					content: `summary_large_image`,
 				},
 				{
 					name: `twitter:creator`,
@@ -73,6 +78,10 @@ function SEO({ description, lang, meta, title }) {
 				{
 					name: `twitter:description`,
 					content: metaDescription,
+				},
+				{
+					name: "twitter:image",
+					content: `${site.siteMetadata.siteUrl}/sharecard.jpg`
 				},
 			].concat(meta)}
 		/>
