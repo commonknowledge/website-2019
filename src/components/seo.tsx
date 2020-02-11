@@ -80,6 +80,14 @@ function SEO({ description, lang, meta = [], title, url }: {
 					content: `summary_large_image`,
 				},
 				{
+					name: `twitter:site`,
+					content: "@cmmonknowledge"
+				},
+				{
+					name: `twitter:creator`,
+					content: "@cmmonknowledge"
+				},
+				{
 					name: `twitter:creator`,
 					content: site.siteMetadata.author,
 				},
