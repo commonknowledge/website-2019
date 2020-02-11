@@ -16,15 +16,15 @@ import {
   getContentType,
 } from "../data/content-type"
 import { Fragment } from "react"
-import SEO from "../components/seo"
+import SEO from '../components/seo';
 import { Hero, PageFooter } from "../components/page"
 import { AspectImage } from "@theme-ui/components"
 import { YearRange } from "../data/date"
 import { LiteralLink } from "../components/nav"
 
-const WorkPage: PageRoot<{ node: ContentItem }> = ({ data: { node } }) => (
+const WorkPage: PageRoot<{ node: ContentItem }> = ({ data: { node }, location: { pathname } }) => (
   <Fragment>
-    <SEO title="Common Knowledge" />
+    <SEO title={node.frontmatter.title} url={pathname} />
 
     <Hero
       sx={{ px: 3, pt: 0, pb: 0, bg: "black", color: "white" }}

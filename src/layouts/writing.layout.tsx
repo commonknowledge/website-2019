@@ -17,12 +17,15 @@ import {
   WritingCard,
 } from "../components/content-card"
 import { PageFooter, ArticleContent } from "../components/page"
+import SEO from '../components/seo';
 
 const WritingPage: PageRoot<{
   node: ContentItem
   readNext: Connection<ContentItem>
-}> = ({ data: { node, readNext } }) => (
+}> = ({ data: { node, readNext }, location: { pathname } }) => (
   <Fragment>
+    <SEO title={node.frontmatter.title} url={pathname} />
+
     <Card key={node.id}>
       <CardHeader sx={{ pb: [1, null, 3] }}>
         <ArticleMeta content={node} />
