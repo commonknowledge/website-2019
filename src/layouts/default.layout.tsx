@@ -14,7 +14,7 @@ import SEO from '../components/seo';
 
 const DefaultLayout: ViewElement = ({ children, location: { pathname } }) => (
   <Fragment>
-    <SEO title="Common Knowledge" url={pathname} />
+    <SEO title="Common Knowledge" path={pathname} />
     <div
       sx={{
         m: 4,

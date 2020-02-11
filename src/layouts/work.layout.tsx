@@ -24,7 +24,7 @@ import { LiteralLink } from "../components/nav"
 
 const WorkPage: PageRoot<{ node: ContentItem }> = ({ data: { node }, location: { pathname } }) => (
   <Fragment>
-    <SEO title={node.frontmatter.title} url={pathname} />
+    <SEO title={node.frontmatter.title} path={pathname} />
 
     <Hero
       sx={{ px: 3, pt: 0, pb: 0, bg: "black", color: "white" }}
