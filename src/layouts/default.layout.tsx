@@ -10,9 +10,11 @@ import {
 } from "react"
 import { ViewElement } from "../components/atoms"
 import { PageFooter } from "../components/page"
+import SEO from '../components/seo';
 
-const DefaultLayout: ViewElement = ({ children }) => (
+const DefaultLayout: ViewElement = ({ children, location: { pathname } }) => (
   <Fragment>
+    <SEO title="Common Knowledge" path={pathname} />
     <div
       sx={{
         m: 4,

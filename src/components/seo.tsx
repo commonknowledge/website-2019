@@ -10,7 +10,13 @@ import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ description, lang, meta = [], title, path = '' }: {
+	description?: string
+	lang?: string
+	meta?: any[]
+	title?: string
+	path?: string
+}) {
 	const { site } = useStaticQuery(
 		graphql`
 	  query {
@@ -19,6 +25,7 @@ function SEO({ description, lang, meta, title }) {
 			title
 			description
 			author
+			siteUrl
 		  }
 		}
 	  }
@@ -26,19 +33,21 @@ function SEO({ description, lang, meta, title }) {
 	)
 
 	const metaDescription = description || site.siteMetadata.description
+	const _url = site.siteMetadata.siteUrl + path
+	const _title = title ? title.includes('Common Knowledge') ? title : title + ' — Common Knowledge' : 'Common Knowledge'
 
 	return (
 		<Helmet
 			htmlAttributes={{
 				lang,
 			}}
-			title={title}
+			title={_title}
 			link={[
 				{
 					rel: `alternate`,
 					type: `application/rss+xml`,
 					title: `Common Knowledge`,
-					href: `https://commonknowledge.coop/rss.xml`,
+					href: `${site.siteMetadata.siteUrl}/rss.xml`,
 				}
 			]}
 			meta={[
@@ -59,8 +68,24 @@ function SEO({ description, lang, meta, title }) {
 					content: `website`,
 				},
 				{
+					property: `og:url`,
+					content: _url,
+				},
+				{
+					property: "og:image",
+					content: `${site.siteMetadata.siteUrl}/sharecard.jpg`
+				},
+				{
 					name: `twitter:card`,
-					content: `summary`,
+					content: `summary_large_image`,
+				},
+				{
+					name: `twitter:site`,
+					content: "@cmmonknowledge"
+				},
+				{
+					name: `twitter:creator`,
+					content: "@cmmonknowledge"
 				},
 				{
 					name: `twitter:creator`,
@@ -73,6 +98,10 @@ function SEO({ description, lang, meta, title }) {
 				{
 					name: `twitter:description`,
 					content: metaDescription,
+				},
+				{
+					name: "twitter:image",
+					content: `${site.siteMetadata.siteUrl}/sharecard.jpg`
 				},
 			].concat(meta)}
 		/>
