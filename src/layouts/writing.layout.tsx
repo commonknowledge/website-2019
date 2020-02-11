@@ -24,7 +24,7 @@ const WritingPage: PageRoot<{
   readNext: Connection<ContentItem>
 }> = ({ data: { node, readNext }, location: { pathname } }) => (
   <Fragment>
-    <SEO title={node.frontmatter.title} path={pathname} />
+    <SEO title={node.frontmatter.title} path={pathname} description={node.frontmatter.intro} />
 
     <Card key={node.id}>
       <CardHeader sx={{ pb: [1, null, 3] }}>
