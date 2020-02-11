@@ -34,13 +34,14 @@ function SEO({ description, lang, meta = [], title, url }: {
 
 	const metaDescription = description || site.siteMetadata.description
 	const _url = url || site.siteMetadata.siteUrl
+	const _title = title ? title.includes('Common Knowledge') ? title : title + ' — Common Knowledge' : 'Common Knowledge'
 
 	return (
 		<Helmet
 			htmlAttributes={{
 				lang,
 			}}
-			title={title}
+			title={_title}
 			link={[
 				{
 					rel: `alternate`,
