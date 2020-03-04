@@ -23,7 +23,7 @@ export const ContactDetails: ViewElement<GridProps> = props => (
 
     <FooterBlock title="Elsewhere">
       <Link to="http://twitter.com/cmmonknowledge">Twitter</Link>
-      <Link to="http://github.com/commonknowledge">Github</Link>
+      <Link to="http://github.com/commonknowledge">GitHub</Link>
       <Link to="https://git.coop/commonknowledge">Git.coop</Link>
     </FooterBlock>
 
