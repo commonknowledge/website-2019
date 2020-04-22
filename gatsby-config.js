@@ -8,6 +8,13 @@ module.exports = {
     siteUrl: `https://commonknowledge.coop`,
   },
   plugins: [
+    {
+      resolve: "gatsby-plugin-netlify-cms",
+      options: {
+        modulePath: `${__dirname}/src/cms/cms.js`,
+      },
+    },
+    "gatsby-plugin-netlify-cms-paths",
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,

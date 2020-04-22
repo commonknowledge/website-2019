@@ -1,0 +1,73 @@
+backend:
+  name: git-gateway
+  branch: master
+local_backend: true
+media_folder: assets
+public_folder: assets
+collections:
+  - name: "writing"
+    label: "Writing"
+    folder: "content/writing"
+    extension: "mdx"
+    format: "frontmatter"
+    editor:
+      preview: false
+    create: true
+    delete: false
+    slug: "{{title}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - {
+          label: "Date",
+          name: "date",
+          widget: "datetime",
+          dateFormat: "DD-MM-YYYY",
+          timeFormat: false,
+        }
+      - { label: "Intro", name: "intro", widget: "string" }
+      - { label: "Body", name: "body", widget: markdown }
+  - name: "work"
+    label: "Work"
+    folder: "content/work"
+    extension: "mdx"
+    format: "frontmatter"
+    editor:
+      preview: false
+    create: true
+    delete: false
+    slug: "{{title}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - {
+          label: "Client",
+          name: "client",
+          widget: "string",
+          default: "Internal",
+        }
+      - {
+          label: "Start date",
+          name: "date",
+          widget: "datetime",
+          dateFormat: "DD-MM-YYYY",
+          timeFormat: false,
+          default: "",
+        }
+      - {
+          label: "End date",
+          name: "endDate",
+          widget: "datetime",
+          required: false,
+          default: "",
+          dateFormat: "DD-MM-YYYY",
+          timeFormat: false,
+        }
+      - { label: "URL", name: "url", widget: "string" }
+      - {
+          label: "Display priority",
+          name: "weight",
+          widget: "number",
+          min: 0,
+          default: 1,
+        }
+      - { label: "Featured image", name: "featuredImage", widget: "image" }
+      - { label: "Body", name: "body", widget: markdown }

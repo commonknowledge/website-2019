@@ -6,30 +6,53 @@ import { Theme } from "../components/theme"
 import { Match } from "@reach/router"
 import { Link } from "../components/nav"
 import { CoOpsLogo, CoTechLogo } from "../components/graphics"
-import { FC, Fragment, useState, ReactNode } from "react"
+import { FC, Fragment, useState, ReactNode, useEffect } from 'react';
 import { ViewElement, IconButton } from "./atoms"
 import { LogoOneLine } from "../images/logo"
 import { BurgerIcon } from "../images/burger"
 import { MailChimpForm } from "./mailchimp-form"
 import { Topbar } from "./topbar"
 import { ContactDetails } from "./contact"
+import Helmet from 'react-helmet';
 
 const HEADER_HEIGHT = 46
 declare const Metomic: any
 
-export const PageGlobal: ViewElement = ({ children }) => (
-  <Match path="*">
-    {({ location }) => (
-      <Theme>
-        <PageHeader
-          dark={location.pathname === "/"}
-          extended={location.pathname === "/"}
-        />
-        {children}
-      </Theme>
-    )}
-  </Match>
-)
+export const PageGlobal: ViewElement = ({ children }) => {
+  useEffect(() => {
+    // @ts-ignore
+    if (window.netlifyIdentity) {
+      // @ts-ignore
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          // @ts-ignore
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/"
+          })
+        }
+      })
+    }
+  }, [])
+
+  return (
+    <Fragment>
+      <Helmet>
+        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
+      </Helmet>
+      <Match path="*">
+        {({ location }) => (
+          <Theme>
+            <PageHeader
+              dark={location.pathname === "/"}
+              extended={location.pathname === "/"}
+            />
+            {children}
+          </Theme>
+        )}
+      </Match>
+    </Fragment>
+  )
+}
 
 export const PageFooter: FC = () => (
   <Fragment>
@@ -100,16 +123,16 @@ export const PageHeader: ViewElement<{
     dark && !open
       ? { color: "white", bg: "rgba(0,0,0,0.9)" }
       : {
-          color: "black",
-          bg: open ? "background" : "backgroundTranslucent",
-        }
+        color: "black",
+        bg: open ? "background" : "backgroundTranslucent",
+      }
 
   // Color transition looks off when moving from dark page to light page if the menu isn't open
   const colorTransition =
     open || animatingClosed
       ? {
-          transition: `color ${animationDuration}ms ease-in-out, background ${animationDuration}ms ease-in-out`,
-        }
+        transition: `color ${animationDuration}ms ease-in-out, background ${animationDuration}ms ease-in-out`,
+      }
       : {}
 
   const setOpen = (opening: boolean) => {
@@ -225,71 +248,71 @@ export const Hero: ViewElement<{ title: string; image: ReactNode }> = ({
   image,
   ...props
 }) => (
-  <div
-    sx={{
-      position: "relative",
-      width: "100%",
-      height: [null, null, 350],
-      paddingTop: HEADER_HEIGHT,
-      marginTop: -HEADER_HEIGHT,
-    }}
-    {...props}
-  >
-    <h2
-      sx={{
-        position: ["relative", null, "absolute"],
-        width: [null, null, "50%"],
-        bottom: [null, null, "50%"],
-        left: [null, null, "50%"],
-        maxWidth: 600,
-        fontSize: ["24px", "32px"],
-        transform: [null, null, "translateY(50%)"],
-        boxSizing: "border-box",
-        lineHeight: "125%",
-        fontWeight: 500,
-        m: 0,
-        pl: [4, null, 0],
-        py: [3, null, 0],
-        pr: 5,
-      }}
-    >
-      {title}
-    </h2>
     <div
       sx={{
-        maxHeight: 217,
-        position: ["relative", null, "absolute"],
-        left: 0,
-        bottom: 0,
-        width: [null, null, "50%"],
-        textAlign: "center",
+        position: "relative",
+        width: "100%",
+        height: [null, null, 350],
+        paddingTop: HEADER_HEIGHT,
+        marginTop: -HEADER_HEIGHT,
       }}
+      {...props}
     >
-      {image}
+      <h2
+        sx={{
+          position: ["relative", null, "absolute"],
+          width: [null, null, "50%"],
+          bottom: [null, null, "50%"],
+          left: [null, null, "50%"],
+          maxWidth: 600,
+          fontSize: ["24px", "32px"],
+          transform: [null, null, "translateY(50%)"],
+          boxSizing: "border-box",
+          lineHeight: "125%",
+          fontWeight: 500,
+          m: 0,
+          pl: [4, null, 0],
+          py: [3, null, 0],
+          pr: 5,
+        }}
+      >
+        {title}
+      </h2>
+      <div
+        sx={{
+          maxHeight: 217,
+          position: ["relative", null, "absolute"],
+          left: 0,
+          bottom: 0,
+          width: [null, null, "50%"],
+          textAlign: "center",
+        }}
+      >
+        {image}
+      </div>
     </div>
-  </div>
-)
+  )
 
 export const FooterBlock: ViewElement<{ title?: string }> = ({
   title,
   children,
   ...props
 }) => (
-  <div
-    sx={{
-      display: "flex",
-      flexDirection: "column",
-      lineHeight: "150%",
-      fontWeight: 300,
-    }}
-    {...props}
-  >
-    {title && (
-      <h3 sx={{ fontSize: "inherit", fontWeight: 600, m: 0 }}>{title}</h3>
-    )}
-    {children}
-  </div>
-)
+    <div
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        lineHeight: "150%",
+        fontWeight: 300,
+      }}
+      {...props}
+    >
+      {title && (
+        <h3 sx={{ fontSize: "inherit", fontWeight: 600, m: 0 }}>{title}</h3>
+      )}
+      {children}
+    </div>
+  )
 
 export const Content: ViewElement = props => (
   <div sx={{ maxWidth: ["100%", null, 600] }} {...props} />
