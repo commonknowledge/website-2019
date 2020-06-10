@@ -20,7 +20,7 @@ export const wrapPageElement = ({ element }) => (
   </Fragment>
 )
 
-export const onRenderBody = ({ setHeadComponents }) => {
+export const onRenderBody = ({ setHeadComponents, setPostBodyComponents }) => {
   setHeadComponents([
     <script
       key={1}
@@ -51,6 +51,35 @@ _paq.push(['enableLinkTracking']);
   var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
   g.type='text/javascript'; g.async=true; g.defer=true; g.src='//cdn.matomo.cloud/commonknowledgecoop.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
 })();
+    `.trim(),
+      }}
+    />,
+  ])
+
+  setPostBodyComponents([
+    <script
+      src="https://code.jquery.com/jquery-2.1.4.min.js"
+      key={1}
+      crossOrigin
+      charSet="utf-8"
+    />,
+    <script
+      src="https://test-common-knowledge.zammad.com/assets/chat/chat.min.js"
+      key={2}
+      crossOrigin
+      charSet="utf-8"
+    />,
+    <script
+      key={3}
+      dangerouslySetInnerHTML={{
+        __html: `
+        $(function() {
+          new ZammadChat({
+            background: '#010001',
+            fontSize: '12px',
+            chatId: 1
+          });
+        });
     `.trim(),
       }}
     />,
