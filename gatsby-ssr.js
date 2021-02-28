@@ -22,14 +22,6 @@ export const wrapPageElement = ({ element }) => (
 
 export const onRenderBody = ({ setHeadComponents, setPostBodyComponents }) => {
   setHeadComponents([
-    <script key={1} type="text/javascript" 
-      dangerouslySetInnerHTML={{
-        __html: `
-        var _iub = _iub || [];
-_iub.csConfiguration = {"consentOnContinuedBrowsing":false,"whitelabel":false,"lang":"en","siteId":2174512,"cookiePolicyId":80929539,"cookiePolicyUrl":"https://commonknowledge.coop/privacy-policy/", "banner":{ "acceptButtonDisplay":true,"customizeButtonDisplay":true,"acceptButtonColor":"#00e8a2","acceptButtonCaptionColor":"white","customizeButtonColor":"#212121","customizeButtonCaptionColor":"white","rejectButtonDisplay":true,"rejectButtonColor":"#00e8a2","rejectButtonCaptionColor":"white","position":"float-bottom-right","textColor":"white","backgroundColor":"#000001" }};
-          `.trim(),
-    }}/>,
-    <script key={2} type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>,
     <script
       key={3}
       className="_iub_cs_activate"
