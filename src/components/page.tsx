@@ -16,7 +16,6 @@ import { ContactDetails } from "./contact"
 import Helmet from 'react-helmet';
 
 const HEADER_HEIGHT = 46
-declare const Metomic: any
 
 export const PageGlobal: ViewElement = ({ children }) => {
   useEffect(() => {
@@ -90,10 +89,7 @@ export const PageFooterCommon = () => (
       <FooterBlock>
         <Link
           to="#"
-          onClick={e => {
-            e.preventDefault()
-            Metomic("ConsentManager:show")
-          }}
+          className="iubenda-cs-preferences-link"
         >
           Manage Cookies
         </Link>
