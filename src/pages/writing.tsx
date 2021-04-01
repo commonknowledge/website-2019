@@ -22,9 +22,7 @@ import { NumericDate } from "../data/date"
 import { ContentCard } from "../components/content-card"
 import { PageFooter } from "../components/page"
 
-// Used by https://github.com/deckgo/gatsby-remark-highlight-code
-import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
-deckDeckGoHighlightElement();
+import "prismjs/themes/prism-okaidia.css"
 
 const WritingListPage: PageRoot<{ writing: Connection<ContentItem> }> = ({
   data: { writing },

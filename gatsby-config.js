@@ -53,11 +53,7 @@ module.exports = {
             resolve: "gatsby-remark-static-images",
           },
           {
-            resolve: `gatsby-remark-highlight-code`,
-            options: {
-              terminal: 'carbon',
-              theme: 'blackboard'
-            }
+            resolve: `gatsby-remark-prismjs`
           },
         ],
       },
