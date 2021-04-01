@@ -12,7 +12,7 @@ We think we’ve found a viable alternative for many activist organisations that
 
 It’s called [n8n.io](http://n8n.io) and it’s an alternative to Zapier that’s robust, flexible, code-available on Github, free to self-host, fairly user-friendly.
 
-![A diagram from n8n showing Typeform submissions connected to both Action Network and Airtable and then, from Airtable, posting a Slack message.](../../assets/screenshot-n8n-action-network.png)
+![A diagram from n8n showing Typeform submissions connected to both Action Network and Airtable and then, from Airtable, posting a Slack message.](../../assets/screenshot-n8n-action-network-interface.png)
 
 You might want to consider it if you identify with any of these scenarios:
 
@@ -95,6 +95,8 @@ Just remember to pick a UK/EU server for speed and data privacy reasons.
 You can simply follow [this docker-compose guide](https://docs.n8n.io/reference/server-setup.html#_5-create-docker-compose-file) to get going in a few minutes.
 
 Quick note that we at Common Knowledge using Digital Ocean / Debian had to edit the `image: n8nio/n8n` bit with`: n8nio/n8n:latest-debian` in order to get SSL-enabled email sending to work properly.
+
+![A screenshot of digitalocean.com showing Common Knowledge Co-op's n8n server is running](../../assets/screenshot-n8n-ck.png)
 
 We did a bit of thinking about how to keep things reliable running on your own machinery, but thankfully n8n already has a lot of stuff built in here so it’s really just about good, simple server management:
 
