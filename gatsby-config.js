@@ -11,7 +11,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-iubenda-cookie-footer',
       options: {
-        iubendaOptions: {"consentOnContinuedBrowsing":false,"whitelabel":false,"lang":"en","siteId":2174512,"cookiePolicyId":80929539,"cookiePolicyUrl":"https://commonknowledge.coop/privacy-policy/", "banner":{ "acceptButtonDisplay":true,"customizeButtonDisplay":true,"acceptButtonColor":"#00e8a2","acceptButtonCaptionColor":"white","customizeButtonColor":"#212121","customizeButtonCaptionColor":"white","rejectButtonDisplay":true,"rejectButtonColor":"#00e8a2","rejectButtonCaptionColor":"white","position":"float-bottom-right","textColor":"white","backgroundColor":"#000001" }}
+        iubendaOptions: { "consentOnContinuedBrowsing": false, "whitelabel": false, "lang": "en", "siteId": 2174512, "cookiePolicyId": 80929539, "cookiePolicyUrl": "https://commonknowledge.coop/privacy-policy/", "banner": { "acceptButtonDisplay": true, "customizeButtonDisplay": true, "acceptButtonColor": "#00e8a2", "acceptButtonCaptionColor": "white", "customizeButtonColor": "#212121", "customizeButtonCaptionColor": "white", "rejectButtonDisplay": true, "rejectButtonColor": "#00e8a2", "rejectButtonCaptionColor": "white", "position": "float-bottom-right", "textColor": "white", "backgroundColor": "#000001" } }
       }
     },
     {
@@ -51,6 +51,13 @@ module.exports = {
           },
           {
             resolve: "gatsby-remark-static-images",
+          },
+          {
+            resolve: `gatsby-remark-highlight-code`,
+            options: {
+              terminal: 'carbon',
+              theme: 'blackboard'
+            }
           },
         ],
       },
