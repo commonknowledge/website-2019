@@ -12,6 +12,8 @@ We think we’ve found a viable alternative for many activist organisations that
 
 It’s called [n8n.io](http://n8n.io) and it’s an alternative to Zapier that’s robust, flexible, code-available on Github, free to self-host, fairly user-friendly.
 
+![A diagram from n8n showing Typeform submissions connected to both Action Network and Airtable and then, from Airtable, posting a Slack message.](../../assets/screenshot-n8n-action-network.png)
+
 You might want to consider it if you identify with any of these scenarios:
 
 ### Scenario 1: Zapier costs loads
@@ -24,7 +26,7 @@ Existing automation tools like Zapier are **missing integrations** to the tools 
 
 ## Considering n8n as an alternative
 
-If you fit into either of the scenarios above, or there’s something else that’s got you burned about Zapier or other subscription tools like it (let us know, we’re curious), then here’s why we think n8n _might_ work for you.
+If you fit into either of the scenarios above, or there’s something else that’s got you burned about Zapier or other subscription tools like it ([let us know](/contact), we’re curious), then here’s why we think n8n _might_ work for you.
 
 ### Fair p**ricing and flexible hosting**
 
@@ -50,7 +52,7 @@ Massive campaigns and organisations rely on tooling like Zapier and it’s a rea
 
 ### Plus it’s really good!
 
-Overall, we reckon that the funded team plus open source combination makes n8n a good candidate for progressive activists to assemble around. The integrations and tooling built for one campaign can be easily reused by another organisation also running n8n.
+Overall, we reckon that the funded team plus open source combination makes n8n a good candidate for progressive activists to assemble around. The integrations and tooling built for one campaign can be easily reused by another organisation also running n8n. As an example, [we recently built an Action Network CRM integration for n8n](https://github.com/n8n-io/n8n/pull/1437)!
 
 Besides, the tool is actually quite good! You can build in fairly complex but understandable workflows. And did we mention the HTTP node?
 
@@ -62,13 +64,17 @@ We’ve had a look at how you can get Zapier-style automations running for a fra
 
 ### Option 0: Quickly try it locally
 
-You can have it up and running on your local machine in about 10 seconds.
+You can have it up and running on your local machine in about 10 seconds, using one of these commands:
 
 ```bash
 npx n8n
-# or
+```
+
+```bash
 npm install n8n -g & n8n
-# or
+```
+
+```bash
 docker run -it --rm --name n8n -p 5678:5678 -v ~/.n8n:/home/node/.n8n n8nio/n8n
 ```
 
@@ -86,7 +92,7 @@ Overall, n8n has fairly miniscule operating requirements. You won’t need any b
 
 Just remember to pick a UK/EU server for speed and data privacy reasons.
 
-You can simply follow this docker-compose guide to get going in a few minutes: [https://docs.n8n.io/reference/server-setup.html#\_5-create-docker-compose-file](https://docs.n8n.io/reference/server-setup.html#_5-create-docker-compose-file)
+You can simply follow [this docker-compose guide](https://docs.n8n.io/reference/server-setup.html#_5-create-docker-compose-file) to get going in a few minutes.
 
 Quick note that we at Common Knowledge using Digital Ocean / Debian had to edit the `image: n8nio/n8n` bit with`: n8nio/n8n:latest-debian` in order to get SSL-enabled email sending to work properly.
 
@@ -100,17 +106,15 @@ We did a bit of thinking about how to keep things reliable running on your own m
   systemctl enable docker.service
   ```
 
-- Also consider HTTP logging at the server-level so that application-level failures, however unlikely, don’t lose you data. httpflow ([https://github.com/six-ddc/httpflow](https://github.com/six-ddc/httpflow)) does this well.
+- Also consider HTTP logging at the server-level so that application-level failures, however unlikely, don’t lose you data. [`httpflow`](https://github.com/six-ddc/httpflow)) does this well.
 
   Does `systemctl enable httpflow` work? I don’t know, but you could try that.
 
 - At the application level: you can set up error workflows within n8n that catch failures, which is great:
 
-  Best practice here might be to [set up general alert email and include the execution ID in the mail](https://community.n8n.io/t/production-experience-staging-filter-failed-long-lists/848). This way you can inspect the execution, the state of the nodes etc. in the tool and see what happened.
-
-  See how it works: [https://medium.com/n8n-io/creating-error-workflows-in-n8n-6e03c9ecbc0f](https://medium.com/n8n-io/creating-error-workflows-in-n8n-6e03c9ecbc0f)
-
-  Reference docs on error workflows: [https://docs.n8n.io/reference/workflow.html#data-flow](https://docs.n8n.io/reference/workflow.html#data-flow)
+  - Best practice here might be to [set up general alert email and include the execution ID in the mail](https://community.n8n.io/t/production-experience-staging-filter-failed-long-lists/848). This way you can inspect the execution, the state of the nodes etc. in the tool and see what happened.
+  - [A good overview of error workflows in n8n](https://medium.com/n8n-io/creating-error-workflows-in-n8n-6e03c9ecbc0f).
+  - [Reference docs on error workflows.](https://docs.n8n.io/reference/workflow.html#data-flow)
 
 #### Handling high throughput
 
@@ -143,7 +147,7 @@ The downside is you might start coming across storage issues with something like
 
 On the other hand it has nice addons for logging, auto-restarting, auto-scaling and all that jazz. Plenty of options if you want to take it really far, though costs may vary.
 
-This might also be helpful if you want to explore this option: [https://stackoverflow.com/questions/61228036/deploying-n8n-to-heroku](https://stackoverflow.com/questions/61228036/deploying-n8n-to-heroku)
+[This StackOverflow answer](https://stackoverflow.com/questions/61228036/deploying-n8n-to-heroku) might also be helpful if you want to explore Heroku deployments.
 
 ## Things we wish we knew at the beginning
 
@@ -160,16 +164,18 @@ See also:
 - [n8n tutorials on Medium](https://medium.com/n8n-io/tagged/tutorial)
 - [The n8n website](https://docs.n8n.io/getting-started/tutorials.html)
 
-## Adding new integrations
+### Adding new integrations
 
 - First, consider using the `HTTP` node for API requests
-- Second, consider installing custom integrations: [https://docs.n8n.io/reference/configuration.html#custom-nodes-location](https://docs.n8n.io/reference/configuration.html#custom-nodes-location)
+- Here's a [guide to building and running a custom integration](https://docs.n8n.io/reference/configuration.html#custom-nodes-location). If you're stuck, message us, [we've built one for Action Network](https://github.com/n8n-io/n8n/pull/1437) and give you a hand.
 - If you build any new integrations, please consider submitting them back to the community for other activists to use. If you don’t have time, email [hello@commonknowledge.coop](mailto:hello@commonknowledge.coop) and we will gladly prepare a pull request on your behalf so that other activist organisations can benefit. We’ll also try our best to broadcast it to anyone we know who needs it.
 
-## Migrating from Zapier to n8n
+### Migrating from Zapier to n8n
 
 We don’t know a way to automatically do this yet. One strategy that’s served us well is to create a mirror of the workflows in n8n, test them, turn them live and then switch over the integrations one by one for zero down time.
 
-## Are you an activist, organiser, campaigner or work in progressive political/charitable organisations?
+### Still curious?
 
-[Get in touch](/contact) with us and we’re more than happy to talk this through some more or talk about broader technical and organisational campaigning.
+[Get in touch](/contact) with us and we’re more than happy to talk this through some more or talk about broader technical and organisational campaigning, if you are an activist, organiser, campaigner or work in progressive political/charitable organisations.
+
+_We're able to do this work thanks to the generous funding of the [National Lottery Community Fund](https://www.tnlcommunityfund.org.uk/funding/covid-19)._
