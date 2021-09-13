@@ -1,28 +1,13 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui"
-import SEO from "../components/seo"
-import { LiteralLink } from "../components/nav"
-import { graphql } from "gatsby"
-import {
-  Card,
-  CardHeader,
-  CardMeta,
-  CardTitle,
-  CardContent,
-  CardList,
-} from "../components/card"
-import { Fragment } from "react"
-import { MDXRenderer } from "gatsby-plugin-mdx"
-import { Hero, PageFooter } from "../components/page"
 import { AspectImage } from "@theme-ui/components"
-import {
-  Connection,
-  ContentItem,
-  PageRoot,
-  getContentType,
-} from "../data/content-type"
-import { YearRange } from "../data/date"
+import { graphql } from "gatsby"
+import { Fragment } from "react"
+import { jsx } from "theme-ui"
+import { CardList } from "../components/card"
 import { ContentCard } from "../components/content-card"
+import { Hero, PageFooter } from "../components/page"
+import SEO from "../components/seo"
+import { Connection, ContentItem, PageRoot } from "../data/content-type"
 
 const IndexPage: PageRoot<{
   featured: Connection<ContentItem>
