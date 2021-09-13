@@ -38,6 +38,7 @@ const IndexPage: PageRoot<{
 export const pageQuery = graphql`
   query HomePage {
     featured: allMdx(
+      limit: 8
       sort: { fields: [frontmatter___weight], order: ASC }
       filter: { frontmatter: { weight: { ne: null } } }
     ) {
@@ -48,6 +49,7 @@ export const pageQuery = graphql`
       }
     }
     historical: allMdx(
+      limit: 8
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { weight: { eq: null } } }
     ) {
