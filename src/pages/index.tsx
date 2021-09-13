@@ -48,8 +48,8 @@ export const pageQuery = graphql`
         }
       }
     }
-      limit: 8
     writingPosts: allMdx(
+      limit: 6
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { weight: { eq: null } } }
     ) {
