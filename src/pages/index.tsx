@@ -10,9 +10,9 @@ import SEO from "../components/seo"
 import { Connection, ContentItem, PageRoot } from "../data/content-type"
 
 const IndexPage: PageRoot<{
-  featured: Connection<ContentItem>
-  historical: Connection<ContentItem>
-}> = ({ data: { featured, historical } }) => (
+  featuredProjects: Connection<ContentItem>
+  writingPosts: Connection<ContentItem>
+}> = ({ data: { featuredProjects, writingPosts } }) => (
   <Fragment>
     <SEO title="Common Knowledge" />
 
@@ -23,10 +23,10 @@ const IndexPage: PageRoot<{
     />
 
     <CardList>
-      {featured.edges.map(({ node }) => (
+      {featuredProjects.edges.map(({ node }) => (
         <ContentCard key={node.id} content={node} />
       ))}
-      {historical.edges.map(({ node }) => (
+      {writingPosts.edges.map(({ node }) => (
         <ContentCard key={node.id} content={node} />
       ))}
     </CardList>
@@ -37,7 +37,7 @@ const IndexPage: PageRoot<{
 
 export const pageQuery = graphql`
   query HomePage {
-    featured: allMdx(
+    featuredProjects: allMdx(
       limit: 8
       sort: { fields: [frontmatter___weight], order: ASC }
       filter: { frontmatter: { weight: { ne: null } } }
@@ -48,8 +48,8 @@ export const pageQuery = graphql`
         }
       }
     }
-    historical: allMdx(
       limit: 8
+    writingPosts: allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { weight: { eq: null } } }
     ) {
