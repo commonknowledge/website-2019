@@ -61,6 +61,7 @@
     "sharp": "0.29.3",
     "styled-system": "^5.1.5",
     "theme-ui": "^0.13.1",
+    "trim": "^1.0.1",
     "ts-node": "^10.4.0"
   },
   "devDependencies": {
