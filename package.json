@@ -108,8 +108,7 @@
     "start:app": "npm run develop",
     "start:cms": "yarn netlify-cms-proxy-server",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-    "preinstall": "npx npm-force-resolutions"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "repository": {
     "type": "git",
