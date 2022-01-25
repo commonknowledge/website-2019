@@ -16,7 +16,8 @@
     "browserslist": "4.19.1",
     "postcss": "8.4.5",
     "sanitize-html": "2.6.1",
-    "ws": "8.4.2"
+    "ws": "8.4.2",
+    "ansi-regex": "5.0.1"
   },
   "dependencies": {
     "@csstools/normalize.css": "^12.0.0",
@@ -82,7 +83,8 @@
     "styled-system": "^5.1.5",
     "theme-ui": "^0.13.1",
     "trim": "^1.0.1",
-    "ws": "^8.4.2"
+    "ws": "^8.4.2",
+    "ansi-regex": "^5.0.1"
   },
   "devDependencies": {
     "@types/body-scroll-lock": "^3.1.0",
