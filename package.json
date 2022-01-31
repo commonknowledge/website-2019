@@ -5,7 +5,8 @@
   "version": "0.1.0",
   "author": "hello@commonknowledge.coop",
   "resolutions": {
-    "gatsby-plugin-favicon/**/sharp": "0.23.4"
+    "gatsby-plugin-favicon/**/sharp": "0.23.4",
+    "xmlhttprequest-ssl": "1.6.2"
   },
   "dependencies": {
     "@csstools/normalize.css": "^10.1.0",
@@ -61,7 +62,8 @@
     "sharp": "^0.28.0",
     "styled-system": "^5.0.18",
     "theme-ui": "^0.2.26",
-    "ts-node": "^8.3.0"
+    "ts-node": "^8.3.0",
+    "xmlhttprequest-ssl": "^2.0.0"
   },
   "devDependencies": {
     "@types/body-scroll-lock": "^2.6.1",
