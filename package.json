@@ -7,7 +7,8 @@
   "resolutions": {
     "gatsby-plugin-favicon/**/sharp": "0.23.4",
     "xmlhttprequest-ssl": "1.6.2",
-    "decompress": "4.2.1"
+    "decompress": "4.2.1",
+    "immer": "9.0.6"
   },
   "dependencies": {
     "@csstools/normalize.css": "^10.1.0",
