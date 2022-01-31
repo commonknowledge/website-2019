@@ -39,8 +39,7 @@
     "yargs-parser": "13.1.2",
     "jpeg-js": "0.4.0",
     "minimist": "0.2.1",
-    "nth-check": "2.0.1",
-    "hapi/hoek": "8.5.1"
+    "nth-check": "2.0.1"
   },
   "dependencies": {
     "@csstools/normalize.css": "^10.1.0",
