@@ -78,6 +78,7 @@ export const PageFooterCommon = () => (
     gap={[3, 4]}
   >
     <div>
+      <FooterBlock>Common Knowledge Co-Operative Ltd</FooterBlock>
       <FooterBlock>Company no. 11620742</FooterBlock>
       <FooterBlock>Registered in England and Wales</FooterBlock>
     </div>
