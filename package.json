@@ -29,7 +29,7 @@
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-iubenda-cookie-footer": "^1.2.0",
     "gatsby-plugin-manifest": "^2.2.4",
-    "gatsby-plugin-mdx": "^1.0.67",
+    "gatsby-plugin-mdx": "^2.14.1",
     "gatsby-plugin-netlify-cache": "^1.2.0",
     "gatsby-plugin-netlify-cms": "^4.2.4",
     "gatsby-plugin-netlify-cms-paths": "^1.3.0",
