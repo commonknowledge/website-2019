@@ -17,7 +17,7 @@ export const ContactDetails: ViewElement<GridProps> = props => (
     </Link>
 
     <FooterBlock title="Contact">
-      <Link to="https://commonknowledge.youcanbook.me/">Book a meeting</Link>
+      <Link to="https://schedule.undersco.re/team/common-knowledge/new-project">Book a meeting</Link>
       {/* <Link>PGP Key</Link> */}
     </FooterBlock>
 
