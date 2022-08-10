@@ -31,9 +31,6 @@ export const ContactDetails: ViewElement<GridProps> = props => (
       <Link to="https://opencollective.com/commonknowledge/donate">
         Open Collective
       </Link>
-      <Link to="https://commerce.coinbase.com/checkout/bcda7a9f-01a8-4835-b586-13558aa2cb2d">
-        Coinbase
-      </Link>
     </FooterBlock>
   </Grid>
 )
