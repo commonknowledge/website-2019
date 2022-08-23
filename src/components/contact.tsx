@@ -28,7 +28,7 @@ export const ContactDetails: ViewElement<GridProps> = props => (
     </FooterBlock>
 
     <FooterBlock title="Support our work">
-      <Link to="https://opencollective.com/commonknowledge/donate">
+      <Link to="https://opencollective.com/commonknowledge/">
         Open Collective
       </Link>
     </FooterBlock>
