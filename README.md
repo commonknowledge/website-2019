@@ -1,6 +1,6 @@
 ## [commonknowledge.coop](https://commonknowledge.coop)
 
-Public website for Common Knowledge Co-operative.
+Public website for Common Knowledge Co-operative. 
 
 ### Key tech 
 
