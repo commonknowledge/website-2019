@@ -1,4 +1,4 @@
-## [commonknowledge.coop](https://commonknowledge.coop)
+## [commonknowledge.coop](https://commonknowledge.coop) 
 
 Public website for Common Knowledge Co-operative. 
 
