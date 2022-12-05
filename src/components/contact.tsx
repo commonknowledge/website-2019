@@ -6,7 +6,7 @@ import { Link } from "./nav"
 
 export const ContactDetails: ViewElement<GridProps> = props => (
   <Grid gap={4} columns={[2, null, 4]} {...props}>
-    <Link to="https://www.openstreetmap.org/#map=19/51.52417/-0.05497">
+    <Link to="https://www.openstreetmap.org/way/292337102">
       <FooterBlock title="Visit">
         Pelican House
         <br />
@@ -17,7 +17,7 @@ export const ContactDetails: ViewElement<GridProps> = props => (
     </Link>
 
     <FooterBlock title="Contact">
-      <Link to="https://schedule.undersco.re/team/common-knowledge/new-project">Book a meeting</Link>
+      <Link to="https://calendly.com/common-knowledge/30min">Book a meeting</Link>
       {/* <Link>PGP Key</Link> */}
     </FooterBlock>
 
